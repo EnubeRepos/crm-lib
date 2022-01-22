@@ -8,27 +8,17 @@ import (
 )
 
 type APIAccountService struct {
-	// crmAPIRepo ports.CRMAPIRepository
 	client crmapi.CRMAPIClient
 }
 
-// NewAPIAccountService Initialization ...
-// func NewAPIAccountService(repository ports.CRMAPIRepository, client crmapi.CRMAPIClient) *APIAccountService {
-// 	return &APIAccountService{
-// 		// crmAPIRepo: repository,
-// 		client: client,
-// 	}
-// }
-
 func NewAPIAccountService(client crmapi.CRMAPIClient) *APIAccountService {
 	return &APIAccountService{
-		// crmAPIRepo: repository,
 		client: client,
 	}
 }
 
 func (svc *APIAccountService) GetAccount() (domains.ResponseAccount, error) {
-	response, err := svc.client.CRMHandlerGetService("Account", "")
+	response, err := svc.client.CRMHandlerGetService(domains.EntityAccount, "")
 	if err != nil {
 		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return domains.ResponseAccount{}, err

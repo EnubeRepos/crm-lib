@@ -1,5 +1,7 @@
 package domains
 
+
+
 // ResponseAccount .
 type ResponseAccount struct {
 	Total   int       `json:"total,omitempty"`
