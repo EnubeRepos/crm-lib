@@ -34,6 +34,8 @@ func (api *CRMAPIClient) CRMHandlerGetService(resource string, params string) ([
 		return nil, err
 	}
 
+	err = isValidResponse(res)
+
 	return body, err
 }
 
@@ -66,7 +68,7 @@ func (api *CRMAPIClient) CRMHandlerPutService(resource string, payload []byte) (
 
 	body = bytes.TrimPrefix(body, []byte("239, 187, 191, 26"))
 
-	// ctx.Logger.Infof("Status Code: %v", res.StatusCode)
+	err = isValidResponse(res)
 
 	return body, err
 }
@@ -93,7 +95,12 @@ func (api *CRMAPIClient) CRMHandlerPostService(resource string, payload []byte) 
 	defer res.Body.Close()
 	body, err := ioutil.ReadAll(res.Body)
 	fmt.Println("Status Code: " + strconv.Itoa(res.StatusCode))
-	// fmt.Println(string(body))
+
+	if err != nil {
+		return nil, err
+	}
+
+	err = isValidResponse(res)
 
 	return body, err
 }
@@ -123,5 +130,19 @@ func (api *CRMAPIClient) CRMHandlerDeleteService(resource, params string) ([]byt
 		return nil, err
 	}
 
+	err = isValidResponse(res)
+
 	return body, err
+}
+
+func isValidResponse(res *http.Response) error {
+	if res.StatusCode == http.StatusBadRequest || res.StatusCode == http.StatusConflict || res.StatusCode == http.StatusNotFound {
+		errorHeader := res.Header.Get("X-Status-Reason")
+
+		if errorHeader != "" {
+			return fmt.Errorf(errorHeader)
+		}
+	}
+
+	return nil
 }

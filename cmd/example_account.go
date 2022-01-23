@@ -14,7 +14,7 @@ var workerAccount = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 
 		srv := accountsrv.NewAPIAccountService(crmapi.CRMAPIClient{
-			BaseURL: "https://cloudsolvssa-col.cloudanalytics.me/api/v1/",
+			BaseURL: "https://ssaarg-dev.cloudanalytics.me/api/v1/",
 			Token:   "Y29ubmVjdF91c2VyX3dvcmtlcnM6R21YZTg4MXR0Ug==",
 		})
 

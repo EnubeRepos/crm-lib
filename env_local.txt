@@ -1,4 +1,1 @@
 VERSION="1.0"
-API_PARTNER_REFERRALS="https://api.partnerreferrals.microsoft.com/referrals/webapiv1/v3/"
-API_PARTNER_CENTER="https://api.partnercenter.microsoft.com/"
-HOST_API_CRM="https://cloudsolvssa-cca.cloudanalytics.me/api/v1/"
