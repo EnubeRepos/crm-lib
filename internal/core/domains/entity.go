@@ -11,7 +11,7 @@ const (
 	EntitySales string = "Sales"
 )
 
-// CUSTOM ENTITY
+// CUSTOM ENTITY BANK
 const (
 	EntityFinTransaction string = "FinTransaction"
 
@@ -22,4 +22,6 @@ const (
 	EntityIntegrator string = "Integrator"
 
 	EntityRegistration string = "Registration"
+
+	EntityAccreditedAccounts string = "AccreditedAccounts"
 )
