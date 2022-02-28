@@ -14,9 +14,9 @@ var example = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 
 		host := "https://app.10maisbank.com.br/api/v1/"
-		client := account.NewAPIAccountService(crmapi.New(host, "Y29ubmVjdF91c2VyX3dvcmtlcnM6R21YZTg4MXR0Ug=="))
+		srvAccount := account.NewAPIAccountService(crmapi.New(host, "Y29ubmVjdF91c2VyX3dvcmtlcnM6R21YZTg4MXR0Ug=="))
 
-		res, _ := client.GetAccount()
+		res, _ := srvAccount.Get()
 
 		fmt.Println(res)
 		return nil

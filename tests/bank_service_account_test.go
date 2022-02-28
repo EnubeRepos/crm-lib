@@ -3,9 +3,8 @@ package tests
 import (
 	"testing"
 
+	"github.com/EnubeRepos/crm-lib/apicrm/account"
 	"github.com/EnubeRepos/crm-lib/internal/common"
-	"github.com/EnubeRepos/crm-lib/internal/core/domains"
-	"github.com/EnubeRepos/crm-lib/internal/core/services/accountsrv"
 	"github.com/EnubeRepos/crm-lib/internal/crmapi"
 )
 
@@ -18,8 +17,8 @@ func TestGetAccount(t *testing.T) {
 	expected := 1
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
-	srv := accountsrv.NewAPIAccountService(client)
-	res, err := srv.GetAccount()
+	srvAccount := account.NewAPIAccountService(client)
+	res, err := srvAccount.Get()
 
 	if err != nil {
 		t.Errorf("Error GET Account:: error: %v", err)
@@ -36,8 +35,8 @@ func TestAddNewAccount(t *testing.T) {
 	expected := generetedId + "Test Enube"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
-	srv := accountsrv.NewAPIAccountService(client)
-	res, err := srv.PostAccount(domains.Account{
+	srvAccount := account.NewAPIAccountService(client)
+	res, err := srvAccount.Post(account.DomainAccount{
 		Name:                  expected,
 		EmailAddress:          generetedId + "_nicolas@enube.me",
 		AssignedUserID:        "1",
@@ -66,8 +65,8 @@ func TestAddSameAccountLotofTime(t *testing.T) {
 
 	for i := 1; i < 5; i++ {
 		client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
-		srv := accountsrv.NewAPIAccountService(client)
-		res, err := srv.PostAccount(domains.Account{
+		srvAccount := account.NewAPIAccountService(client)
+		res, err := srvAccount.Post(account.DomainAccount{
 			Name:                  expected,
 			EmailAddress:          generetedId + "_nicolas@enube.me",
 			AssignedUserID:        "1",

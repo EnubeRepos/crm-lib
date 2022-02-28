@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 )
 
-func (svc *APIAccountService) GetAccount() (ResponseAccount, error) {
+func (svc *APIAccountService) Get() (ResponseAccount, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityAccount, "")
 	if err != nil {
 		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
@@ -14,7 +14,7 @@ func (svc *APIAccountService) GetAccount() (ResponseAccount, error) {
 	return convertMarchalResponseAccount(response)
 }
 
-func (svc *APIAccountService) GetAccountById(id string) (DomainAccount, error) {
+func (svc *APIAccountService) GetById(id string) (DomainAccount, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityAccount, "/"+id)
 	if err != nil {
 		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
@@ -24,7 +24,7 @@ func (svc *APIAccountService) GetAccountById(id string) (DomainAccount, error) {
 	return convertMarchalAccount(response)
 }
 
-func (svc *APIAccountService) GetAccountByFilter(filter string) (ResponseAccount, error) {
+func (svc *APIAccountService) GetByFilter(filter string) (ResponseAccount, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityAccount, "?"+filter)
 	if err != nil {
 		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
@@ -34,7 +34,7 @@ func (svc *APIAccountService) GetAccountByFilter(filter string) (ResponseAccount
 	return convertMarchalResponseAccount(response)
 }
 
-func (svc *APIAccountService) PostAccount(account DomainAccount) (DomainAccount, error) {
+func (svc *APIAccountService) Post(account DomainAccount) (DomainAccount, error) {
 	payload, err := json.Marshal(account)
 
 	if err != nil {
