@@ -26,3 +26,10 @@ func NewCRMAPIClient(config CRMAPIConfig) CRMAPIClient {
 		Token:   config.Token,
 	}
 }
+
+func New(host, token string) CRMAPIClient {
+	return CRMAPIClient{
+		BaseURL: host,
+		Token:   token,
+	}
+}
