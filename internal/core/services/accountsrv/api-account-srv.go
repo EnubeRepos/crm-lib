@@ -3,8 +3,8 @@ package accountsrv
 import (
 	"encoding/json"
 
-	"github.com/EnubeRepos/CRM_framework/internal/core/domains"
-	"github.com/EnubeRepos/CRM_framework/internal/crmapi"
+	"github.com/EnubeRepos/crm-lib/internal/core/domains"
+	"github.com/EnubeRepos/crm-lib/internal/crmapi"
 )
 
 type APIAccountService struct {

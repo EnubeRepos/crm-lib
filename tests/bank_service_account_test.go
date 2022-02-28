@@ -3,10 +3,10 @@ package tests
 import (
 	"testing"
 
-	"github.com/EnubeRepos/CRM_framework/internal/common"
-	"github.com/EnubeRepos/CRM_framework/internal/core/domains"
-	"github.com/EnubeRepos/CRM_framework/internal/core/services/accountsrv"
-	"github.com/EnubeRepos/CRM_framework/internal/crmapi"
+	"github.com/EnubeRepos/crm-lib/internal/common"
+	"github.com/EnubeRepos/crm-lib/internal/core/domains"
+	"github.com/EnubeRepos/crm-lib/internal/core/services/accountsrv"
+	"github.com/EnubeRepos/crm-lib/internal/crmapi"
 )
 
 const (

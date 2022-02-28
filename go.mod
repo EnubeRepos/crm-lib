@@ -1,4 +1,4 @@
-module github.com/EnubeRepos/CRM_framework
+module github.com/EnubeRepos/crm-lib
 
 go 1.16
 

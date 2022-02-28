@@ -3,8 +3,8 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/EnubeRepos/CRM_framework/internal/core/services/accountsrv"
-	"github.com/EnubeRepos/CRM_framework/internal/crmapi"
+	"github.com/EnubeRepos/crm-lib/internal/core/services/accountsrv"
+	"github.com/EnubeRepos/crm-lib/internal/crmapi"
 	"github.com/spf13/cobra"
 )
 

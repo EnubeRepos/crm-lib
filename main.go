@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/EnubeRepos/CRM_framework/cmd"
+	"github.com/EnubeRepos/crm-lib/cmd"
 )
 
 func main() {
