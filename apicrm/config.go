@@ -1,4 +1,4 @@
-package crmapi
+package apicrm
 
 type CRMAPIClient struct {
 	BaseURL   string
@@ -13,16 +13,9 @@ type CRMAPIConfig struct {
 	UseHttps                  bool
 }
 
-func NewCRMAPIConfig(host, token string) CRMAPIConfig {
-	return CRMAPIConfig{
+func New(host, token string) CRMAPIClient {
+	return CRMAPIClient{
 		BaseURL: host,
 		Token:   token,
-	}
-}
-
-func NewCRMAPIClient(config CRMAPIConfig) CRMAPIClient {
-	return CRMAPIClient{
-		BaseURL: config.BaseURL,
-		Token:   config.Token,
 	}
 }
