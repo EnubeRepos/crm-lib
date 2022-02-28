@@ -4,7 +4,7 @@ const EntityContact string = "Contact"
 
 // ResponseContact .
 type ResponseContact struct {
-	Total        int                  `json:"total,omitempty"`
+	Total   int             `json:"total,omitempty"`
 	Contact []DomainContact `json:"list,omitempty"`
 }
 
