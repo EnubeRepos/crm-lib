@@ -10,5 +10,5 @@ A utilizacao desse repositorio e privada e sua distribuicao limitada apenas pelo
 
 ```python
 go env -w GOPRIVATE=github.com/EnubeRepos/ 
-go get -u "github.com/EnubeRepos/bank-acesso/crm-lib@<version>"
+go get -u "github.com/EnubeRepos/crm-lib@<version>"
 ```
