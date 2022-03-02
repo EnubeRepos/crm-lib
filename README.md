@@ -3,6 +3,10 @@
 Essa lib foi criada para facilitar o uso das api's do banking Acesso. 
 Mais informacoes: https://docs.bankly.com.br/reference/bem-vindo-ao-bankly.
 
+## Contributors
+
+Nick212
+
 ## Info
 
 A biblioteca esta sendo desenvolvida em golang 1.16
