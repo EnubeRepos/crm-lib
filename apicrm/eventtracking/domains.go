@@ -1,15 +1,15 @@
-package eventtraching
+package eventtracking
 
-const EntityEventTraching string = "EventTraching"
+const EntityEventTracking string = "EventTracking"
 
-// ResponseEventTraching .
-type ResponseEventTraching struct {
+// ResponseEventTracking .
+type ResponseEventTracking struct {
 	Total         int                   `json:"total,omitempty"`
-	EventTraching []DomainEventTraching `json:"list,omitempty"`
+	EventTracking []DomainEventTracking `json:"list,omitempty"`
 }
 
 // Account
-type DomainEventTraching struct {
+type DomainEventTracking struct {
 	ID                        string   `json:"id"`
 	Name                      string   `json:"name"`
 	Deleted                   bool     `json:"deleted"`
