@@ -5,7 +5,8 @@ Mais informacoes: https://docs.bankly.com.br/reference/bem-vindo-ao-bankly.
 
 ## Contributors
 
-Nick212
+Nick212 - adm
+hriqueximenes
 
 ## Info
 
