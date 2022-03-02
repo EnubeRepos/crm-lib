@@ -1,6 +1,6 @@
 package sales
 
-import "github.com/EnubeRepos/crm-lib/internal/crmapi"
+import "github.com/EnubeRepos/crm-lib/client/crmapi"
 
 type APISalesService struct {
 	client crmapi.CRMAPIClient

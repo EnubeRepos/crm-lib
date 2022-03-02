@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/EnubeRepos/crm-lib/apicrm/registration"
-	"github.com/EnubeRepos/crm-lib/internal/crmapi"
+	"github.com/EnubeRepos/crm-lib/client/crmapi"
 	"github.com/spf13/cobra"
 )
 

@@ -1,6 +1,6 @@
 package contact
 
-import "github.com/EnubeRepos/crm-lib/internal/crmapi"
+import "github.com/EnubeRepos/crm-lib/client/crmapi"
 
 type APIContactService struct {
 	client crmapi.CRMAPIClient

@@ -1,6 +1,6 @@
 package parcels
 
-import "github.com/EnubeRepos/crm-lib/internal/crmapi"
+import "github.com/EnubeRepos/crm-lib/client/crmapi"
 
 type APIParcelsService struct {
 	client crmapi.CRMAPIClient

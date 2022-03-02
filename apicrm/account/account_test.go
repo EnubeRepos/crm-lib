@@ -3,8 +3,8 @@ package account
 import (
 	"testing"
 
-	"github.com/EnubeRepos/crm-lib/internal/common"
-	"github.com/EnubeRepos/crm-lib/internal/crmapi"
+	"github.com/EnubeRepos/crm-lib/client/common"
+	"github.com/EnubeRepos/crm-lib/client/crmapi"
 )
 
 const (

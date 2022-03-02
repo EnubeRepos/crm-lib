@@ -1,6 +1,6 @@
 package eventtraching
 
-import "github.com/EnubeRepos/crm-lib/internal/crmapi"
+import "github.com/EnubeRepos/crm-lib/client/crmapi"
 
 type APIEventTrachingService struct {
 	client crmapi.CRMAPIClient

@@ -1,6 +1,6 @@
 package fintransaction
 
-import "github.com/EnubeRepos/crm-lib/internal/crmapi"
+import "github.com/EnubeRepos/crm-lib/client/crmapi"
 
 type APIFinTransactionService struct {
 	client crmapi.CRMAPIClient

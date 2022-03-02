@@ -1,6 +1,6 @@
 package registration
 
-import "github.com/EnubeRepos/crm-lib/internal/crmapi"
+import "github.com/EnubeRepos/crm-lib/client/crmapi"
 
 type APIRegistrationService struct {
 	client crmapi.CRMAPIClient

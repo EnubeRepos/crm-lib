@@ -1,6 +1,6 @@
 package account
 
-import "github.com/EnubeRepos/crm-lib/internal/crmapi"
+import "github.com/EnubeRepos/crm-lib/client/crmapi"
 
 type APIAccountService struct {
 	client crmapi.CRMAPIClient

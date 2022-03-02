@@ -1,6 +1,6 @@
 package bankaccount
 
-import "github.com/EnubeRepos/crm-lib/internal/crmapi"
+import "github.com/EnubeRepos/crm-lib/client/crmapi"
 
 type APIBankAccountService struct {
 	client crmapi.CRMAPIClient
