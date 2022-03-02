@@ -13,6 +13,6 @@ A biblioteca esta sendo desenvolvida em golang 1.16
 A utilizacao desse repositorio e privada e sua distribuicao limitada apenas pelos administradores do projeto.
 
 ```python
-go env -w GOPRIVATE=github.com/EnubeRepos/ 
+go env -w GOPRIVATE=github.com/EnubeRepos 
 go get -u "github.com/EnubeRepos/crm-lib@<version>"
 ```
