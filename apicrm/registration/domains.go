@@ -22,6 +22,8 @@ type DomainRegistration struct {
 	BillingAddressState        string             `json:"billingAddressState"`
 	BillingAddressCountry      string             `json:"billingAddressCountry"`
 	BillingAddressPostalCode   string             `json:"billingAddressPostalCode"`
+	BillingAddressNumber       string             `json:"billingAddressNumber"`
+	BillingAddressComplement   string             `json:"billingAddressComplement"`
 	ShippingAddressStreet      string             `json:"shippingAddressStreet"`
 	ShippingAddressCity        string             `json:"shippingAddressCity"`
 	ShippingAddressState       string             `json:"shippingAddressState"`
