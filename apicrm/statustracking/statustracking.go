@@ -57,7 +57,7 @@ func convertMarchalResponseStatusTracking(response []byte) (ResponseStatusTracki
 		return ResponseStatusTracking{}, err
 	}
 
-	return result, err
+	return result, nil
 }
 
 func convertMarchalStatusTracking(response []byte) (DomainStatusTracking, error) {
@@ -69,5 +69,5 @@ func convertMarchalStatusTracking(response []byte) (DomainStatusTracking, error)
 		return DomainStatusTracking{}, err
 	}
 
-	return result, err
+	return result, nil
 }

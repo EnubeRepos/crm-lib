@@ -57,7 +57,7 @@ func convertMarchalResponseSales(response []byte) (ResponseSales, error) {
 		return ResponseSales{}, err
 	}
 
-	return result, err
+	return result, nil
 }
 
 func convertMarchalSales(response []byte) (DomainSales, error) {
@@ -69,5 +69,5 @@ func convertMarchalSales(response []byte) (DomainSales, error) {
 		return DomainSales{}, err
 	}
 
-	return result, err
+	return result, nil
 }

@@ -57,7 +57,7 @@ func convertMarchalResponseParcels(response []byte) (ResponseParcels, error) {
 		return ResponseParcels{}, err
 	}
 
-	return result, err
+	return result, nil
 }
 
 func convertMarchalParcels(response []byte) (DomainParcels, error) {
@@ -69,5 +69,5 @@ func convertMarchalParcels(response []byte) (DomainParcels, error) {
 		return DomainParcels{}, err
 	}
 
-	return result, err
+	return result, nil
 }

@@ -57,7 +57,7 @@ func convertMarchalResponseAccreditedAccounts(response []byte) (ResponseAccredit
 		return ResponseAccreditedAccounts{}, err
 	}
 
-	return result, err
+	return result, nil
 }
 
 func convertMarchalAccreditedAccounts(response []byte) (DomainAccreditedAccounts, error) {
@@ -69,5 +69,5 @@ func convertMarchalAccreditedAccounts(response []byte) (DomainAccreditedAccounts
 		return DomainAccreditedAccounts{}, err
 	}
 
-	return result, err
+	return result, nil
 }

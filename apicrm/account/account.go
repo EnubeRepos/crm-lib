@@ -56,7 +56,7 @@ func convertMarchalResponseAccount(response []byte) (ResponseAccount, error) {
 	err := json.Unmarshal(response, &result)
 	if err != nil {
 		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
-		return ResponseAccount{}, err
+		return ResponseAccount{}, nil
 	}
 
 	return result, err
@@ -71,5 +71,5 @@ func convertMarchalAccount(response []byte) (DomainAccount, error) {
 		return DomainAccount{}, err
 	}
 
-	return result, err
+	return result, nil
 }

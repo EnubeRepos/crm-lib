@@ -57,7 +57,7 @@ func convertMarchalResponseFinTransaction(response []byte) (ResponseFinTransacti
 		return ResponseFinTransaction{}, err
 	}
 
-	return result, err
+	return result, nil
 }
 
 func convertMarchalFinTransaction(response []byte) (DomainFinTransaction, error) {
@@ -69,5 +69,5 @@ func convertMarchalFinTransaction(response []byte) (DomainFinTransaction, error)
 		return DomainFinTransaction{}, err
 	}
 
-	return result, err
+	return result, nil
 }

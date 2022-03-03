@@ -57,7 +57,7 @@ func convertMarchalResponseRegistration(response []byte) (ResponseRegistration, 
 		return ResponseRegistration{}, err
 	}
 
-	return result, err
+	return result, nil
 }
 
 func convertMarchalRegistration(response []byte) (DomainRegistration, error) {
@@ -69,5 +69,5 @@ func convertMarchalRegistration(response []byte) (DomainRegistration, error) {
 		return DomainRegistration{}, err
 	}
 
-	return result, err
+	return result, nil
 }

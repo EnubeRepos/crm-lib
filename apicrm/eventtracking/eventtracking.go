@@ -53,11 +53,10 @@ func convertMarchalResponseEventTracking(response []byte) (ResponseEventTracking
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseEventTracking{}, err
 	}
 
-	return result, err
+	return result, nil
 }
 
 func convertMarchalEventTracking(response []byte) (DomainEventTracking, error) {
@@ -69,5 +68,5 @@ func convertMarchalEventTracking(response []byte) (DomainEventTracking, error) {
 		return DomainEventTracking{}, err
 	}
 
-	return result, err
+	return result, nil
 }

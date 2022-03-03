@@ -57,7 +57,7 @@ func convertMarchalResponseBankAccount(response []byte) (ResponseBankAccount, er
 		return ResponseBankAccount{}, err
 	}
 
-	return result, err
+	return result, nil
 }
 
 func convertMarchalBankAccount(response []byte) (DomainBankAccount, error) {
@@ -69,5 +69,5 @@ func convertMarchalBankAccount(response []byte) (DomainBankAccount, error) {
 		return DomainBankAccount{}, err
 	}
 
-	return result, err
+	return result, nil
 }

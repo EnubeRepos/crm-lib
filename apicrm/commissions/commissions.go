@@ -57,7 +57,7 @@ func convertMarchalResponseCommissions(response []byte) (ResponseCommissions, er
 		return ResponseCommissions{}, err
 	}
 
-	return result, err
+	return result, nil
 }
 
 func convertMarchalCommissions(response []byte) (DomainCommissions, error) {
@@ -69,5 +69,5 @@ func convertMarchalCommissions(response []byte) (DomainCommissions, error) {
 		return DomainCommissions{}, err
 	}
 
-	return result, err
+	return result, nil
 }
