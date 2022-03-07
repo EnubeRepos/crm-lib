@@ -47,6 +47,21 @@ func (svc *APIRegistrationService) Post(Registration DomainRegistration) (Domain
 	return convertMarchalRegistration(response)
 }
 
+func (svc *APIRegistrationService) Put(Registration DomainRegistration) (DomainRegistration, error) {
+	payload, err := json.Marshal(Registration)
+
+	if err != nil {
+		return DomainRegistration{}, err
+	}
+
+	response, err := svc.client.CRMHandlerPutService(EntityRegistration, payload)
+	if err != nil {
+		return DomainRegistration{}, err
+	}
+
+	return convertMarchalRegistration(response)
+}
+
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponseRegistration(response []byte) (ResponseRegistration, error) {
 	var result ResponseRegistration
