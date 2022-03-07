@@ -69,6 +69,10 @@ type DomainRegistration struct {
 	IDDocumentBackName         string             `json:"idDocumentBackName"`
 	BillingAddressProofID      string             `json:"billingAddressProofId"`
 	BillingAddressProofName    string             `json:"billingAddressProofName"`
+	StatusDetail               string             `json:"statusDetail"`
+	StatusCid                  string             `json:"statusCid"`
+	StatusProcess              string             `json:"statusProcess"`
+	StatusDatetime             string             `json:"statusDatetime"`
 	SocialContractID           string             `json:"socialContractId"`
 	SocialContractName         string             `json:"socialContractName"`
 	LegalRepresentativeID      string             `json:"legalRepresentativeId"`
