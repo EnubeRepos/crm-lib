@@ -8,9 +8,18 @@ type ResponseRegistration struct {
 	Registration []DomainRegistration `json:"list,omitempty"`
 }
 
-// Account
-type DomainRegistration struct {
+// estrutura usada para o put de registration, evitando erro de campos vazios
+type DomainRegistrationBase struct {
 	ID                         string             `json:"id"`
+	StatusDetail               string             `json:"statusDetail"`
+	StatusCid                  string             `json:"statusCid"`
+	StatusProcess              string             `json:"statusProcess"`
+	StatusDatetime             string             `json:"statusDatetime"`
+}
+// Registration
+type DomainRegistration struct {
+	DomainRegistrationBase
+	//ID                         string             `json:"id"`
 	Name                       string             `json:"name"`
 	Deleted                    bool               `json:"deleted"`
 	Description                string             `json:"description"`
@@ -69,10 +78,10 @@ type DomainRegistration struct {
 	IDDocumentBackName         string             `json:"idDocumentBackName"`
 	BillingAddressProofID      string             `json:"billingAddressProofId"`
 	BillingAddressProofName    string             `json:"billingAddressProofName"`
-	StatusDetail               string             `json:"statusDetail"`
-	StatusCid                  string             `json:"statusCid"`
-	StatusProcess              string             `json:"statusProcess"`
-	StatusDatetime             string             `json:"statusDatetime"`
+	//StatusDetail               string             `json:"statusDetail"`
+	//StatusCid                  string             `json:"statusCid"`
+	//StatusProcess              string             `json:"statusProcess"`
+	//StatusDatetime             string             `json:"statusDatetime"`
 	SocialContractID           string             `json:"socialContractId"`
 	SocialContractName         string             `json:"socialContractName"`
 	LegalRepresentativeID      string             `json:"legalRepresentativeId"`
