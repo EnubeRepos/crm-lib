@@ -54,7 +54,7 @@ func (svc *APIRegistrationService) Put(Registration DomainRegistrationBase) (Dom
 		return DomainRegistration{}, err
 	}
 
-	response, err := svc.client.CRMHandlerPutService(EntityRegistration, payload)
+	response, err := svc.client.CRMHandlerPutService(EntityRegistration + "/" + Registration.ID, payload)
 	if err != nil {
 		return DomainRegistration{}, err
 	}
