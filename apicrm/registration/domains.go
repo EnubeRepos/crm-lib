@@ -15,6 +15,7 @@ type DomainRegistrationBase struct {
 	StatusCid                  string             `json:"statusCid"`
 	StatusProcess              string             `json:"statusProcess"`
 	StatusDatetime             string             `json:"statusDatetime"`
+	RegistrationStatus         string             `json:"registrationStatus"`
 }
 // Registration
 type DomainRegistration struct {
@@ -42,7 +43,6 @@ type DomainRegistration struct {
 	CreatedAt                  string             `json:"createdAt"`
 	ModifiedAt                 string             `json:"modifiedAt"`
 	DocumentNumber             string             `json:"documentNumber"`
-	RegistrationStatus         string             `json:"registrationStatus"`
 	RegistrationType           string             `json:"registrationType"`
 	SocialName                 string             `json:"socialName"`
 	BusinessType               string             `json:"businessType"`
