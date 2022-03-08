@@ -1,6 +1,8 @@
 package bankaccount
 
-import "encoding/json"
+import (
+	"encoding/json"
+)
 
 func (svc *APIBankAccountService) Get() (ResponseBankAccount, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityBankAccount, "")
@@ -13,13 +15,16 @@ func (svc *APIBankAccountService) Get() (ResponseBankAccount, error) {
 }
 
 func (svc *APIBankAccountService) GetById(id string) (DomainBankAccount, error) {
-	response, err := svc.client.CRMHandlerGetService(EntityBankAccount, "/"+id)
+	responseHttp, err := svc.client.CRMHandlerGetService(EntityBankAccount, "/"+id)
 	if err != nil {
 		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainBankAccount{}, err
 	}
 
-	return convertMarchalBankAccount(response)
+	response := DomainBankAccount{}
+
+	err = convertMarchalBankAccount(responseHttp, &response)
+	return response, err
 }
 
 func (svc *APIBankAccountService) GetByFilter(filter string) (ResponseBankAccount, error) {
@@ -32,19 +37,22 @@ func (svc *APIBankAccountService) GetByFilter(filter string) (ResponseBankAccoun
 	return convertMarchalResponseBankAccount(response)
 }
 
-func (svc *APIBankAccountService) Post(BankAccount DomainBankAccount) (DomainBankAccount, error) {
+func (svc *APIBankAccountService) Post(BankAccount DomainBankAccountCreateRequest) (DomainBankAccountCreateResponse, error) {
 	payload, err := json.Marshal(BankAccount)
 
 	if err != nil {
-		return DomainBankAccount{}, err
+		return DomainBankAccountCreateResponse{}, err
 	}
 
-	response, err := svc.client.CRMHandlerPostService(EntityBankAccount, payload)
+	responseHttp, err := svc.client.CRMHandlerPostService(EntityBankAccount, payload)
 	if err != nil {
-		return DomainBankAccount{}, err
+		return DomainBankAccountCreateResponse{}, err
 	}
 
-	return convertMarchalBankAccount(response)
+	response := DomainBankAccountCreateResponse{}
+
+	err = convertMarchalBankAccount(responseHttp, &response)
+	return response, err
 }
 
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
@@ -60,14 +68,11 @@ func convertMarchalResponseBankAccount(response []byte) (ResponseBankAccount, er
 	return result, nil
 }
 
-func convertMarchalBankAccount(response []byte) (DomainBankAccount, error) {
-	var result DomainBankAccount
-
-	err := json.Unmarshal(response, &result)
+func convertMarchalBankAccount(responseByte []byte, responseObj interface{}) error {
+	err := json.Unmarshal(responseByte, responseObj)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
-		return DomainBankAccount{}, err
+		return err
 	}
 
-	return result, nil
+	return nil
 }

@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"strconv"
 	"strings"
 )
 
@@ -94,7 +93,6 @@ func (api *CRMAPIClient) CRMHandlerPostService(resource string, payload []byte) 
 	}
 	defer res.Body.Close()
 	body, err := ioutil.ReadAll(res.Body)
-	fmt.Println("Status Code: " + strconv.Itoa(res.StatusCode))
 
 	if err != nil {
 		return nil, err
@@ -165,12 +163,14 @@ func (api *CRMAPIClient) CRMHandlerImage(imageID string) ([]byte, error) {
 }
 
 func isValidResponse(res *http.Response) error {
-	if res.StatusCode == http.StatusBadRequest || res.StatusCode == http.StatusConflict || res.StatusCode == http.StatusNotFound {
+	if res.StatusCode > http.StatusAccepted {
 		errorHeader := res.Header.Get("X-Status-Reason")
 
 		if errorHeader != "" {
 			return fmt.Errorf(errorHeader)
 		}
+
+		return fmt.Errorf("Error request - code %v", res.StatusCode)
 	}
 
 	return nil
