@@ -47,7 +47,7 @@ func (svc *APIRegistrationService) Post(Registration DomainRegistration) (Domain
 	return convertMarchalRegistration(response)
 }
 
-func (svc *APIRegistrationService) Put(Registration DomainRegistration) (DomainRegistration, error) {
+func (svc *APIRegistrationService) Put(Registration DomainRegistrationBase) (DomainRegistration, error) {
 	payload, err := json.Marshal(Registration)
 
 	if err != nil {
