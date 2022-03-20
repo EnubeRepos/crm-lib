@@ -54,7 +54,22 @@ func (svc *APIRegistrationService) Put(Registration DomainRegistrationBase) (Dom
 		return DomainRegistration{}, err
 	}
 
-	response, err := svc.client.CRMHandlerPutService(EntityRegistration + "/" + Registration.ID, payload)
+	response, err := svc.client.CRMHandlerPutService(EntityRegistration+"/"+Registration.ID, payload)
+	if err != nil {
+		return DomainRegistration{}, err
+	}
+
+	return convertMarchalRegistration(response)
+}
+
+func (svc *APIRegistrationService) PutRegistration(Registration DomainRegistration) (DomainRegistration, error) {
+	payload, err := json.Marshal(Registration)
+
+	if err != nil {
+		return DomainRegistration{}, err
+	}
+
+	response, err := svc.client.CRMHandlerPutService(EntityRegistration+"/"+Registration.ID, payload)
 	if err != nil {
 		return DomainRegistration{}, err
 	}
