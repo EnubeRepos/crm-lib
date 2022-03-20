@@ -10,17 +10,18 @@ type ResponseRegistration struct {
 
 // estrutura usada para o put de registration, evitando erro de campos vazios
 type DomainRegistrationBase struct {
-	ID                         string             `json:"id"`
-	StatusDetail               string             `json:"statusDetail"`
-	StatusCid                  string             `json:"statusCid"`
-	StatusProcess              string             `json:"statusProcess"`
-	StatusDatetime             string             `json:"statusDatetime"`
-	RegistrationStatus         string             `json:"registrationStatus"`
+	ID                 string `json:"id"`
+	StatusDetail       string `json:"statusDetail"`
+	StatusCid          string `json:"statusCid"`
+	StatusProcess      string `json:"statusProcess"`
+	StatusDatetime     string `json:"statusDatetime"`
+	RegistrationStatus string `json:"registrationStatus"`
 }
+
 // Registration
 type DomainRegistration struct {
 	DomainRegistrationBase
-	//ID                         string             `json:"id"`
+	ID                         string             `json:"id"`
 	Name                       string             `json:"name"`
 	Deleted                    bool               `json:"deleted"`
 	Description                string             `json:"description"`
@@ -82,13 +83,13 @@ type DomainRegistration struct {
 	//StatusCid                  string             `json:"statusCid"`
 	//StatusProcess              string             `json:"statusProcess"`
 	//StatusDatetime             string             `json:"statusDatetime"`
-	SocialContractID           string             `json:"socialContractId"`
-	SocialContractName         string             `json:"socialContractName"`
-	LegalRepresentativeID      string             `json:"legalRepresentativeId"`
-	LegalRepresentativeName    string             `json:"legalRepresentativeName"`
-	IsFollowed                 bool               `json:"isFollowed"`
-	FollowersIds               []string           `json:"followersIds"`
-	FollowersNames             FollowersNames     `json:"followersNames"`
+	SocialContractID        string         `json:"socialContractId"`
+	SocialContractName      string         `json:"socialContractName"`
+	LegalRepresentativeID   string         `json:"legalRepresentativeId"`
+	LegalRepresentativeName string         `json:"legalRepresentativeName"`
+	IsFollowed              bool           `json:"isFollowed"`
+	FollowersIds            []string       `json:"followersIds"`
+	FollowersNames          FollowersNames `json:"followersNames"`
 }
 
 type EmailAddressData struct {
