@@ -8,7 +8,7 @@ type ResponseFinTransaction struct {
 	FinTransaction []DomainFinTransaction `json:"list,omitempty"`
 }
 
-// Account
+// FinTransaction
 type DomainFinTransaction struct {
 	ID                  string   `json:"id"`
 	Name                string   `json:"name"`
