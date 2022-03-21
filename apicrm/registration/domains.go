@@ -10,97 +10,98 @@ type ResponseRegistration struct {
 
 // estrutura usada para o put de registration, evitando erro de campos vazios
 type DomainRegistrationBase struct {
-	ID                         string             `json:"id"`
-	StatusDetail               string             `json:"statusDetail"`
-	StatusCid                  string             `json:"statusCid"`
-	StatusProcess              string             `json:"statusProcess"`
-	StatusDatetime             string             `json:"statusDatetime"`
-	RegistrationStatus         string             `json:"registrationStatus"`
+	ID                 string `json:"id,omitempty"`
+	StatusDetail       string `json:"statusDetail,omitempty"`
+	StatusCid          string `json:"statusCid,omitempty"`
+	StatusProcess      string `json:"statusProcess,omitempty"`
+	StatusDatetime     string `json:"statusDatetime,omitempty"`
+	RegistrationStatus string `json:"registrationStatus,omitempty"`
 }
+
 // Registration
 type DomainRegistration struct {
 	DomainRegistrationBase
-	//ID                         string             `json:"id"`
-	Name                       string             `json:"name"`
+	ID                         string             `json:"id,omitempty"`
+	Name                       string             `json:"name,omitempty"`
 	Deleted                    bool               `json:"deleted"`
-	Description                string             `json:"description"`
-	Website                    string             `json:"website"`
-	EmailAddress               string             `json:"emailAddress"`
-	PhoneNumber                string             `json:"phoneNumber"`
-	BillingAddressStreet       string             `json:"billingAddressStreet"`
-	BillingAddressCity         string             `json:"billingAddressCity"`
-	BillingAddressState        string             `json:"billingAddressState"`
-	BillingAddressCountry      string             `json:"billingAddressCountry"`
-	BillingAddressPostalCode   string             `json:"billingAddressPostalCode"`
-	BillingAddressNumber       string             `json:"billingAddressNumber"`
-	BillingAddressComplement   string             `json:"billingAddressComplement"`
-	BillingAddressNeighborhood string             `json:"billingAddressNeighborhood"`
-	ShippingAddressStreet      string             `json:"shippingAddressStreet"`
-	ShippingAddressCity        string             `json:"shippingAddressCity"`
-	ShippingAddressState       string             `json:"shippingAddressState"`
-	ShippingAddressCountry     string             `json:"shippingAddressCountry"`
-	ShippingAddressPostalCode  string             `json:"shippingAddressPostalCode"`
-	CreatedAt                  string             `json:"createdAt"`
-	ModifiedAt                 string             `json:"modifiedAt"`
-	DocumentNumber             string             `json:"documentNumber"`
-	RegistrationType           string             `json:"registrationType"`
-	SocialName                 string             `json:"socialName"`
-	BusinessType               string             `json:"businessType"`
-	BusinessSize               string             `json:"businessSize"`
-	BirthDate                  string             `json:"birthDate"`
-	MotherName                 string             `json:"motherName"`
+	Description                string             `json:"description,omitempty"`
+	Website                    string             `json:"website,omitempty"`
+	EmailAddress               string             `json:"emailAddress,omitempty"`
+	PhoneNumber                string             `json:"phoneNumber,omitempty"`
+	BillingAddressStreet       string             `json:"billingAddressStreet,omitempty"`
+	BillingAddressCity         string             `json:"billingAddressCity,omitempty"`
+	BillingAddressState        string             `json:"billingAddressState,omitempty"`
+	BillingAddressCountry      string             `json:"billingAddressCountry,omitempty"`
+	BillingAddressPostalCode   string             `json:"billingAddressPostalCode,omitempty"`
+	BillingAddressNumber       string             `json:"billingAddressNumber,omitempty"`
+	BillingAddressComplement   string             `json:"billingAddressComplement,omitempty"`
+	BillingAddressNeighborhood string             `json:"billingAddressNeighborhood,omitempty"`
+	ShippingAddressStreet      string             `json:"shippingAddressStreet,omitempty"`
+	ShippingAddressCity        string             `json:"shippingAddressCity,omitempty"`
+	ShippingAddressState       string             `json:"shippingAddressState,omitempty"`
+	ShippingAddressCountry     string             `json:"shippingAddressCountry,omitempty"`
+	ShippingAddressPostalCode  string             `json:"shippingAddressPostalCode,omitempty"`
+	CreatedAt                  string             `json:"createdAt,omitempty"`
+	ModifiedAt                 string             `json:"modifiedAt,omitempty"`
+	DocumentNumber             string             `json:"documentNumber,omitempty"`
+	RegistrationType           string             `json:"registrationType,omitempty"`
+	SocialName                 string             `json:"socialName,omitempty"`
+	BusinessType               string             `json:"businessType,omitempty"`
+	BusinessSize               string             `json:"businessSize,omitempty"`
+	BirthDate                  string             `json:"birthDate,omitempty"`
+	MotherName                 string             `json:"motherName,omitempty"`
 	IsPoliticallyExposedPerson bool               `json:"isPoliticallyExposedPerson"`
 	RegistrationCompleted      bool               `json:"registrationCompleted"`
 	BankPrivacyPolicyApproval  bool               `json:"bankPrivacyPolicyApproval"`
-	BankPrivacyPolicyURL       string             `json:"bankPrivacyPolicyUrl"`
-	EmailAddressIsOptedOut     bool               `json:"emailAddressIsOptedOut"`
-	PhoneNumberIsOptedOut      bool               `json:"phoneNumberIsOptedOut"`
-	EmailAddressData           []EmailAddressData `json:"emailAddressData"`
-	PhoneNumberData            []PhoneNumberData  `json:"phoneNumberData"`
-	CreatedByID                string             `json:"createdById"`
-	CreatedByName              string             `json:"createdByName"`
-	ModifiedByID               string             `json:"modifiedById"`
-	ModifiedByName             string             `json:"modifiedByName"`
-	AssignedUserID             string             `json:"assignedUserId"`
-	AssignedUserName           string             `json:"assignedUserName"`
-	TeamsIds                   []string           `json:"teamsIds"`
-	PictureID                  string             `json:"pictureId"`
-	PictureName                string             `json:"pictureName"`
-	BankAccountID              string             `json:"bankAccountId"`
-	BankAccountName            string             `json:"bankAccountName"`
-	UserID                     string             `json:"userId"`
-	UserName                   string             `json:"userName"`
-	ContactsIds                []string           `json:"contactsIds"`
-	ContactsNames              ContactsNames      `json:"contactsNames"`
-	IDDocumentFrontID          string             `json:"idDocumentFrontId"`
-	IDDocumentFrontName        string             `json:"idDocumentFrontName"`
-	IDDocumentBackID           string             `json:"idDocumentBackId"`
-	IDDocumentBackName         string             `json:"idDocumentBackName"`
-	BillingAddressProofID      string             `json:"billingAddressProofId"`
-	BillingAddressProofName    string             `json:"billingAddressProofName"`
-	//StatusDetail               string             `json:"statusDetail"`
-	//StatusCid                  string             `json:"statusCid"`
-	//StatusProcess              string             `json:"statusProcess"`
-	//StatusDatetime             string             `json:"statusDatetime"`
-	SocialContractID           string             `json:"socialContractId"`
-	SocialContractName         string             `json:"socialContractName"`
-	LegalRepresentativeID      string             `json:"legalRepresentativeId"`
-	LegalRepresentativeName    string             `json:"legalRepresentativeName"`
-	IsFollowed                 bool               `json:"isFollowed"`
-	FollowersIds               []string           `json:"followersIds"`
-	FollowersNames             FollowersNames     `json:"followersNames"`
+	BankPrivacyPolicyURL       string             `json:"bankPrivacyPolicyUrl,omitempty"`
+	EmailAddressIsOptedOut     bool               `json:"emailAddressIsOptedOut,omitempty"`
+	PhoneNumberIsOptedOut      bool               `json:"phoneNumberIsOptedOut,omitempty"`
+	EmailAddressData           []EmailAddressData `json:"emailAddressData,omitempty"`
+	PhoneNumberData            []PhoneNumberData  `json:"phoneNumberData,omitempty"`
+	CreatedByID                string             `json:"createdById,omitempty"`
+	CreatedByName              string             `json:"createdByName,omitempty"`
+	ModifiedByID               string             `json:"modifiedById,omitempty"`
+	ModifiedByName             string             `json:"modifiedByName,omitempty"`
+	AssignedUserID             string             `json:"assignedUserId,omitempty"`
+	AssignedUserName           string             `json:"assignedUserName,omitempty"`
+	TeamsIds                   []string           `json:"teamsIds,omitempty"`
+	PictureID                  string             `json:"pictureId,omitempty"`
+	PictureName                string             `json:"pictureName,omitempty"`
+	BankAccountID              string             `json:"bankAccountId,omitempty"`
+	BankAccountName            string             `json:"bankAccountName,omitempty"`
+	UserID                     string             `json:"userId,omitempty"`
+	UserName                   string             `json:"userName,omitempty"`
+	ContactsIds                []string           `json:"contactsIds,omitempty"`
+	ContactsNames              ContactsNames      `json:"contactsNames,omitempty"`
+	IDDocumentFrontID          string             `json:"idDocumentFrontId,omitempty"`
+	IDDocumentFrontName        string             `json:"idDocumentFrontName,omitempty"`
+	IDDocumentBackID           string             `json:"idDocumentBackId,omitempty"`
+	IDDocumentBackName         string             `json:"idDocumentBackName,omitempty"`
+	BillingAddressProofID      string             `json:"billingAddressProofId,omitempty"`
+	BillingAddressProofName    string             `json:"billingAddressProofName,omitempty"`
+	//StatusDetail               string             `json:"statusDetail,omitempty"`
+	//StatusCid                  string             `json:"statusCid,omitempty"`
+	//StatusProcess              string             `json:"statusProcess,omitempty"`
+	//StatusDatetime             string             `json:"statusDatetime,omitempty"`
+	SocialContractID        string         `json:"socialContractId,omitempty"`
+	SocialContractName      string         `json:"socialContractName,omitempty"`
+	LegalRepresentativeID   string         `json:"legalRepresentativeId,omitempty"`
+	LegalRepresentativeName string         `json:"legalRepresentativeName,omitempty"`
+	IsFollowed              bool           `json:"isFollowed"`
+	FollowersIds            []string       `json:"followersIds,omitempty"`
+	FollowersNames          FollowersNames `json:"followersNames,omitempty"`
 }
 
 type EmailAddressData struct {
-	EmailAddress string `json:"emailAddress"`
-	Lower        string `json:"lower"`
+	EmailAddress string `json:"emailAddress,omitempty"`
+	Lower        string `json:"lower,omitempty"`
 	Primary      bool   `json:"primary"`
 	OptOut       bool   `json:"optOut"`
 	Invalid      bool   `json:"invalid"`
 }
 type PhoneNumberData struct {
-	PhoneNumber string `json:"phoneNumber"`
-	Type        string `json:"type"`
+	PhoneNumber string `json:"phoneNumber,omitempty"`
+	Type        string `json:"type,omitempty"`
 	Primary     bool   `json:"primary"`
 	OptOut      bool   `json:"optOut"`
 	Invalid     bool   `json:"invalid"`
@@ -108,5 +109,5 @@ type PhoneNumberData struct {
 type ContactsNames struct {
 }
 type FollowersNames struct {
-	Num1 string `json:"1"`
+	Num1 string `json:"1,omitempty"`
 }
