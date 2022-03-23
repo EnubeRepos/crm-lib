@@ -23,11 +23,11 @@ type DomainFinTransaction struct {
 	Createdat           string   `json:"createdAt"`
 	Modifiedat          string   `json:"modifiedAt"`
 	Transactiontype     string   `json:"transactionType"`
-	Value               string   `json:"value"`
+	Value               float64   `json:"value"`
 	Commission          bool     `json:"commission"`
 	Accounttransaction  string   `json:"accountTransaction"`
 	Transactioncategory string   `json:"transactionCategory"`
-	Amount              string   `json:"amount"`
+	Amount              float64   `json:"amount"`
 	Confirmtransaction  bool     `json:"confirmTransaction"`
 	Scheduletransaction string   `json:"scheduleTransaction"`
 	Externalorigin      string   `json:"externalOrigin"`
