@@ -16,6 +16,8 @@ type DomainRegistrationBase struct {
 	StatusProcess      string `json:"statusProcess,omitempty"`
 	StatusDatetime     string `json:"statusDatetime,omitempty"`
 	RegistrationStatus string `json:"registrationStatus,omitempty"`
+	AssignedUserID     string `json:"assignedUserId,omitempty"`
+	BankAccountID      string `json:"bankAccountId,omitempty"`
 }
 
 // Registration

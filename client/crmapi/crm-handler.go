@@ -170,7 +170,7 @@ func isValidResponse(res *http.Response) error {
 			return fmt.Errorf(errorHeader)
 		}
 
-		return fmt.Errorf("Error request - code %v", res.StatusCode)
+		return fmt.Errorf("error request - code %v", res.StatusCode)
 	}
 
 	return nil
