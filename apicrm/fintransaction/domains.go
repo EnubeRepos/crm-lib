@@ -23,11 +23,11 @@ type DomainFinTransaction struct {
 	Createdat           string   `json:"createdAt"`
 	Modifiedat          string   `json:"modifiedAt"`
 	Transactiontype     string   `json:"transactionType"`
-	Value               float64   `json:"value"`
+	Value               float64  `json:"value"`
 	Commission          bool     `json:"commission"`
 	Accounttransaction  string   `json:"accountTransaction"`
 	Transactioncategory string   `json:"transactionCategory"`
-	Amount              float64   `json:"amount"`
+	Amount              float64  `json:"amount"`
 	Confirmtransaction  bool     `json:"confirmTransaction"`
 	Scheduletransaction string   `json:"scheduleTransaction"`
 	Externalorigin      string   `json:"externalOrigin"`
@@ -67,6 +67,21 @@ type DomainFinTransaction struct {
 	Transactionchildrenid   string `json:"transactionChildrenId"`
 	Transactionchildrentype string `json:"transactionChildrenType"`
 	Transactionchildrenname string `json:"transactionChildrenName"`
+	Entityid                string `json:"entityid"`
+	Idempotencykey          string `json:"idempotencykey"`
+	Companykey              string `json:"companykey"`
+	Context                 string `json:"context"`
+	Timestamp               string `json:"timestamp"`
+	Correlationid           string `json:"correlationid"`
+	Version                 string `json:"version"`
+	Tedid                   string `json:"tedId"`
+	Tedname                 string `json:"tedName"`
+	Userid                  string `json:"userId"`
+	Username                string `json:"userName"`
+	Pixid                   string `json:"pixId"`
+	Pixname                 string `json:"pixName"`
+	Pixkeyid                string `json:"pixKeyId"`
+	Pixkeyname              string `json:"pixKeyName"`
 }
 
 //type Teamsnames struct {
