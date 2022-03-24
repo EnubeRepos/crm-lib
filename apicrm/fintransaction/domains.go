@@ -62,26 +62,28 @@ type DomainFinTransaction struct {
 	Parcelname                  string   `json:"parcelName"`
 	Operationfeeapplicationsids []string `json:"operationFeeApplicationsIds"`
 	//Operationfeeapplicationsnames Operationfeeapplicationsnames `json:"operationFeeApplicationsNames"`
-	Contactid               string `json:"contactId"`
-	Contactname             string `json:"contactName"`
-	Transactionchildrenid   string `json:"transactionChildrenId"`
-	Transactionchildrentype string `json:"transactionChildrenType"`
-	Transactionchildrenname string `json:"transactionChildrenName"`
-	Entityid                string `json:"entityid"`
-	Idempotencykey          string `json:"idempotencykey"`
-	Companykey              string `json:"companykey"`
-	Context                 string `json:"context"`
-	Timestamp               string `json:"timestamp"`
-	Correlationid           string `json:"correlationid"`
-	Version                 string `json:"version"`
-	Tedid                   string `json:"tedId"`
-	Tedname                 string `json:"tedName"`
-	Userid                  string `json:"userId"`
-	Username                string `json:"userName"`
-	Pixid                   string `json:"pixId"`
-	Pixname                 string `json:"pixName"`
-	Pixkeyid                string `json:"pixKeyId"`
-	Pixkeyname              string `json:"pixKeyName"`
+	Contactid                       string `json:"contactId"`
+	Contactname                     string `json:"contactName"`
+	Transactionchildrenid           string `json:"transactionChildrenId"`
+	Transactionchildrentype         string `json:"transactionChildrenType"`
+	Transactionchildrenname         string `json:"transactionChildrenName"`
+	Entityid                        string `json:"entityid"`
+	Idempotencykey                  string `json:"idempotencykey"`
+	Companykey                      string `json:"companykey"`
+	Context                         string `json:"context"`
+	Timestamp                       string `json:"timestamp"`
+	Correlationid                   string `json:"correlationid"`
+	Version                         string `json:"version"`
+	Tedid                           string `json:"tedId"`
+	Tedname                         string `json:"tedName"`
+	Userid                          string `json:"userId"`
+	Username                        string `json:"userName"`
+	Pixid                           string `json:"pixId"`
+	Pixname                         string `json:"pixName"`
+	Pixkeyid                        string `json:"pixKeyId"`
+	Pixkeyname                      string `json:"pixKeyName"`
+	InstitutionFinancialRecipientId string `json:"institutionFinancialRecipientId"`
+	InstitutionFinancialSenderId    string `json:"institutionFinancialSenderId"`
 }
 
 //type Teamsnames struct {
