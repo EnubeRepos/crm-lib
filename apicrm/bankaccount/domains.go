@@ -57,14 +57,15 @@ type DomainBankAccount struct {
 }
 
 type DomainBankAccountCreateRequest struct {
-	ID             string `json:"id"`
-	Name           string `json:"name"`
-	FirstName      string `json:"firstName"`
-	LastName       string `json:"lastName"`
-	SicCode        string `json:"sicCode"`
-	AccountNumber  string `json:"accountNumber"`
-	Agency         string `json:"agency"`
-	AssignedUserID string `json:"assignedUserId"`
+	ID                     string `json:"id"`
+	Name                   string `json:"name"`
+	FirstName              string `json:"firstName"`
+	LastName               string `json:"lastName"`
+	SicCode                string `json:"sicCode"`
+	AccountNumber          string `json:"accountNumber"`
+	Agency                 string `json:"agency"`
+	AssignedUserID         string `json:"assignedUserId"`
+	InstitutionFinancialID string `json:"institutionFinancialId"`
 }
 
 type DomainBankAccountCreateResponse struct {
