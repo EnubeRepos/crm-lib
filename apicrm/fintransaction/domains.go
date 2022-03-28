@@ -28,12 +28,12 @@ type DomainFinTransaction struct {
 	ConfirmTransaction                bool     `json:"confirmTransaction"`
 	ScheduleTransaction               string   `json:"scheduleTransaction"`
 	ExternalOrigin                    string   `json:"externalOrigin"`
-	EntityId                          string   `json:"entityId"`
+	EntityID                          string   `json:"entityId"`
 	IdEmpotencyKey                    string   `json:"idEmpotencyKey"`
 	CompanyKey                        string   `json:"companyKey"`
 	Context                           string   `json:"context"`
 	Timestamp                         string   `json:"timestamp"`
-	CorrelationId                     string   `json:"correlationId"`
+	CorrelationID                     string   `json:"correlationId"`
 	Version                           string   `json:"version"`
 	AuthenticationCode                string   `json:"authenticationCode"`
 	RecipientDocumentValue            string   `json:"recipientDocumentValue"`
@@ -69,11 +69,11 @@ type DomainFinTransaction struct {
 	ParentName                        string   `json:"parentName"`
 	Commission                        bool     `json:"commission"`
 	TransactionCategory               string   `json:"transactionCategory"`
-	ParentId                          string   `json:"parentId"`
+	ParentID                          string   `json:"parentId"`
 	AssignedUserID                    string   `json:"assignedUserId"`
 	AssignedUserName                  string   `json:"assignedUserName"`
 	TeamsIds                          []string `json:"teamsIds"`
-	StatusTrackingId                  string   `json:"statusTrackingId"`
+	StatusTrackingID                  string   `json:"statusTrackingId"`
 	StatusTrackingName                string   `json:"statusTrackingName"`
 	ValueConverted                    string   `json:"valueConverted"`
 	SalesOrderID                      string   `json:"salesOrderId"`
