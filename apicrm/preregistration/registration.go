@@ -74,6 +74,8 @@ func (svc *APIPRERegistrationService) PutRegistration(Registration DomainRegistr
 		return DomainRegistration{}, err
 	}
 
+	//
+
 	return convertMarchalRegistration(response)
 }
 
