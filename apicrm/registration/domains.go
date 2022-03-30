@@ -85,6 +85,7 @@ type DomainRegistration struct {
 	//StatusCid                  string             `json:"statusCid,omitempty"`
 	//StatusProcess              string             `json:"statusProcess,omitempty"`
 	//StatusDatetime             string             `json:"statusDatetime,omitempty"`
+	RegistrationRequestsID  []string       `json:"registrationRequestsIds,omitempty"`
 	SocialContractID        string         `json:"socialContractId,omitempty"`
 	SocialContractName      string         `json:"socialContractName,omitempty"`
 	LegalRepresentativeID   string         `json:"legalRepresentativeId,omitempty"`
