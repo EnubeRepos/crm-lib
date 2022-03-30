@@ -1,4 +1,4 @@
-package registration
+package preregistration
 
 import "encoding/json"
 

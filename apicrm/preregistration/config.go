@@ -1,4 +1,4 @@
-package registration
+package preregistration
 
 import "github.com/EnubeRepos/crm-lib/client/crmapi"
 

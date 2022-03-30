@@ -1,4 +1,4 @@
-package registration
+package preregistration
 
 const EntityRegistration string = "RegistrationRequest"
 
