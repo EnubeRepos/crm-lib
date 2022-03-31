@@ -1,7 +1,6 @@
 package bankaccountbalances
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/EnubeRepos/crm-lib/client/crmapi"
@@ -27,5 +26,9 @@ func TestPost(t *testing.T) {
 		return
 	}
 
-	fmt.Println(v)
+	if v.ID == "" {
+		t.Errorf("Error On create balance:: error: %v", err)
+		return
+	}
+
 }
