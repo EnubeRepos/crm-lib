@@ -1,4 +1,4 @@
-package bankaccount
+package bankaccountbalances
 
 import (
 	"encoding/json"
