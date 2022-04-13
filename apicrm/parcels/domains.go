@@ -10,3 +10,8 @@ type ResponseParcels struct {
 
 // Account
 type DomainParcels struct{}
+
+type DomainParcelsPutAuthCode struct{
+	ID                                string   `json:"id"`
+	AuthenticationCode                string   `json:"authenticationCode"`
+}
