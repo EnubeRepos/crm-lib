@@ -47,6 +47,22 @@ func (svc *APIParcelsService) Post(Parcels DomainParcels) (DomainParcels, error)
 	return convertMarchalParcels(response)
 }
 
+func (svc *APIParcelsService) PutAuthCode(ModelPutAuthCode DomainParcelsPutAuthCode) (DomainParcels, error) {
+	payload, err := json.Marshal(ModelPutAuthCode)
+
+	if err != nil {
+		return DomainParcels{}, err
+	}
+
+	response, err := svc.client.CRMHandlerPutService(EntityParcels+"/"+ModelPutAuthCode.ID, payload)
+	if err != nil {
+		return DomainParcels{}, err
+	}
+
+	return convertMarchalParcels(response)
+}
+
+
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponseParcels(response []byte) (ResponseParcels, error) {
 	var result ResponseParcels
