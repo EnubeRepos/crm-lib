@@ -12,14 +12,14 @@ func (svc *APIImageService) Get(imageID string) ([]byte, error) {
 	return response, err
 }
 
-func toBase64(b []byte) string {
+func (svc *APIImageService) toBase64(b []byte) string {
 	return base64.StdEncoding.EncodeToString(b)
 }
 
-func bytesFileToBase64(file []byte) string {
+func (svc *APIImageService) bytesFileToBase64(file []byte) string {
 	if len(file) <= 0 {
 		return ""
 	}
 
-	return fmt.Sprintf("data:%v;base64,", http.DetectContentType(file)) + toBase64(file)
+	return fmt.Sprintf("data:%v;base64,", http.DetectContentType(file)) + svc.toBase64(file)
 }
