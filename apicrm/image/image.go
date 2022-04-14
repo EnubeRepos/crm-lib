@@ -35,7 +35,5 @@ func bytesFileToBase64(file []byte) string {
 	// Append the base64 encoded output
 	base64Encoding += toBase64(bytes)
 
-	// Print the full base64 representation of the image
-	//fmt.Println(base64Encoding)
 	return base64Encoding
 }
