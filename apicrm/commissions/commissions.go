@@ -5,7 +5,6 @@ import "encoding/json"
 func (svc *APICommissionsService) Get() (ResponseCommissions, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityCommissions, "")
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseCommissions{}, err
 	}
 
@@ -15,7 +14,6 @@ func (svc *APICommissionsService) Get() (ResponseCommissions, error) {
 func (svc *APICommissionsService) GetById(id string) (DomainCommissions, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityCommissions, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainCommissions{}, err
 	}
 
@@ -25,7 +23,6 @@ func (svc *APICommissionsService) GetById(id string) (DomainCommissions, error) 
 func (svc *APICommissionsService) GetByFilter(filter string) (ResponseCommissions, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityCommissions, "?"+filter)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseCommissions{}, err
 	}
 
@@ -53,7 +50,6 @@ func convertMarchalResponseCommissions(response []byte) (ResponseCommissions, er
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseCommissions{}, err
 	}
 
@@ -65,7 +61,6 @@ func convertMarchalCommissions(response []byte) (DomainCommissions, error) {
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainCommissions{}, err
 	}
 
