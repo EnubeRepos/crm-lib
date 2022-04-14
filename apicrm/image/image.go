@@ -30,6 +30,10 @@ func bytesFileToBase64(file []byte) string {
 		base64Encoding += "data:image/jpeg;base64,"
 	case "image/png":
 		base64Encoding += "data:image/png;base64,"
+	case "image/jpg":
+		base64Encoding += "data:image/jpg;base64,"
+	case "application/pdf":
+		base64Encoding += "data:application/pdf;base64,"
 	}
 
 	// Append the base64 encoded output
