@@ -20,6 +20,6 @@ func bytesFileToBase64(file []byte) string {
 	if len(file) <= 0 {
 		return ""
 	}
-	
+
 	return fmt.Sprintf("data:%v;base64,", http.DetectContentType(file)) + toBase64(file)
 }
