@@ -1,5 +1,7 @@
 package fintransaction
 
+import "time"
+
 const EntityFinTransaction string = "FinTransaction"
 
 // ResponseFinTransaction .
@@ -100,4 +102,279 @@ type DomainFinTransaction struct {
 	InstitutionFinancialRecipientName string   `json:"institutionFinancialRecipientName"`
 	InstitutionFinancialSenderID      string   `json:"institutionFinancialSenderId"`
 	InstitutionFinancialSenderName    string   `json:"institutionFinancialSenderName"`
+}
+
+type TransactionType string
+
+const (
+	TransactionTypeTED string = "Pagamento TED"
+
+	TransactionTypeDOC string = "Pagamento DOC"
+
+	TransactionTypePIX string = "Pagamento PIX"
+
+	TransactionTypeBoleto string = "Pagamento Boleto"
+
+	TransactionTypeTEDInternalBank string = "10+Bank" //Transferência entre contas 10+Bank
+)
+
+type AccountTransaction string
+
+const (
+	//Débito
+	AccountTransactionSent string = "Transfer sent"
+
+	//Crédito
+	AccountTransactionReceived string = "Transfer received"
+)
+
+type StatusTransaction string
+
+const (
+	StatusWaiting string = "Waiting"
+
+	StatusPlanned string = "Planned"
+
+	StatusNotHeld string = "NotHeld"
+
+	StatusHeld string = "Held"
+
+	StatusCanceled string = "Canceled"
+)
+
+type RequestFinTrasactionTED struct {
+	// nome genérico da transação
+	Name string `json:"name"`
+
+	//Waiting
+	Status StatusTransaction `json:"status"`
+
+	// Agendado para:
+	DateStart time.Time `json:"dateStart"`
+
+	// "Pagamento TED,DOC,PIX,BOLETO, TED INTERNAL"
+	TransactionType TransactionType `json:"transactionType"`
+
+	// valor convertido para negativo caso for débito -- tipo monetário
+	Value float64 `json:"value"`
+
+	AccountTransaction AccountTransaction `json:"accountTransaction"`
+
+	// preenchimento apenas do valor, não podendo ser negativo
+	Amount float64 `json:"amount"`
+
+	ConfirmTransaction bool `json:"confirmTransaction"`
+
+	// yes/no -- rever
+	ScheduleTransaction string `json:"scheduleTransaction"`
+
+	CorrelationID string `json:"correlationId"`
+
+	AuthenticationCode string `json:"authenticationCode"`
+
+	AssignedUserID string `json:"assignedUserId"`
+
+	TeamsIds []string `json:"teamsIds"`
+
+	// Emissor:
+	BankAccountID string `json:"bankAccountId"`
+
+	CommissionsID string `json:"commissionsId"`
+
+	ParcelID string `json:"parcelId"`
+
+	// Beneficiário externo do 10maisbank
+	ContactID string `json:"contactId"`
+
+	TedID string `json:"tedId"`
+
+	// Beneficiário interno do 10+bank
+	UserID string `json:"userId"`
+}
+
+type ResponseFinTransactionTED struct {
+	// nome genérico da transação
+	Id string `json:"id"`
+
+	// nome genérico da transação
+	Name string `json:"name"`
+
+	//Waiting
+	Status StatusTransaction `json:"status"`
+
+	// Agendado para:
+	DateStart time.Time `json:"dateStart"`
+
+	// "Pagamento TED,DOC,PIX,BOLETO, TED INTERNAL"
+	TransactionType TransactionType `json:"transactionType"`
+
+	// valor convertido para negativo caso for débito -- tipo monetário
+	Value float64 `json:"value"`
+
+	AccountTransaction AccountTransaction `json:"accountTransaction"`
+
+	// preenchimento apenas do valor, não podendo ser negativo
+	Amount float64 `json:"amount"`
+
+	ConfirmTransaction bool `json:"confirmTransaction"`
+
+	// yes/no -- rever
+	ScheduleTransaction string `json:"scheduleTransaction"`
+
+	CorrelationID string `json:"correlationId"`
+
+	AuthenticationCode string `json:"authenticationCode"`
+
+	AssignedUserID string `json:"assignedUserId"`
+
+	TeamsIds []string `json:"teamsIds"`
+
+	// Emissor:
+	BankAccountID string `json:"bankAccountId"`
+
+	CommissionsID string `json:"commissionsId"`
+
+	ParcelID string `json:"parcelId"`
+
+	// Beneficiário externo do 10maisbank
+	ContactID string `json:"contactId"`
+
+	TedID string `json:"tedId"`
+
+	// Beneficiário interno do 10+bank
+	UserID string `json:"userId"`
+}
+
+type RequestFinTrasactionPIX struct {
+	// nome genérico da transação
+	Name string `json:"name"`
+
+	//Waiting
+	Status StatusTransaction `json:"status"`
+
+	// Agendado para:
+	DateStart time.Time `json:"dateStart"`
+
+	// "Pagamento TED,DOC,PIX,BOLETO, TED INTERNAL"
+	TransactionType TransactionType `json:"transactionType"`
+
+	// valor convertido para negativo caso for débito -- tipo monetário
+	Value float64 `json:"value"`
+
+	AccountTransaction AccountTransaction `json:"accountTransaction"`
+
+	// preenchimento apenas do valor, não podendo ser negativo
+	Amount float64 `json:"amount"`
+
+	ConfirmTransaction bool `json:"confirmTransaction"`
+
+	// yes/no -- rever
+	ScheduleTransaction string `json:"scheduleTransaction"`
+
+	CorrelationID string `json:"correlationId"`
+
+	AuthenticationCode string `json:"authenticationCode"`
+
+	AssignedUserID string `json:"assignedUserId"`
+
+	TeamsIds []string `json:"teamsIds"`
+
+	// Emissor:
+	BankAccountID string `json:"bankAccountId"`
+
+	CommissionsID string `json:"commissionsId"`
+
+	ParcelID string `json:"parcelId"`
+
+	// Beneficiário externo do 10maisbank
+	ContactID string `json:"contactId"`
+
+	// Beneficiário interno do 10+bank
+	UserID string `json:"userId"`
+
+	PixID string `json:"pixId"`
+
+	PixKeyID string `json:"pixKeyId"`
+}
+
+type RequestFinTrasactionTaxTariff struct {
+	// nome genérico da transação
+	Name string `json:"name"`
+
+	//Waiting
+	Status StatusTransaction `json:"status"`
+
+	// Agendado para:
+	DateStart time.Time `json:"dateStart"`
+
+	// "Pagamento TED,DOC,PIX,BOLETO, TED INTERNAL"
+	TransactionType TransactionType `json:"transactionType"`
+
+	// valor convertido para negativo caso for débito -- tipo monetário
+	Value float64 `json:"value"`
+
+	AccountTransaction AccountTransaction `json:"accountTransaction"`
+
+	// preenchimento apenas do valor, não podendo ser negativo
+	Amount float64 `json:"amount"`
+
+	ConfirmTransaction bool `json:"confirmTransaction"`
+
+	CorrelationID string `json:"correlationId"`
+
+	AuthenticationCode string `json:"authenticationCode"`
+
+	AssignedUserID string `json:"assignedUserId"`
+
+	TeamsIds []string `json:"teamsIds"`
+
+	// Emissor:
+	BankAccountID string `json:"bankAccountId"`
+
+	CommissionsID string `json:"commissionsId"`
+
+	ParcelID string `json:"parcelId"`
+
+	// Beneficiário interno do 10+bank
+	UserID string `json:"userId"`
+}
+
+type RequestFinTrasactionBoleto struct {
+	// nome genérico da transação
+	Name string `json:"name"`
+
+	//Waiting
+	Status StatusTransaction `json:"status"`
+
+	// Agendado para:
+	DateStart time.Time `json:"dateStart"`
+
+	// "Pagamento TED,DOC,PIX,BOLETO, TED INTERNAL"
+	TransactionType TransactionType `json:"transactionType"`
+
+	// valor convertido para negativo caso for débito -- tipo monetário
+	Value float64 `json:"value"`
+
+	AccountTransaction AccountTransaction `json:"accountTransaction"`
+
+	// preenchimento apenas do valor, não podendo ser negativo
+	Amount float64 `json:"amount"`
+
+	ConfirmTransaction bool `json:"confirmTransaction"`
+
+	CorrelationID string `json:"correlationId"`
+
+	AuthenticationCode string `json:"authenticationCode"`
+
+	AssignedUserID string `json:"assignedUserId"`
+
+	TeamsIds []string `json:"teamsIds"`
+
+	// Emissor:
+	BankAccountID string `json:"bankAccountId"`
+
+	ParcelID string `json:"parcelId"`
+
+	// Beneficiário interno do 10+bank
+	UserID string `json:"userId"`
 }
