@@ -107,39 +107,39 @@ type DomainFinTransaction struct {
 type TransactionType string
 
 const (
-	TransactionTypeTED string = "Pagamento TED"
+	TransactionTypeTED TransactionType = "Pagamento TED"
 
-	TransactionTypeDOC string = "Pagamento DOC"
+	TransactionTypeDOC TransactionType = "Pagamento DOC"
 
-	TransactionTypePIX string = "Pagamento PIX"
+	TransactionTypePIX TransactionType = "Pagamento PIX"
 
-	TransactionTypeBoleto string = "Pagamento Boleto"
+	TransactionTypeBoleto TransactionType = "Pagamento Boleto"
 
-	TransactionTypeTEDInternalBank string = "10+Bank" //Transferência entre contas 10+Bank
+	TransactionTypeTEDInternalBank TransactionType = "10+Bank" //Transferência entre contas 10+Bank
 )
 
 type AccountTransaction string
 
 const (
 	//Débito
-	AccountTransactionSent string = "Transfer sent"
+	AccountTransactionSent AccountTransaction = "Transfer sent"
 
 	//Crédito
-	AccountTransactionReceived string = "Transfer received"
+	AccountTransactionReceived AccountTransaction = "Transfer received"
 )
 
 type StatusTransaction string
 
 const (
-	StatusWaiting string = "Waiting"
+	StatusWaiting StatusTransaction = "Waiting"
 
-	StatusPlanned string = "Planned"
+	StatusPlanned StatusTransaction = "Planned"
 
-	StatusNotHeld string = "NotHeld"
+	StatusNotHeld StatusTransaction = "NotHeld"
 
-	StatusHeld string = "Held"
+	StatusHeld StatusTransaction = "Held"
 
-	StatusCanceled string = "Canceled"
+	StatusCanceled StatusTransaction = "Canceled"
 )
 
 type RequestFinTrasactionTED struct {
