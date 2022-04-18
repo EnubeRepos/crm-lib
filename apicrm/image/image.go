@@ -12,11 +12,11 @@ func (svc *APIImageService) Get(imageID string) ([]byte, error) {
 	return response, err
 }
 
-func (svc *APIImageService) toBase64(b []byte) string {
+func (svc *APIImageService) ToBase64(b []byte) string {
 	return base64.StdEncoding.EncodeToString(b)
 }
 
-func (svc *APIImageService) bytesFileToBase64(file []byte) string {
+func (svc *APIImageService) BytesFileToBase64(file []byte) string {
 	if len(file) <= 0 {
 		return ""
 	}
