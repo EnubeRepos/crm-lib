@@ -45,7 +45,7 @@ type DomainParcels struct {
 	ParentId             string   `json:"parentId,omitempty"`
 	ParentType           string   `json:"parentType,omitempty"`
 	ParentName           string   `json:"parentName,omitempty"`
-	IsfFollowed           bool     `json:"isFollowed,omitempty"`
+	IsfFollowed          bool     `json:"isFollowed,omitempty"`
 	FollowersIds         []string `json:"followersIds,omitempty"`
 	CreatedById          string   `json:"createdById,omitempty"`
 	AssignedUserId       string   `json:"assignedUserId,omitempty"`
@@ -67,4 +67,5 @@ type DomainParcels struct {
 type DomainParcelsPutAuthCode struct {
 	ID                 string `json:"id,omitempty"`
 	AuthenticationCode string `json:"authenticationCode,omitempty"`
+	InvoiceId          string `json:"invoiceId,omitempty"`
 }
