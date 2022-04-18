@@ -26,7 +26,7 @@ type DomainContact struct {
 	AddressState             string   `json:"addressState,omitempty"`
 	AddressCountry           string   `json:"addressCountry,omitempty"`
 	AddressPostalCode        string   `json:"addressPostalCode,omitempty"`
-	AccountIsInactive        string   `json:"accountIsInactive,omitempty"`
+	AccountIsInactive        bool     `json:"accountIsInactive,omitempty"`
 	AccountType              string   `json:"accountType,omitempty"`
 	CreatedAt                string   `json:"createdAt,omitempty"`
 	ModifiedAt               string   `json:"modifiedAt,omitempty"`
