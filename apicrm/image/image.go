@@ -21,5 +21,5 @@ func (svc *APIImageService) BytesFileToBase64(file []byte) string {
 		return ""
 	}
 
-	return fmt.Sprintf("data:%v;base64,", http.DetectContentType(file)) + svc.toBase64(file)
+	return fmt.Sprintf("data:%v;base64,", http.DetectContentType(file)) + svc.ToBase64(file)
 }
