@@ -35,8 +35,8 @@ type DomainContact struct {
 	ContactAccountNumber     string   `json:"contactAccountNumber,omitempty"`
 	ContactAgency            string   `json:"contactAgency,omitempty"`
 	MiddleName               string   `json:"middleName,omitempty"`
-	EmailAddressIsOptedOut   string   `json:"emailAddressIsOptedOut,omitempty"`
-	PhoneNumberIsOptedOut    string   `json:"phoneNumberIsOptedOut,omitempty"`
+	EmailAddressIsOptedOut   bool     `json:"emailAddressIsOptedOut,omitempty"`
+	PhoneNumberIsOptedOut    bool     `json:"phoneNumberIsOptedOut,omitempty"`
 	EmailAddressData         []string `json:"emailAddressData,omitempty"`
 	PhoneNumberData          []string `json:"phoneNumberData,omitempty"`
 	AccountID                string   `json:"accountId,omitempty"`
