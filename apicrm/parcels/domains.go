@@ -22,10 +22,10 @@ type DomainParcels struct {
 	ProductDivision      string   `json:"productDivision,omitempty"`
 	Status               string   `json:"status,omitempty"`
 	DueDate              string   `json:"dueDate,omitempty"`
-	Amount               int      `json:"amount,omitempty"`
+	Amount               float64  `json:"amount,omitempty"`
 	Payment              string   `json:"payment,omitempty"`
 	ParcelPaid           string   `json:"parcelPaid,omitempty"`
-	ReturnFee            string   `json:"returnFee,omitempty"`
+	ReturnFee            float64  `json:"returnFee,omitempty"`
 	ApproveReturnTranfer bool     `json:"approveReturnTranfer,omitempty"`
 	InvoiceNumber        string   `json:"invoiceNumber,omitempty"`
 	AuthenticationCode   string   `json:"authenticationCode,omitempty"`
