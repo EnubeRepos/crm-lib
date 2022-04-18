@@ -37,9 +37,9 @@ type DomainParcels struct {
 	FinTransactionsIds   []string `json:"finTransactionsIds,omitempty"`
 	InvoiceId            string   `json:"invoiceId,omitempty"`
 	InvoiceName          string   `json:"invoiceName,omitempty"`
-	AmountConverted      int      `json:"amountConverted,omitempty"`
+	AmountConverted      float64  `json:"amountConverted,omitempty"`
 	CommissionssIds      []string `json:"commissionssIds,omitempty"`
-	ReturnFeeConverted   string   `json:"returnFeeConverted,omitempty"`
+	ReturnFeeConverted   float64  `json:"returnFeeConverted,omitempty"`
 	BillingContactId     string   `json:"billingContactId,omitempty"`
 	BillingContactName   string   `json:"billingContactName,omitempty"`
 	ParentId             string   `json:"parentId,omitempty"`
