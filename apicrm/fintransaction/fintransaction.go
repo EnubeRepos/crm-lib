@@ -32,7 +32,7 @@ func (svc *APIFinTransactionService) GetByFilter(filter string) (ResponseFinTran
 	return convertMarchalResponseFinTransaction(response)
 }
 
-func (svc *APIFinTransactionService) Post(FinTransaction DomainFinTransaction) (DomainFinTransaction, error) {
+func (svc *APIFinTransactionService) Post(FinTransaction interface{}) (DomainFinTransaction, error) {
 	payload, err := json.Marshal(FinTransaction)
 
 	if err != nil {
