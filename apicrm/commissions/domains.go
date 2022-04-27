@@ -60,7 +60,7 @@ type DomainCommissions struct {
 	AccountID                  string   `json:"accountId,omitempty"`
 	AccountName                string   `json:"accountName,omitempty"`
 	FeeApplicationsIds         []string `json:"feeApplicationsIds,omitempty"`
-	IntegratorFeeConverted     int      `json:"integratorFeeConverted,omitempty"`
+	IntegratorFeeConverted     float64  `json:"integratorFeeConverted,omitempty"`
 	IsFollowed                 bool     `json:"isFollowed,omitempty"`
 	FollowersIds               []string `json:"followersIds,omitempty"`
 }
