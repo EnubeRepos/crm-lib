@@ -81,18 +81,15 @@ type DomainRegistration struct {
 	IDDocumentBackName         string             `json:"idDocumentBackName,omitempty"`
 	BillingAddressProofID      string             `json:"billingAddressProofId,omitempty"`
 	BillingAddressProofName    string             `json:"billingAddressProofName,omitempty"`
-	//StatusDetail               string             `json:"statusDetail,omitempty"`
-	//StatusCid                  string             `json:"statusCid,omitempty"`
-	//StatusProcess              string             `json:"statusProcess,omitempty"`
-	//StatusDatetime             string             `json:"statusDatetime,omitempty"`
-	RegistrationRequestsID  []string       `json:"registrationRequestsIds,omitempty"`
-	SocialContractID        string         `json:"socialContractId,omitempty"`
-	SocialContractName      string         `json:"socialContractName,omitempty"`
-	LegalRepresentativeID   string         `json:"legalRepresentativeId,omitempty"`
-	LegalRepresentativeName string         `json:"legalRepresentativeName,omitempty"`
-	IsFollowed              bool           `json:"isFollowed"`
-	FollowersIds            []string       `json:"followersIds,omitempty"`
-	FollowersNames          FollowersNames `json:"followersNames,omitempty"`
+	RegistrationRequestsID     []string           `json:"registrationRequestsIds,omitempty"`
+	SocialContractID           string             `json:"socialContractId,omitempty"`
+	SocialContractName         string             `json:"socialContractName,omitempty"`
+	LegalRepresentativeID      string             `json:"legalRepresentativeId,omitempty"`
+	LegalRepresentativeName    string             `json:"legalRepresentativeName,omitempty"`
+	IsFollowed                 bool               `json:"isFollowed"`
+	FollowersIds               []string           `json:"followersIds,omitempty"`
+	FollowersNames             FollowersNames     `json:"followersNames,omitempty"`
+	TemporaryPassword          string             `json:"temporaryPassword,omitempty"`
 }
 
 type EmailAddressData struct {
