@@ -1,4 +1,4 @@
-package registration
+package business
 
 import "github.com/EnubeRepos/crm-lib/client/crmapi"
 

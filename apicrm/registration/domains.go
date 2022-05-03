@@ -50,6 +50,7 @@ type DomainRegistration struct {
 	SocialName                 string             `json:"socialName,omitempty"`
 	BusinessType               string             `json:"businessType,omitempty"`
 	BusinessSize               string             `json:"businessSize,omitempty"`
+	BusinessRegistrationID     string             `json:"businessRegistrationId,omitempty"`
 	BirthDate                  string             `json:"birthDate,omitempty"`
 	MotherName                 string             `json:"motherName,omitempty"`
 	IsPoliticallyExposedPerson bool               `json:"isPoliticallyExposedPerson"`
