@@ -68,4 +68,5 @@ type DomainParcelsPutAuthCode struct {
 	ID                 string `json:"id,omitempty"`
 	AuthenticationCode string `json:"authenticationCode,omitempty"`
 	InvoiceId          string `json:"invoiceId,omitempty"`
+	InvoiceNumber      string `json:"invoiceNumber,omitempty"`
 }
