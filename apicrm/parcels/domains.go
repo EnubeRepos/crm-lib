@@ -70,11 +70,13 @@ type DomainParcelsPutAuthCode struct {
 	InvoiceId          string `json:"invoiceId,omitempty"`
 	InvoiceNumber      string `json:"invoiceNumber,omitempty"`
 	Status             string `json:"status,omitempty"`
+	StatusDetail       string `json:"statusDetail,omitempty"`
 	ParcelPaid         bool   `json:"parcelPaid,omitempty"`
 }
 
 type DomainParcelsPutStatus struct {
-	ID                 string `json:"id,omitempty"`
-	Status             string `json:"status,omitempty"`
-	ParcelPaid         bool   `json:"parcelPaid,omitempty"`
+	ID           string `json:"id,omitempty"`
+	Status       string `json:"status,omitempty"`
+	StatusDetail string `json:"statusDetail,omitempty"`
+	ParcelPaid   bool   `json:"parcelPaid,omitempty"`
 }
