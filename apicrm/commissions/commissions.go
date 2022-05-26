@@ -44,6 +44,21 @@ func (svc *APICommissionsService) Post(Commissions DomainCommissions) (DomainCom
 	return convertMarchalCommissions(response)
 }
 
+func (svc *APICommissionsService) PutStatus(ModelPutStatus DomainComissionsPutStatus) (DomainCommissions, error) {
+	payload, err := json.Marshal(ModelPutStatus)
+
+	if err != nil {
+		return DomainCommissions{}, err
+	}
+
+	response, err := svc.client.CRMHandlerPutService(EntityCommissions+"/"+ModelPutStatus.ID, payload)
+	if err != nil {
+		return DomainCommissions{}, err
+	}
+
+	return convertMarchalCommissions(response)
+}
+
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponseCommissions(response []byte) (ResponseCommissions, error) {
 	var result ResponseCommissions
