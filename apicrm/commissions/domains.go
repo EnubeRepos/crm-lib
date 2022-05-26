@@ -64,3 +64,9 @@ type DomainCommissions struct {
 	IsFollowed                 bool     `json:"isFollowed,omitempty"`
 	FollowersIds               []string `json:"followersIds,omitempty"`
 }
+
+type DomainComissionsPutStatus struct {
+	ID           string `json:"id,omitempty"`
+	Status       string `json:"status,omitempty"`
+}
+
