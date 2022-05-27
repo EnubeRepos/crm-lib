@@ -47,6 +47,16 @@ func (svc *APIRegistrationService) Post(Registration DomainRegistration) (Domain
 	return convertMarchalRegistration(response)
 }
 
+func (svc *APIRegistrationService) Delete() (ResponseRegistration, error) {
+	response, err := svc.client.CRMHandlerDeleteService(EntityRegistration, "")
+	if err != nil {
+		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
+		return ResponseRegistration{}, err
+	}
+
+	return convertMarchalResponseRegistration(response)
+}
+
 func (svc *APIRegistrationService) Put(Registration DomainRegistrationBase) (DomainRegistration, error) {
 	payload, err := json.Marshal(Registration)
 

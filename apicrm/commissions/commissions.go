@@ -44,6 +44,15 @@ func (svc *APICommissionsService) Post(Commissions DomainCommissions) (DomainCom
 	return convertMarchalCommissions(response)
 }
 
+func (svc *APICommissionsService) Delete() (ResponseCommissions, error) {
+	response, err := svc.client.CRMHandlerDeleteService(EntityCommissions, "")
+	if err != nil {
+		return ResponseCommissions{}, err
+	}
+
+	return convertMarchalResponseCommissions(response)
+}
+
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponseCommissions(response []byte) (ResponseCommissions, error) {
 	var result ResponseCommissions

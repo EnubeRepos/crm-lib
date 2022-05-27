@@ -47,6 +47,16 @@ func (svc *APISalesService) Post(Sales DomainSales) (DomainSales, error) {
 	return convertMarchalSales(response)
 }
 
+func (svc *APISalesService) Delete() (ResponseSales, error) {
+	response, err := svc.client.CRMHandlerDeleteService(EntitySales, "")
+	if err != nil {
+		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
+		return ResponseSales{}, err
+	}
+
+	return convertMarchalResponseSales(response)
+}
+
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponseSales(response []byte) (ResponseSales, error) {
 	var result ResponseSales

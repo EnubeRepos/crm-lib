@@ -47,6 +47,16 @@ func (svc *APIFinTransactionService) Post(FinTransaction interface{}) (DomainFin
 	return convertMarchalFinTransaction(response)
 }
 
+func (svc *APIFinTransactionService) Delete() (ResponseFinTransaction, error) {
+	response, err := svc.client.CRMHandlerDeleteService(EntityFinTransaction, "")
+	if err != nil {
+		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
+		return ResponseFinTransaction{}, err
+	}
+
+	return convertMarchalResponseFinTransaction(response)
+}
+
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponseFinTransaction(response []byte) (ResponseFinTransaction, error) {
 	var result ResponseFinTransaction

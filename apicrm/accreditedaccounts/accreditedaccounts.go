@@ -47,6 +47,16 @@ func (svc *APIAccreditedAccountsService) Post(AccreditedAccounts DomainAccredite
 	return convertMarchalAccreditedAccounts(response)
 }
 
+func (svc *APIAccreditedAccountsService) Delete() (ResponseAccreditedAccounts, error) {
+	response, err := svc.client.CRMHandlerDeleteService(EntityAccreditedAccounts, "")
+	if err != nil {
+		return ResponseAccreditedAccounts{}, err
+	}
+
+	return convertMarchalResponseAccreditedAccounts(response)
+
+}
+
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponseAccreditedAccounts(response []byte) (ResponseAccreditedAccounts, error) {
 	var result ResponseAccreditedAccounts

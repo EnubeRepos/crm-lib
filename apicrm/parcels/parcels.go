@@ -47,6 +47,16 @@ func (svc *APIParcelsService) Post(Parcels DomainParcels) (DomainParcels, error)
 	return convertMarchalParcels(response)
 }
 
+func (svc *APIParcelsService) Delete() (ResponseParcels, error) {
+	response, err := svc.client.CRMHandlerDeleteService(EntityParcels, "")
+	if err != nil {
+		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
+		return ResponseParcels{}, err
+	}
+
+	return convertMarchalResponseParcels(response)
+}
+
 func (svc *APIParcelsService) PutAuthCode(ModelPutAuthCode DomainParcelsPutAuthCode) (DomainParcels, error) {
 	payload, err := json.Marshal(ModelPutAuthCode)
 
@@ -76,7 +86,6 @@ func (svc *APIParcelsService) PutStatus(ModelPutStatus DomainParcelsPutStatus) (
 
 	return convertMarchalParcels(response)
 }
-
 
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponseParcels(response []byte) (ResponseParcels, error) {

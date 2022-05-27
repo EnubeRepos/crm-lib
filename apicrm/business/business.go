@@ -2,8 +2,27 @@ package business
 
 import "encoding/json"
 
+func (svc *APIRegistrationService) Get() (DomainBusiness, error) {
+	response, err := svc.client.CRMHandlerGetService(EntityBusiness, "")
+	if err != nil {
+		return DomainBusiness{}, err
+	}
+
+	return convertMarchalBusiness(response)
+
+}
+
 func (svc *APIRegistrationService) GetById(id string) (DomainBusiness, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityBusiness, "/"+id)
+	if err != nil {
+		return DomainBusiness{}, err
+	}
+
+	return convertMarchalBusiness(response)
+}
+
+func (svc *APIRegistrationService) GetByFilter(filter string) (DomainBusiness, error) {
+	response, err := svc.client.CRMHandlerGetService(EntityBusiness, "/"+filter)
 	if err != nil {
 		return DomainBusiness{}, err
 	}
@@ -24,6 +43,16 @@ func (svc *APIRegistrationService) Post(request DomainBusiness) (DomainBusiness,
 	}
 
 	return convertMarchalBusiness(response)
+}
+
+func (svc *APIRegistrationService) Delete() (DomainBusiness, error) {
+	response, err := svc.client.CRMHandlerDeleteService(EntityBusiness, "")
+	if err != nil {
+		return DomainBusiness{}, err
+	}
+
+	return convertMarchalBusiness(response)
+
 }
 
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain

@@ -49,6 +49,27 @@ func (svc *APIAccountService) Post(account DomainAccount) (DomainAccount, error)
 	return convertMarchalAccount(response)
 }
 
+// test it
+func (svc *APIAccountService) Delete() (ResponseAccount, error) {
+	response, err := svc.client.CRMHandlerDeleteService(EntityAccount, "")
+	if err != nil {
+		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
+		return ResponseAccount{}, err
+	}
+
+	return convertMarchalResponseAccount(response)
+
+}
+
+/*
+
+// how does this work
+func (svc *APIAccountService) Update() (DomainAccount, error) {
+
+}
+
+*/
+
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponseAccount(response []byte) (ResponseAccount, error) {
 	var result ResponseAccount

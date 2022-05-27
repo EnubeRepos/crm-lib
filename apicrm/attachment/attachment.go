@@ -1,10 +1,32 @@
 package attachment
 
-import "encoding/json"
+import (
+	"encoding/json"
+	//"golang.org/x/sys/windows/svc"
+)
+
+func (svc *APIAttachmentService) Get() (ResponseAttachment, error) {
+	responseHttp, err := svc.client.CRMHandlerGetService(EntityAttachment, "")
+
+	if err != nil {
+		return ResponseAttachment{}, err
+	}
+
+	return convertMarchalResponse(responseHttp)
+}
 
 func (svc *APIAttachmentService) GetById(attachmentId string) (ResponseAttachment, error) {
 	responseHttp, err := svc.client.CRMHandlerGetService(EntityAttachment, "/"+attachmentId)
 
+	if err != nil {
+		return ResponseAttachment{}, err
+	}
+
+	return convertMarchalResponse(responseHttp)
+}
+
+func (svc *APIAttachmentService) GetByFilter(filter string) (ResponseAttachment, error) {
+	responseHttp, err := svc.client.CRMHandlerGetService(EntityAttachment, "/"+filter)
 	if err != nil {
 		return ResponseAttachment{}, err
 	}
@@ -25,6 +47,16 @@ func (svc *APIAttachmentService) Post(model DomainAttachment) (DomainAttachment,
 	}
 
 	return convertMarchalResponseSingle(responseHttp)
+}
+
+func (svc *APIAttachmentService) Delete() (ResponseAttachment, error) {
+	responseHttp, err := svc.client.CRMHandlerDeleteService(EntityAttachment, "")
+
+	if err != nil {
+		return ResponseAttachment{}, err
+	}
+
+	return convertMarchalResponse(responseHttp)
 }
 
 func convertMarchalResponse(response []byte) (ResponseAttachment, error) {

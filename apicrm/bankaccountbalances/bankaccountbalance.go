@@ -55,6 +55,16 @@ func (svc *APIBankAccountBalanceService) Post(BankAccountBalance DomainBankAccou
 	return response, err
 }
 
+func (svc *APIBankAccountBalanceService) Delete() (ResponseBankAccountBalance, error) {
+	response, err := svc.client.CRMHandlerDeleteService(EntityBankAccountBalance, "")
+	if err != nil {
+		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
+		return ResponseBankAccountBalance{}, err
+	}
+
+	return convertMarchalResponseBankAccountBalance(response)
+}
+
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponseBankAccountBalance(response []byte) (ResponseBankAccountBalance, error) {
 	var result ResponseBankAccountBalance

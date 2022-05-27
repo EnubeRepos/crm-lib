@@ -47,6 +47,16 @@ func (svc *APIEventTrackingService) Post(EventTracking DomainEventTracking) (Dom
 	return convertMarchalEventTracking(response)
 }
 
+func (svc *APIEventTrackingService) Delete() (ResponseEventTracking, error) {
+	response, err := svc.client.CRMHandlerDeleteService(EntityEventTracking, "")
+	if err != nil {
+		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
+		return ResponseEventTracking{}, err
+	}
+
+	return convertMarchalResponseEventTracking(response)
+}
+
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponseEventTracking(response []byte) (ResponseEventTracking, error) {
 	var result ResponseEventTracking
