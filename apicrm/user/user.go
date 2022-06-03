@@ -47,6 +47,22 @@ func (svc *APIUserService) Post(User DomainUser) (DomainUser, error) {
 	return convertMarchalUser(response)
 }
 
+func (svc *APIUserService) PutAccessInfo(ModelPut DomainUserSendAccessInfoPut) (DomainUser, error) {
+	payload, err := json.Marshal(ModelPut)
+
+	if err != nil {
+		return DomainUser{}, err
+	}
+
+	response, err := svc.client.CRMHandlerPutService(EntityUser+"/"+ModelPut.ID, payload)
+	if err != nil {
+		return DomainUser{}, err
+	}
+
+	return convertMarchalUser(response)
+}
+
+
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponseUser(response []byte) (ResponseUser, error) {
 	var result ResponseUser
