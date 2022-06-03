@@ -5,7 +5,6 @@ import "encoding/json"
 func (svc *APIUserRegistrationService) Get() (ResponseUserRegistration, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityUserRegistration, "")
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseUserRegistration{}, err
 	}
 
@@ -15,7 +14,6 @@ func (svc *APIUserRegistrationService) Get() (ResponseUserRegistration, error) {
 func (svc *APIUserRegistrationService) GetById(id string) (DomainUserRegistration, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityUserRegistration, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainUserRegistration{}, err
 	}
 
@@ -25,7 +23,6 @@ func (svc *APIUserRegistrationService) GetById(id string) (DomainUserRegistratio
 func (svc *APIUserRegistrationService) GetByFilter(filter string) (ResponseUserRegistration, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityUserRegistration, "?"+filter)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseUserRegistration{}, err
 	}
 
@@ -53,7 +50,6 @@ func convertMarchalResponseUserRegistration(response []byte) (ResponseUserRegist
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseUserRegistration{}, err
 	}
 
@@ -65,7 +61,6 @@ func convertMarchalUserRegistration(response []byte) (DomainUserRegistration, er
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainUserRegistration{}, err
 	}
 
