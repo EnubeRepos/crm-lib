@@ -64,6 +64,7 @@ type DomainUser struct {
 	PasswordPreview        string             `json:"passwordPreview,omitempty"`
 	Password               string             `json:"password,omitempty"`
 	PasswordConfirm        string             `json:"passwordConfirm,omitempty"`
+	SendAccessInfo         bool               `json:"sendAccessInfo,omitempty"`
 }
 
 type EmailAddressData struct {
@@ -79,4 +80,12 @@ type PhoneNumberData struct {
 	Primary     bool   `json:"primary,omitempty"`
 	OptOut      bool   `json:"optOut,omitempty"`
 	Invalid     bool   `json:"invalid,omitempty"`
+}
+
+type DomainUserSendAccessInfoPut struct {
+	ID              string `json:"id,omitempty"`
+	PasswordPreview string `json:"passwordPreview,omitempty"`
+	Password        string `json:"password,omitempty"`
+	PasswordConfirm string `json:"passwordConfirm,omitempty"`
+	SendAccessInfo  bool   `json:"sendAccessInfo,omitempty"`
 }
