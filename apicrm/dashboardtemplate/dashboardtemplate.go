@@ -16,7 +16,10 @@ func (svc *APIDashboardTemplateService) PutDashTemplateForUsers(ModelPut DomainP
 
 	var result bool
 
-	json.Unmarshal(response, &result)
+	err = json.Unmarshal(response, &result)
+	if err != nil {
+		return false, err
+	}
 
-	return result, nil
+	return result == true, nil
 }
