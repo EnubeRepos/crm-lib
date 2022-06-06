@@ -21,5 +21,5 @@ func (svc *APIDashboardTemplateService) PutDashTemplateForUsers(ModelPut DomainP
 		return false, err
 	}
 
-	return result == true, nil
+	return result, nil
 }
