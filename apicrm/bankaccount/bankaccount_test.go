@@ -19,15 +19,15 @@ func TestGetAccount(t *testing.T) {
 
 	srvAccount := New(client)
 
-	v, err := srvAccount.Get()
+	res, err := srvAccount.Get()
 
 	if err != nil {
 		t.Errorf("Error GET Account:: error: %v", err)
 		return
 	}
 
-	if v.Total == 0 {
-		t.Errorf("Error GET Account %q, wanted %q", v.Total, expected)
+	if res.Total == 0 {
+		t.Errorf("Error GET Account %q, wanted %q", res.Total, expected)
 	}
 
 }
@@ -39,15 +39,15 @@ func TestGetById(t *testing.T) {
 
 	srvAccount := New(client)
 
-	v, err := srvAccount.GetById(expectedId)
+	res, err := srvAccount.GetById(expectedId)
 
 	if err != nil {
 		t.Errorf("Error GET Account:: error: %v", err)
 		return
 	}
 
-	if v.ID != expectedId {
-		t.Errorf("Error GetId Account %s, wanted %s", v.ID, expectedId)
+	if res.ID != expectedId {
+		t.Errorf("Error GetId Account %s, wanted %s", res.ID, expectedId)
 	}
 
 }
@@ -77,14 +77,14 @@ func TestPost(t *testing.T) {
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
-	v, err := srvAccount.Post(DomainBankAccountCreateRequest{Agency: "00006", AccountNumber: "00009", AssignedUserID: "62151eeecd1187df0", SicCode: "40760176845", LastName: "Test", FirstName: "Thomas"})
+	res, err := srvAccount.Post(DomainBankAccountCreateRequest{Agency: "00006", AccountNumber: "00009", AssignedUserID: "62151eeecd1187df0", SicCode: "40760176845", LastName: "Test", FirstName: "Thomas"})
 
 	if err != nil {
 		t.Errorf("Error GET Image:: error: %v", err)
 		return
 	}
 
-	fmt.Println(v)
+	fmt.Println(res)
 }
 
 func TestDelete(t *testing.T) {

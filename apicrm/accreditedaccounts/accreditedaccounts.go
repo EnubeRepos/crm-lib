@@ -5,7 +5,6 @@ import "encoding/json"
 func (svc *APIAccreditedAccountsService) Get() (ResponseAccreditedAccounts, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityAccreditedAccounts, "")
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseAccreditedAccounts{}, err
 	}
 
@@ -15,7 +14,6 @@ func (svc *APIAccreditedAccountsService) Get() (ResponseAccreditedAccounts, erro
 func (svc *APIAccreditedAccountsService) GetById(id string) (DomainAccreditedAccounts, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityAccreditedAccounts, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainAccreditedAccounts{}, err
 	}
 
@@ -25,7 +23,6 @@ func (svc *APIAccreditedAccountsService) GetById(id string) (DomainAccreditedAcc
 func (svc *APIAccreditedAccountsService) GetByFilter(filter string) (ResponseAccreditedAccounts, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityAccreditedAccounts, "?"+filter)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseAccreditedAccounts{}, err
 	}
 

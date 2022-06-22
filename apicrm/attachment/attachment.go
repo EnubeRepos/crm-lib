@@ -26,7 +26,7 @@ func (svc *APIAttachmentService) GetById(attachmentId string) (DomainAttachment,
 }
 
 func (svc *APIAttachmentService) GetByFilter(filter string) (ResponseAttachment, error) {
-	responseHttp, err := svc.client.CRMHandlerGetService(EntityAttachment, "?"+filter) //changed was / instead of ?
+	responseHttp, err := svc.client.CRMHandlerGetService(EntityAttachment, "?"+filter)
 	if err != nil {
 		return ResponseAttachment{}, err
 	}

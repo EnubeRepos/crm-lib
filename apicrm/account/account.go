@@ -17,7 +17,6 @@ func (svc *APIAccountService) Get() (ResponseAccount, error) {
 func (svc *APIAccountService) GetById(id string) (DomainAccount, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityAccount, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainAccount{}, err
 	}
 
@@ -27,7 +26,6 @@ func (svc *APIAccountService) GetById(id string) (DomainAccount, error) {
 func (svc *APIAccountService) GetByFilter(filter string) (ResponseAccount, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityAccount, "?"+filter)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseAccount{}, err
 	}
 
@@ -49,23 +47,36 @@ func (svc *APIAccountService) Post(account DomainAccount) (DomainAccount, error)
 	return convertMarchalAccount(response)
 }
 
+/*
 // how does this work
-func (svc *APIAccountService) Update() (DomainAccount, error) {
+func (svc *APIAccountService) Update(account DomainAccount) (DomainAccount, error) {
 	//devo user o PUT ?
 	// como deve funcioar? tem que acessar uma entidade e trocar alguma field dela?
+    payload, err := json.Marshal(account)
+
+	if err != nil {
+		return DomainAccount{}, err
+	}
+
+	response, err := svc.client.CRMHandlerPutService(EntityAccount, payload)
+	if err != nil {
+		return DomainAccount{}, err
+	}
+
+	return convertMarchalAccount(response)
+
 
 }
+*/
 
-// test it
-func (svc *APIAccountService) Delete(id string) (bool, error) { //change it back to domain if shit fails
+func (svc *APIAccountService) Delete(id string) (bool, error) {
 	_, err := svc.client.CRMHandlerDeleteService(EntityAccount, "/"+id)
 	if err != nil {
 		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return false, err
 	}
 
-	return true, nil //error begins here
-
+	return true, nil
 }
 
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
@@ -84,7 +95,7 @@ func convertMarchalResponseAccount(response []byte) (ResponseAccount, error) {
 func convertMarchalAccount(response []byte) (DomainAccount, error) {
 	var result DomainAccount
 
-	err := json.Unmarshal(response, &result) //error occurs right here
+	err := json.Unmarshal(response, &result)
 	if err != nil {
 		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainAccount{}, err

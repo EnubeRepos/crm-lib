@@ -5,7 +5,6 @@ import "encoding/json"
 func (svc *APIContactService) Get() (ResponseContact, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityContact, "")
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseContact{}, err
 	}
 
@@ -15,7 +14,6 @@ func (svc *APIContactService) Get() (ResponseContact, error) {
 func (svc *APIContactService) GetById(id string) (DomainContact, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityContact, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainContact{}, err
 	}
 
@@ -25,7 +23,6 @@ func (svc *APIContactService) GetById(id string) (DomainContact, error) {
 func (svc *APIContactService) GetByFilter(filter string) (ResponseContact, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityContact, "?"+filter)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseContact{}, err
 	}
 
@@ -50,7 +47,6 @@ func (svc *APIContactService) Post(Contact DomainContact) (DomainContact, error)
 func (svc *APIContactService) Delete(id string) (bool, error) {
 	_, err := svc.client.CRMHandlerDeleteService(EntityContact, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return false, err
 	}
 

@@ -5,7 +5,6 @@ import "encoding/json"
 func (svc *APIStatusTrackingService) Get() (ResponseStatusTracking, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityStatusTracking, "")
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseStatusTracking{}, err
 	}
 
@@ -15,7 +14,6 @@ func (svc *APIStatusTrackingService) Get() (ResponseStatusTracking, error) {
 func (svc *APIStatusTrackingService) GetById(id string) (DomainStatusTracking, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityStatusTracking, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainStatusTracking{}, err
 	}
 
@@ -25,7 +23,6 @@ func (svc *APIStatusTrackingService) GetById(id string) (DomainStatusTracking, e
 func (svc *APIStatusTrackingService) GetByFilter(filter string) (ResponseStatusTracking, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityStatusTracking, "?"+filter)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseStatusTracking{}, err
 	}
 
@@ -50,7 +47,6 @@ func (svc *APIStatusTrackingService) Post(StatusTracking DomainStatusTracking) (
 func (svc *APIStatusTrackingService) Delete(id string) (bool, error) {
 	_, err := svc.client.CRMHandlerDeleteService(EntityStatusTracking, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return false, err
 	}
 

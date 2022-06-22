@@ -51,8 +51,8 @@ type DomainBankAccountBalanceCreateRequest struct {
 	ValueInProcess   float64 `json:"valueInProcess"`
 	ValueBlocked     float64 `json:"valueBlocked"`
 	AssignedUser     string  `json:"assignedUser"`     // I added
-	AssignedUserId   string  `json:"assignedUserId"`   // I
-	AssignedUserName string  `json:"assignedUserName"` // I
+	AssignedUserId   string  `json:"assignedUserId"`   // I added
+	AssignedUserName string  `json:"assignedUserName"` // I added
 }
 
 type DomainBankAccountBalanceCreateResponse struct {

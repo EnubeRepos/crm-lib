@@ -15,7 +15,6 @@ func (svc *APISalesService) Get() (ResponseSales, error) {
 func (svc *APISalesService) GetById(id string) (DomainSales, error) {
 	response, err := svc.client.CRMHandlerGetService(EntitySales, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainSales{}, err
 	}
 
@@ -25,7 +24,6 @@ func (svc *APISalesService) GetById(id string) (DomainSales, error) {
 func (svc *APISalesService) GetByFilter(filter string) (ResponseSales, error) {
 	response, err := svc.client.CRMHandlerGetService(EntitySales, "?"+filter)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseSales{}, err
 	}
 
@@ -50,7 +48,6 @@ func (svc *APISalesService) Post(Sales DomainSales) (DomainSales, error) {
 func (svc *APISalesService) Delete(id string) (bool, error) {
 	_, err := svc.client.CRMHandlerDeleteService(EntitySales, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return false, err
 	}
 

@@ -5,7 +5,6 @@ import "encoding/json"
 func (svc *APIRegistrationService) Get() (ResponseRegistration, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityRegistration, "")
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseRegistration{}, err
 	}
 
@@ -15,7 +14,6 @@ func (svc *APIRegistrationService) Get() (ResponseRegistration, error) {
 func (svc *APIRegistrationService) GetById(id string) (DomainRegistration, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityRegistration, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainRegistration{}, err
 	}
 
@@ -25,7 +23,6 @@ func (svc *APIRegistrationService) GetById(id string) (DomainRegistration, error
 func (svc *APIRegistrationService) GetByFilter(filter string) (ResponseRegistration, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityRegistration, "?"+filter)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseRegistration{}, err
 	}
 
@@ -50,7 +47,6 @@ func (svc *APIRegistrationService) Post(Registration DomainRegistration) (Domain
 func (svc *APIRegistrationService) Delete(id string) (bool, error) {
 	_, err := svc.client.CRMHandlerDeleteService(EntityRegistration, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return false, err
 	}
 

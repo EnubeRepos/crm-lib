@@ -5,7 +5,6 @@ import "encoding/json"
 func (svc *APIEventTrackingService) Get() (ResponseEventTracking, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityEventTracking, "")
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseEventTracking{}, err
 	}
 
@@ -15,7 +14,6 @@ func (svc *APIEventTrackingService) Get() (ResponseEventTracking, error) {
 func (svc *APIEventTrackingService) GetById(id string) (DomainEventTracking, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityEventTracking, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainEventTracking{}, err
 	}
 
@@ -25,7 +23,6 @@ func (svc *APIEventTrackingService) GetById(id string) (DomainEventTracking, err
 func (svc *APIEventTrackingService) GetByFilter(filter string) (ResponseEventTracking, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityEventTracking, "?"+filter)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseEventTracking{}, err
 	}
 
@@ -50,7 +47,6 @@ func (svc *APIEventTrackingService) Post(EventTracking DomainEventTracking) (Dom
 func (svc *APIEventTrackingService) Delete(id string) (bool, error) {
 	_, err := svc.client.CRMHandlerDeleteService(EntityEventTracking, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return false, err
 	}
 

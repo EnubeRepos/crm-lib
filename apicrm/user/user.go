@@ -5,7 +5,6 @@ import "encoding/json"
 func (svc *APIUserService) Get() (ResponseUser, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityUser, "")
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseUser{}, err
 	}
 
@@ -15,7 +14,6 @@ func (svc *APIUserService) Get() (ResponseUser, error) {
 func (svc *APIUserService) GetById(id string) (DomainUser, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityUser, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainUser{}, err
 	}
 
@@ -25,7 +23,6 @@ func (svc *APIUserService) GetById(id string) (DomainUser, error) {
 func (svc *APIUserService) GetByFilter(filter string) (ResponseUser, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityUser, "?"+filter)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseUser{}, err
 	}
 
@@ -50,7 +47,6 @@ func (svc *APIUserService) Post(User DomainUser) (DomainUser, error) {
 func (svc *APIUserService) Delete(id string) (bool, error) {
 	_, err := svc.client.CRMHandlerDeleteService(EntityUser, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return false, err
 	}
 

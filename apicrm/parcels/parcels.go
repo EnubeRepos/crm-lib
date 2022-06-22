@@ -5,7 +5,6 @@ import "encoding/json"
 func (svc *APIParcelsService) Get() (ResponseParcels, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityParcels, "")
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseParcels{}, err
 	}
 
@@ -15,7 +14,6 @@ func (svc *APIParcelsService) Get() (ResponseParcels, error) {
 func (svc *APIParcelsService) GetById(id string) (DomainParcels, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityParcels, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainParcels{}, err
 	}
 
@@ -25,7 +23,6 @@ func (svc *APIParcelsService) GetById(id string) (DomainParcels, error) {
 func (svc *APIParcelsService) GetByFilter(filter string) (ResponseParcels, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityParcels, "?"+filter)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseParcels{}, err
 	}
 
@@ -50,7 +47,6 @@ func (svc *APIParcelsService) Post(Parcels DomainParcels) (DomainParcels, error)
 func (svc *APIParcelsService) Delete(id string) (bool, error) {
 	_, err := svc.client.CRMHandlerDeleteService(EntityParcels, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return false, err
 	}
 

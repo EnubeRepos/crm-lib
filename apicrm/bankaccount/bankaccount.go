@@ -7,7 +7,6 @@ import (
 func (svc *APIBankAccountService) Get() (ResponseBankAccount, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityBankAccount, "")
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseBankAccount{}, err
 	}
 
@@ -17,7 +16,6 @@ func (svc *APIBankAccountService) Get() (ResponseBankAccount, error) {
 func (svc *APIBankAccountService) GetById(id string) (DomainBankAccount, error) {
 	responseHttp, err := svc.client.CRMHandlerGetService(EntityBankAccount, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainBankAccount{}, err
 	}
 
@@ -30,7 +28,6 @@ func (svc *APIBankAccountService) GetById(id string) (DomainBankAccount, error) 
 func (svc *APIBankAccountService) GetByFilter(filter string) (ResponseBankAccount, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityBankAccount, "?"+filter)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseBankAccount{}, err
 	}
 
@@ -58,7 +55,6 @@ func (svc *APIBankAccountService) Post(BankAccount DomainBankAccountCreateReques
 func (svc *APIBankAccountService) Delete(id string) (bool, error) {
 	_, err := svc.client.CRMHandlerDeleteService(EntityBankAccount, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return false, err
 	}
 

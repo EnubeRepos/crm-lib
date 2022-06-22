@@ -5,7 +5,6 @@ import "encoding/json"
 func (svc *APIFinTransactionService) Get() (ResponseFinTransaction, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityFinTransaction, "")
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseFinTransaction{}, err
 	}
 
@@ -15,7 +14,6 @@ func (svc *APIFinTransactionService) Get() (ResponseFinTransaction, error) {
 func (svc *APIFinTransactionService) GetById(id string) (DomainFinTransaction, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityFinTransaction, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainFinTransaction{}, err
 	}
 
@@ -25,7 +23,6 @@ func (svc *APIFinTransactionService) GetById(id string) (DomainFinTransaction, e
 func (svc *APIFinTransactionService) GetByFilter(filter string) (ResponseFinTransaction, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityFinTransaction, "?"+filter)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseFinTransaction{}, err
 	}
 
@@ -50,7 +47,6 @@ func (svc *APIFinTransactionService) Post(FinTransaction interface{}) (DomainFin
 func (svc *APIFinTransactionService) Delete(id string) (bool, error) {
 	_, err := svc.client.CRMHandlerDeleteService(EntityFinTransaction, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return false, err
 	}
 
