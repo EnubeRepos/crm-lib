@@ -98,14 +98,14 @@ func (api *CRMAPIClient) CRMHandlerPostService(resource string, payload []byte) 
 		return nil, err
 	}
 
-	err = isValidResponse(res)
+	err = isValidResponse(res) //
 
 	return body, err
 }
 
 // CRMHandlerDeleteService delete request in the CRM API
-func (api *CRMAPIClient) CRMHandlerDeleteService(resource, params string) ([]byte, error) {
-	url := api.BaseURL + resource
+func (api *CRMAPIClient) CRMHandlerDeleteService(resource string, params string) ([]byte, error) {
+	url := api.BaseURL + resource + params //remove params
 	method := "DELETE"
 
 	client := &http.Client{}

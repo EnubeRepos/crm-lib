@@ -1,4 +1,4 @@
-package bankaccountbalances
+package user
 
 import (
 	"testing"
@@ -11,7 +11,7 @@ const (
 	TOKEN = "Y29ubmVjdF91c2VyX3dvcmtlcnM6R21YZTg4MXR0Ug=="
 )
 
-func TestGet(t *testing.T) {
+func TestGetUser(t *testing.T) {
 	expected := 1
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
@@ -26,11 +26,12 @@ func TestGet(t *testing.T) {
 	if res.Total == 0 {
 		t.Errorf("Error GET Account %q, wanted %q", res.Total, expected)
 	}
+
+	//fmt.Print(res)
 }
 
-// when click on instance it moves to bankAccount link instead of staying at bankAccountBalence
-func TestGetById(t *testing.T) {
-	expectedId := "62a8da8a8f4c6faf9"
+func TestGetUserById(t *testing.T) {
+	expectedId := "6272e3899e60990fc"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
@@ -44,11 +45,10 @@ func TestGetById(t *testing.T) {
 	if res.ID != expectedId {
 		t.Errorf("Error GetId Account %s, wanted %s", res.ID, expectedId)
 	}
-
 }
 
-func TestGetByFilter(t *testing.T) {
-	filter := "where%5B0%5D%5Btype%5D=linkedWith&where%5B0%5D%5Battribute%5D=teams&where%5B0%5D%5Bvalue%5D%5B%5D=62388f571a0bf1e48"
+func TestGetUserByFilter(t *testing.T) {
+	filter := "where%5B0%5D%5Btype%5D=in&where%5B0%5D%5Battribute%5D=type&where%5B0%5D%5Bvalue%5D%5B%5D=admin"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
@@ -65,38 +65,31 @@ func TestGetByFilter(t *testing.T) {
 
 }
 
-func TestPost(t *testing.T) {
-	//generetedId := common.GenerateUUID()
-	//expected := generetedId + "Test Enube"
+func TestPostUser(t *testing.T) {
+	expected := "Thomas Test"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
-	v, err := srvAccount.Post(DomainBankAccountBalanceCreateRequest{
-		//ID
-		ValueAvailable:   20,
-		ValueInProcess:   13,
-		ValueBlocked:     34,
-		BankAccountId:    "6272dfb1d6499bae2",
-		BankAccountName:  "Thomas Test",
-		AssignedUser:     "",
-		AssignedUserName: "thomas thomas",
-		AssignedUserId:   "12345",
+	res, err := srvAccount.Post(DomainUser{
+		Name:         expected,
+		UserName:     expected,
+		EmailAddress: "thomas@enube.me",
+		SicCode:      "0",
+		PhoneNumber:  "0",
 	})
 
 	if err != nil {
-		t.Errorf("Error GET Image:: error: %v", err)
+		t.Errorf("Error POST Account:: error: %v", err)
 		return
 	}
 
-	if v.ID == "" {
-		t.Errorf("Error On create balance:: error: %v", err)
-		return
+	if res.Name != expected {
+		t.Errorf("Error POST Account %q, wanted %q", res.ID, expected)
 	}
-
 }
 
-func TestDelete(t *testing.T) {
-	id := "62acb1e9a311a02bb"
+func TestDeleteUser(t *testing.T) {
+	id := "62a0e791b3a6cc875"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
@@ -112,5 +105,4 @@ func TestDelete(t *testing.T) {
 		t.Errorf("Error DELETE: Account not deleted")
 		return
 	}
-
 }

@@ -47,14 +47,14 @@ func (svc *APIContactService) Post(Contact DomainContact) (DomainContact, error)
 	return convertMarchalContact(response)
 }
 
-func (svc *APIContactService) Delete() (ResponseContact, error) {
-	response, err := svc.client.CRMHandlerDeleteService(EntityContact, "")
+func (svc *APIContactService) Delete(id string) (bool, error) {
+	_, err := svc.client.CRMHandlerDeleteService(EntityContact, "/"+id)
 	if err != nil {
 		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
-		return ResponseContact{}, err
+		return false, err
 	}
 
-	return convertMarchalResponseContact(response)
+	return true, nil
 }
 
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain

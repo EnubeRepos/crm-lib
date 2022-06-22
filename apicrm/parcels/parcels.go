@@ -47,14 +47,14 @@ func (svc *APIParcelsService) Post(Parcels DomainParcels) (DomainParcels, error)
 	return convertMarchalParcels(response)
 }
 
-func (svc *APIParcelsService) Delete() (ResponseParcels, error) {
-	response, err := svc.client.CRMHandlerDeleteService(EntityParcels, "")
+func (svc *APIParcelsService) Delete(id string) (bool, error) {
+	_, err := svc.client.CRMHandlerDeleteService(EntityParcels, "/"+id)
 	if err != nil {
 		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
-		return ResponseParcels{}, err
+		return false, err
 	}
 
-	return convertMarchalResponseParcels(response)
+	return true, nil
 }
 
 func (svc *APIParcelsService) PutAuthCode(ModelPutAuthCode DomainParcelsPutAuthCode) (DomainParcels, error) {

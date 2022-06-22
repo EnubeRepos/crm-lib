@@ -15,18 +15,18 @@ func (svc *APIAttachmentService) Get() (ResponseAttachment, error) {
 	return convertMarchalResponse(responseHttp)
 }
 
-func (svc *APIAttachmentService) GetById(attachmentId string) (ResponseAttachment, error) {
+func (svc *APIAttachmentService) GetById(attachmentId string) (DomainAttachment, error) {
 	responseHttp, err := svc.client.CRMHandlerGetService(EntityAttachment, "/"+attachmentId)
 
 	if err != nil {
-		return ResponseAttachment{}, err
+		return DomainAttachment{}, err
 	}
 
-	return convertMarchalResponse(responseHttp)
+	return convertMarchalResponseSingle(responseHttp)
 }
 
 func (svc *APIAttachmentService) GetByFilter(filter string) (ResponseAttachment, error) {
-	responseHttp, err := svc.client.CRMHandlerGetService(EntityAttachment, "/"+filter)
+	responseHttp, err := svc.client.CRMHandlerGetService(EntityAttachment, "?"+filter) //changed was / instead of ?
 	if err != nil {
 		return ResponseAttachment{}, err
 	}
@@ -49,14 +49,14 @@ func (svc *APIAttachmentService) Post(model DomainAttachment) (DomainAttachment,
 	return convertMarchalResponseSingle(responseHttp)
 }
 
-func (svc *APIAttachmentService) Delete() (ResponseAttachment, error) {
-	responseHttp, err := svc.client.CRMHandlerDeleteService(EntityAttachment, "")
+func (svc *APIAttachmentService) Delete(id string) (bool, error) {
+	_, err := svc.client.CRMHandlerDeleteService(EntityAttachment, "/"+id)
 
 	if err != nil {
-		return ResponseAttachment{}, err
+		return false, err
 	}
 
-	return convertMarchalResponse(responseHttp)
+	return true, nil
 }
 
 func convertMarchalResponse(response []byte) (ResponseAttachment, error) {

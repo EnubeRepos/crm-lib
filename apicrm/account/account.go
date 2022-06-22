@@ -49,26 +49,24 @@ func (svc *APIAccountService) Post(account DomainAccount) (DomainAccount, error)
 	return convertMarchalAccount(response)
 }
 
-// test it
-func (svc *APIAccountService) Delete() (ResponseAccount, error) {
-	response, err := svc.client.CRMHandlerDeleteService(EntityAccount, "")
-	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
-		return ResponseAccount{}, err
-	}
-
-	return convertMarchalResponseAccount(response)
-
-}
-
-/*
-
 // how does this work
 func (svc *APIAccountService) Update() (DomainAccount, error) {
+	//devo user o PUT ?
+	// como deve funcioar? tem que acessar uma entidade e trocar alguma field dela?
 
 }
 
-*/
+// test it
+func (svc *APIAccountService) Delete(id string) (bool, error) { //change it back to domain if shit fails
+	_, err := svc.client.CRMHandlerDeleteService(EntityAccount, "/"+id)
+	if err != nil {
+		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
+		return false, err
+	}
+
+	return true, nil //error begins here
+
+}
 
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponseAccount(response []byte) (ResponseAccount, error) {
@@ -86,7 +84,7 @@ func convertMarchalResponseAccount(response []byte) (ResponseAccount, error) {
 func convertMarchalAccount(response []byte) (DomainAccount, error) {
 	var result DomainAccount
 
-	err := json.Unmarshal(response, &result)
+	err := json.Unmarshal(response, &result) //error occurs right here
 	if err != nil {
 		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainAccount{}, err

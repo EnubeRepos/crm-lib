@@ -2,13 +2,13 @@ package business
 
 import "encoding/json"
 
-func (svc *APIRegistrationService) Get() (DomainBusiness, error) {
+func (svc *APIRegistrationService) Get() (ResponseBusiness, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityBusiness, "")
 	if err != nil {
-		return DomainBusiness{}, err
+		return ResponseBusiness{}, err
 	}
 
-	return convertMarchalBusiness(response)
+	return convertMarchalResponseBusiness(response)
 
 }
 
@@ -45,13 +45,13 @@ func (svc *APIRegistrationService) Post(request DomainBusiness) (DomainBusiness,
 	return convertMarchalBusiness(response)
 }
 
-func (svc *APIRegistrationService) Delete() (DomainBusiness, error) {
-	response, err := svc.client.CRMHandlerDeleteService(EntityBusiness, "")
+func (svc *APIRegistrationService) Delete(id string) (bool, error) {
+	_, err := svc.client.CRMHandlerDeleteService(EntityBusiness, "/"+id)
 	if err != nil {
-		return DomainBusiness{}, err
+		return false, err
 	}
 
-	return convertMarchalBusiness(response)
+	return true, nil
 
 }
 
@@ -63,6 +63,18 @@ func convertMarchalBusiness(response []byte) (DomainBusiness, error) {
 	if err != nil {
 		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainBusiness{}, err
+	}
+
+	return result, nil
+}
+
+func convertMarchalResponseBusiness(response []byte) (ResponseBusiness, error) {
+	var result ResponseBusiness
+
+	err := json.Unmarshal(response, &result)
+	if err != nil {
+		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
+		return ResponseBusiness{}, err
 	}
 
 	return result, nil

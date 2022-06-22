@@ -47,14 +47,14 @@ func (svc *APIStatusTrackingService) Post(StatusTracking DomainStatusTracking) (
 	return convertMarchalStatusTracking(response)
 }
 
-func (svc *APIStatusTrackingService) Delete() (ResponseStatusTracking, error) {
-	response, err := svc.client.CRMHandlerDeleteService(EntityStatusTracking, "")
+func (svc *APIStatusTrackingService) Delete(id string) (bool, error) {
+	_, err := svc.client.CRMHandlerDeleteService(EntityStatusTracking, "/"+id)
 	if err != nil {
 		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
-		return ResponseStatusTracking{}, err
+		return false, err
 	}
 
-	return convertMarchalResponseStatusTracking(response)
+	return true, nil
 }
 
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain

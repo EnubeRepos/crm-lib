@@ -63,4 +63,5 @@ type DomainCommissions struct {
 	IntegratorFeeConverted     float64  `json:"integratorFeeConverted,omitempty"`
 	IsFollowed                 bool     `json:"isFollowed,omitempty"`
 	FollowersIds               []string `json:"followersIds,omitempty"`
+	RecipientDocumentNumber    string   `json:"recipientDocumentNumber,omitempty"` // I created this field
 }

@@ -27,7 +27,7 @@ type DomainUser struct {
 	Gender                 string             `json:"gender,omitempty"`
 	CreatedAt              string             `json:"createdAt,omitempty"`
 	ModifiedAt             string             `json:"modifiedAt,omitempty"`
-	Auth2FA                string             `json:"auth2FA,omitempty"`
+	Auth2FA                bool               `json:"auth2FA,omitempty"` //was string
 	LastAccess             string             `json:"lastAccess,omitempty"`
 	SicCode                string             `json:"sicCode,omitempty"`
 	ProfileType            string             `json:"profileType,omitempty"`

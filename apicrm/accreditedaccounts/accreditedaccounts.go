@@ -47,13 +47,13 @@ func (svc *APIAccreditedAccountsService) Post(AccreditedAccounts DomainAccredite
 	return convertMarchalAccreditedAccounts(response)
 }
 
-func (svc *APIAccreditedAccountsService) Delete() (ResponseAccreditedAccounts, error) {
-	response, err := svc.client.CRMHandlerDeleteService(EntityAccreditedAccounts, "")
+func (svc *APIAccreditedAccountsService) Delete(id string) (bool, error) {
+	_, err := svc.client.CRMHandlerDeleteService(EntityAccreditedAccounts, "/"+id)
 	if err != nil {
-		return ResponseAccreditedAccounts{}, err
+		return false, err
 	}
 
-	return convertMarchalResponseAccreditedAccounts(response)
+	return true, nil
 
 }
 

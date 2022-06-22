@@ -24,14 +24,17 @@ type DomainBankAccountBalance struct {
 	ValueSumVirtualCurrency string  `json:"valueSumVirtualCurrency"`
 	BankAccountId           string  `json:"bankAccountId"`
 	BankAccountName         string  `json:"bankAccountName"`
+	//AssignedUser            string  `json:"assignedUser"` // i added
+	//AssignedUserId          string  `json:"assignedUserId"`
+	//AssignedUserName        string  `json:"assignedUserName"`
+
 	//CreatedAt                string        `json:"createdAt"`
 	//ModifiedAt               string        `json:"modifiedAt"`
 	//CreatedById              string        `json:"createdById"`
 	//CreatedByName            string        `json:"createdByName"`
 	//ModifiedById             string        `json:"modifiedById"`
 	//ModifiedByName           string        `json:"modifiedByName"`
-	//AssignedUserId           string        `json:"assignedUserId"`
-	//AssignedUserName         string        `json:"assignedUserName"`
+
 	//TeamsIds                 []string `json:"teamsIds"`
 	//TeamsNames               Teamsnames    `json:"teamsNames"`
 	//ValueAvailableConverted  float64           `json:"valueAvailableConverted"`
@@ -41,11 +44,15 @@ type DomainBankAccountBalance struct {
 }
 
 type DomainBankAccountBalanceCreateRequest struct {
-	//ID             string  `json:"id"`
-	BankAccountId  string  `json:"bankAccountId"`
-	ValueAvailable float64 `json:"valueAvailable"`
-	ValueInProcess float64 `json:"valueInProcess"`
-	ValueBlocked   float64 `json:"valueBlocked"`
+	ID               string  `json:"id"`
+	BankAccountId    string  `json:"bankAccountId"`
+	BankAccountName  string  `json:"bankAccountName"`
+	ValueAvailable   float64 `json:"valueAvailable"`
+	ValueInProcess   float64 `json:"valueInProcess"`
+	ValueBlocked     float64 `json:"valueBlocked"`
+	AssignedUser     string  `json:"assignedUser"`     // I added
+	AssignedUserId   string  `json:"assignedUserId"`   // I
+	AssignedUserName string  `json:"assignedUserName"` // I
 }
 
 type DomainBankAccountBalanceCreateResponse struct {

@@ -47,14 +47,14 @@ func (svc *APIUserService) Post(User DomainUser) (DomainUser, error) {
 	return convertMarchalUser(response)
 }
 
-func (svc *APIUserService) Delete() (ResponseUser, error) {
-	response, err := svc.client.CRMHandlerDeleteService(EntityUser, "")
+func (svc *APIUserService) Delete(id string) (bool, error) {
+	_, err := svc.client.CRMHandlerDeleteService(EntityUser, "/"+id)
 	if err != nil {
 		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
-		return ResponseUser{}, err
+		return false, err
 	}
 
-	return convertMarchalResponseUser(response)
+	return true, nil
 }
 
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain

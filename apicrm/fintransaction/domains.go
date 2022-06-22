@@ -24,7 +24,7 @@ type DomainFinTransaction struct {
 	CreatedAt                         string   `json:"createdAt"`
 	ModifiedAt                        string   `json:"modifiedAt"`
 	TransactionType                   string   `json:"transactionType"`
-	Value                             string   `json:"value"`
+	Value                             float32  `json:"value"` // was string i CAHNGED TO FLOAT32
 	AccountTransaction                string   `json:"accountTransaction"`
 	Amount                            float64  `json:"amount"`
 	ConfirmTransaction                bool     `json:"confirmTransaction"`
@@ -47,7 +47,7 @@ type DomainFinTransaction struct {
 	RecipientAccountBankIspb          string   `json:"recipientAccountBankIspb"`
 	RecipientAccountBankCode          string   `json:"recipientAccountBankCode"`
 	RecipientAccountBankName          string   `json:"recipientAccountBankName"`
-	RecipientAccountBalanceValue      string   `json:"recipientAccountBalanceValue"`
+	RecipientAccountBalanceValue      float32  `json:"recipientAccountBalanceValue"` //was string
 	RecipientAccountBalanceCurrrency  string   `json:"recipientAccountBalanceCurrrency"`
 	RecipientStatus                   string   `json:"recipientStatus"`
 	ChannelName                       string   `json:"channelName"`
@@ -77,7 +77,7 @@ type DomainFinTransaction struct {
 	TeamsIds                          []string `json:"teamsIds"`
 	StatusTrackingID                  string   `json:"statusTrackingId"`
 	StatusTrackingName                string   `json:"statusTrackingName"`
-	ValueConverted                    string   `json:"valueConverted"`
+	ValueConverted                    float32  `json:"valueConverted"` // was string changed to float32
 	SalesOrderID                      string   `json:"salesOrderId"`
 	SalesOrderName                    string   `json:"salesOrderName"`
 	BankAccountID                     string   `json:"bankAccountId"`
