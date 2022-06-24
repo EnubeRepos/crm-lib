@@ -89,3 +89,8 @@ type DomainUserSendAccessInfoPut struct {
 	PasswordConfirm string `json:"passwordConfirm,omitempty"`
 	SendAccessInfo  bool   `json:"sendAccessInfo,omitempty"`
 }
+
+type DomainUserDashBoardTemplate struct {
+	ID                  string `json:"id,omitempty"`
+	DashboardTemplateID string `json:"dashboardTemplateId,omitempty"`
+}
