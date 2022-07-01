@@ -1,6 +1,7 @@
 package dashboardtemplate
 
 const EntityDashboardTemplate string = "DashboardTemplate"
+const EntityDashboardTemplateDeplorToUsers string = "DashboardTemplate/action/deployToUsers"
 
 // ResponseDashboardTemplate .
 type ResponseDashboardTemplate struct {
