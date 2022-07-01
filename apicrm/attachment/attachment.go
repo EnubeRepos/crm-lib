@@ -2,7 +2,7 @@ package attachment
 
 import (
 	"encoding/json"
-	//"golang.org/x/sys/windows/svc"
+	"fmt"
 )
 
 func (svc *APIAttachmentService) Get() (ResponseAttachment, error) {
@@ -16,6 +16,12 @@ func (svc *APIAttachmentService) Get() (ResponseAttachment, error) {
 }
 
 func (svc *APIAttachmentService) GetById(attachmentId string) (DomainAttachment, error) {
+	expectedLen := 17
+	idLen := len([]rune(attachmentId))
+
+	if idLen != expectedLen {
+		return DomainAttachment{}, fmt.Errorf("error: invalid id expected length of %d but got length of %d", expectedLen, idLen)
+	}
 	responseHttp, err := svc.client.CRMHandlerGetService(EntityAttachment, "/"+attachmentId)
 
 	if err != nil {
@@ -26,6 +32,11 @@ func (svc *APIAttachmentService) GetById(attachmentId string) (DomainAttachment,
 }
 
 func (svc *APIAttachmentService) GetByFilter(filter string) (ResponseAttachment, error) {
+	if filter == "" {
+		return ResponseAttachment{}, fmt.Errorf("error: invalid filter, filter cannot be empty")
+
+	}
+
 	responseHttp, err := svc.client.CRMHandlerGetService(EntityAttachment, "?"+filter)
 	if err != nil {
 		return ResponseAttachment{}, err
@@ -49,7 +60,31 @@ func (svc *APIAttachmentService) Post(model DomainAttachment) (DomainAttachment,
 	return convertMarchalResponseSingle(responseHttp)
 }
 
+func (svc *APIAttachmentService) Put(account DomainAttachment) (DomainAttachment, error) {
+
+	payload, err := json.Marshal(account)
+
+	if err != nil {
+		return DomainAttachment{}, err
+	}
+
+	response, err := svc.client.CRMHandlerPutService(EntityAttachment+"/"+account.ID, payload)
+	if err != nil {
+		return DomainAttachment{}, err
+	}
+
+	return convertMarchalResponseSingle(response)
+
+}
+
 func (svc *APIAttachmentService) Delete(id string) (bool, error) {
+
+	expectedLen := 17
+	idLen := len([]rune(id))
+
+	if idLen != expectedLen {
+		return false, fmt.Errorf("error: invalid id expected length of %d but got length of %d", expectedLen, idLen)
+	}
 	_, err := svc.client.CRMHandlerDeleteService(EntityAttachment, "/"+id)
 
 	if err != nil {
@@ -64,7 +99,6 @@ func convertMarchalResponse(response []byte) (ResponseAttachment, error) {
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseAttachment{}, err
 	}
 
@@ -76,7 +110,6 @@ func convertMarchalResponseSingle(response []byte) (DomainAttachment, error) {
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainAttachment{}, err
 	}
 

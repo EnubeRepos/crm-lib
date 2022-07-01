@@ -10,6 +10,14 @@ type ResponseFinTransaction struct {
 	FinTransaction []DomainFinTransaction `json:"list,omitempty"`
 }
 
+type DomainFinTransactionBase struct {
+	ID            string  `json:"id"`
+	Name          string  `json:"name"`
+	Value         float32 `json:"value"`
+	DateStartDate string  `json:"dateStartDate"`
+	DateEndDate   string  `json:"dateEndDate"`
+}
+
 // FinTransaction
 type DomainFinTransaction struct {
 	ID                                string   `json:"id"`
@@ -24,7 +32,7 @@ type DomainFinTransaction struct {
 	CreatedAt                         string   `json:"createdAt"`
 	ModifiedAt                        string   `json:"modifiedAt"`
 	TransactionType                   string   `json:"transactionType"`
-	Value                             float32  `json:"value"` // was string i CAHNGED TO FLOAT32
+	Value                             float32  `json:"value"`
 	AccountTransaction                string   `json:"accountTransaction"`
 	Amount                            float64  `json:"amount"`
 	ConfirmTransaction                bool     `json:"confirmTransaction"`
@@ -47,7 +55,7 @@ type DomainFinTransaction struct {
 	RecipientAccountBankIspb          string   `json:"recipientAccountBankIspb"`
 	RecipientAccountBankCode          string   `json:"recipientAccountBankCode"`
 	RecipientAccountBankName          string   `json:"recipientAccountBankName"`
-	RecipientAccountBalanceValue      float32  `json:"recipientAccountBalanceValue"` //was string
+	RecipientAccountBalanceValue      float32  `json:"recipientAccountBalanceValue"`
 	RecipientAccountBalanceCurrrency  string   `json:"recipientAccountBalanceCurrrency"`
 	RecipientStatus                   string   `json:"recipientStatus"`
 	ChannelName                       string   `json:"channelName"`
@@ -77,7 +85,7 @@ type DomainFinTransaction struct {
 	TeamsIds                          []string `json:"teamsIds"`
 	StatusTrackingID                  string   `json:"statusTrackingId"`
 	StatusTrackingName                string   `json:"statusTrackingName"`
-	ValueConverted                    float32  `json:"valueConverted"` // was string changed to float32
+	ValueConverted                    float32  `json:"valueConverted"`
 	SalesOrderID                      string   `json:"salesOrderId"`
 	SalesOrderName                    string   `json:"salesOrderName"`
 	BankAccountID                     string   `json:"bankAccountId"`

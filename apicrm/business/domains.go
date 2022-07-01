@@ -9,7 +9,7 @@ type ResponseBusiness struct {
 
 // Registration
 type DomainBusiness struct {
-	ID                         string `json:"id,omitempty"` // I created
+	ID                         string `json:"id,omitempty"`
 	DocumentNumber             string `json:"documentNumber,omitempty"`
 	BillingAddressStreet       string `json:"billingAddressStreet,omitempty"`
 	BillingAddressCity         string `json:"billingAddressCity,omitempty"`

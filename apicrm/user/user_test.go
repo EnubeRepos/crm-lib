@@ -27,8 +27,6 @@ func TestGetUser(t *testing.T) {
 	if res.Total == 0 {
 		t.Errorf("Error GET Account %q, wanted %q", res.Total, expected)
 	}
-
-	//fmt.Print(res)
 }
 
 func TestGetUserById(t *testing.T) {
@@ -85,10 +83,23 @@ func TestPostUser(t *testing.T) {
 	}
 
 	fmt.Println(res)
+}
 
-	// if res.Name != expected {
-	// 	t.Errorf("Error POST Account %q, wanted %q", res.ID, expected)
-	// }
+func TestPutUser(t *testing.T) {
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+
+	srvAccount := New(client)
+	res, err := srvAccount.Put(DomainUserBase{
+		ID:           "628bd60a8bd077f51",
+		EmailAddress: "thomas@enube.me",
+	})
+
+	if err != nil {
+		t.Errorf("Error PUT Account:: error: %v", err)
+		return
+	}
+
+	fmt.Println(res)
 }
 
 func TestDeleteUser(t *testing.T) {

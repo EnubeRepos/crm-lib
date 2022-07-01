@@ -8,9 +8,10 @@ type ResponseSales struct {
 	Sales []DomainSales `json:"list,omitempty"`
 }
 
-// Account //mising stuff? // Do I create it? How do I know what fields I have to inicialize
-
-//didn't have any field
+type DomainSalesBase struct {
+	ID     string `json:"id,omitempty"`
+	Status string `json:"status,omitempty"`
+}
 
 type DomainSales struct {
 	ID string `json:"id,omitempty"`

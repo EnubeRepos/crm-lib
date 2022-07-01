@@ -70,96 +70,11 @@ func TestPostTransaction(t *testing.T) {
 
 	srvAccount := New(client)
 	res, err := srvAccount.Post(DomainFinTransaction{
-		ID:                               "",
-		Name:                             "Transaction",
-		Deleted:                          false,
-		Status:                           string(StatusWaiting),
-		DateStart:                        "",
-		DateEnd:                          "",
-		IsAllDay:                         true,
-		Duration:                         3,
-		Description:                      "",
-		CreatedAt:                        "",
-		ModifiedAt:                       "",
-		TransactionType:                  string(TransactionTypeTED),
-		Value:                            float32(expectedValue),
-		AccountTransaction:               string(AccountTransactionSent),
-		Amount:                           9,
-		ConfirmTransaction:               true,
-		ScheduleTransaction:              "",
-		ExternalOrigin:                   "",
-		EntityID:                         "",
-		IdEmpotencyKey:                   "",
-		CompanyKey:                       "",
-		Context:                          "",
-		Timestamp:                        "",
-		CorrelationID:                    "",
-		Version:                          "",
-		AuthenticationCode:               "",
-		RecipientDocumentValue:           "",
-		RecipientDocumentType:            "",
-		RecipientType:                    "",
-		RecipientName:                    "",
-		RecipientAccountBranch:           "",
-		RecipientAccountNumber:           "",
-		RecipientAccountBankIspb:         "",
-		RecipientAccountBankCode:         "",
-		RecipientAccountBankName:         "",
-		RecipientAccountBalanceValue:     22,
-		RecipientAccountBalanceCurrrency: "",
-		RecipientStatus:                  "",
-		ChannelName:                      "",
-		ChannelControlNumber:             "",
-		ChannelControlNumberOriginal:     "",
-		ChannelOwnerNumber:               "",
-		SenderDocumentValue:              "",
-		SenderDocumentType:               "",
-		SenderType:                       "",
-		SenderName:                       "",
-		SenderAccountBranch:              "",
-		SenderAccountNumber:              "",
-		SenderAccountBankIspb:            "",
-		SenderAccountBankCode:            "",
-		SenderAccountBankName:            "",
-		SenderStatus:                     "",
-		DateStartDate:                    "06.06.2022",
-		DateEndDate:                      "08.08.2022",
-		ValueCurrency:                    "",
-		ParentType:                       "",
-		ParentName:                       "",
-		Commission:                       true,
-		TransactionCategory:              "",
-		ParentID:                         "",
-		AssignedUserID:                   "",
-		AssignedUserName:                 "",
-		//TeamsIds                :          []string `json:"teamsIds"`
-		StatusTrackingID:                  "",
-		StatusTrackingName:                "",
-		ValueConverted:                    3,
-		SalesOrderID:                      "",
-		SalesOrderName:                    "",
-		BankAccountID:                     "",
-		BankAccountName:                   "",
-		CommissionsID:                     "",
-		CommissionsName:                   "",
-		DocumentID:                        "",
-		DocumentName:                      "",
-		ParcelID:                          "",
-		ParcelName:                        "",
-		ContactID:                         "",
-		ContactName:                       "",
-		TedID:                             "",
-		TedName:                           "",
-		UserID:                            "",
-		UserName:                          "",
-		PixID:                             "",
-		PixName:                           "",
-		PixKeyID:                          "",
-		PixKeyName:                        "",
-		InstitutionFinancialRecipientID:   "",
-		InstitutionFinancialRecipientName: "",
-		InstitutionFinancialSenderID:      "",
-		InstitutionFinancialSenderName:    "",
+		ID:            "",
+		Name:          "Transaction",
+		Value:         float32(expectedValue),
+		DateStartDate: "06.06.2022",
+		DateEndDate:   "08.08.2022",
 	})
 
 	if err != nil {
@@ -169,9 +84,26 @@ func TestPostTransaction(t *testing.T) {
 
 	fmt.Println(res)
 
-	// if res.Value != float32(expectedValue) {
-	// 	t.Errorf("Error POST Account %q, wanted %f", res.ID, expectedValue)
-	// }
+}
+
+func TestPutTransaction(t *testing.T) {
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+
+	srvAccount := New(client)
+	res, err := srvAccount.Put(DomainFinTransactionBase{
+		ID:            "62be00cf5a5ea526f",
+		Name:          "Transaction",
+		Value:         1000,
+		DateStartDate: "06.06.2022",
+		DateEndDate:   "08.08.2022",
+	})
+
+	if err != nil {
+		t.Errorf("Error PUT Account:: error: %v", err)
+		return
+	}
+
+	fmt.Println(res)
 }
 
 func TestDeleteTransaction(t *testing.T) {

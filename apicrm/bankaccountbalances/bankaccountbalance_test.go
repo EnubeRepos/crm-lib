@@ -29,9 +29,8 @@ func TestGet(t *testing.T) {
 	}
 }
 
-// when click on instance it moves to bankAccount link instead of staying at bankAccountBalence
 func TestGetById(t *testing.T) {
-	expectedId := "62a8da8a8f4c6faf9"
+	expectedId := "62a7883b667fc8df0"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
@@ -48,7 +47,6 @@ func TestGetById(t *testing.T) {
 
 }
 
-//not tested
 func TestGetByFilter(t *testing.T) {
 	filter := "where%5B0%5D%5Btype%5D=linkedWith&where%5B0%5D%5Battribute%5D=teams&where%5B0%5D%5Bvalue%5D%5B%5D=62388f571a0bf1e48"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
@@ -83,16 +81,38 @@ func TestPost(t *testing.T) {
 	})
 
 	if err != nil {
-		t.Errorf("Error GET Image:: error: %v", err)
+		t.Errorf("Error POST Image:: error: %v", err)
 		return
 	}
 
 	fmt.Println(res)
 
-	// if res.ID == "" {
-	// 	t.Errorf("Error On create balance:: error: %v", err)
-	// 	return
-	// }
+}
+
+func TestPut(t *testing.T) {
+
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+
+	srvAccount := New(client)
+	res, err := srvAccount.Put(DomainBankAccountBalanceCreateRequest{
+		ID:               "62a8da8a8f4c6faf9",
+		ValueSumVirtual:  69,
+		ValueAvailable:   20,
+		ValueInProcess:   13,
+		ValueBlocked:     34,
+		BankAccountId:    "62b5f5aa128a56e4f",
+		BankAccountName:  "Thomas Test",
+		AssignedUser:     "",
+		AssignedUserName: "thomas thomas",
+		AssignedUserId:   "12345",
+	})
+
+	if err != nil {
+		t.Errorf("Error PUT Account:: error: %v", err)
+		return
+	}
+
+	fmt.Println(res)
 
 }
 

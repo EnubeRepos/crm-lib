@@ -8,6 +8,12 @@ type ResponseUser struct {
 	User  []DomainUser `json:"list,omitempty"`
 }
 
+// estrutura usada para o put de registration, evitando erro de campos vazios
+type DomainUserBase struct {
+	ID           string `json:"id,omitempty"`
+	EmailAddress string `json:"emailAddress,omitempty"`
+}
+
 // Account
 type DomainUser struct {
 	ID                     string             `json:"id,omitempty"`

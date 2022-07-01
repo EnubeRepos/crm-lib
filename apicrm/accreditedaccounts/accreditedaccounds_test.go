@@ -30,7 +30,7 @@ func TestGet(t *testing.T) {
 }
 
 func TestGetById(t *testing.T) {
-	expectedId := "62aa18f5155e9195b"
+	expectedId := "62b0c68f59716a9f6"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
@@ -46,7 +46,6 @@ func TestGetById(t *testing.T) {
 	}
 }
 
-// not tested
 func TestGetByFilter(t *testing.T) {
 	filter := "where%5B0%5D%5Btype%5D=linkedWith&where%5B0%5D%5Battribute%5D=teams&where%5B0%5D%5Bvalue%5D%5B%5D=62388f571a0bf1e48"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
@@ -62,22 +61,19 @@ func TestGetByFilter(t *testing.T) {
 	if res.Total == 0 {
 		t.Errorf("Error GETBYFILTER Account %q, wanted %q", res.Total, 1)
 	}
-
-	//fmt.Print(res)
-
 }
 
 func TestPost(t *testing.T) {
 
-	expected := "Thomas Test"
+	expected := "Autônomo 1 Exemplo"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
 	res, err := srvAccount.Post(DomainAccreditedAccounts{
 		Name:             expected,
 		AssignedUser:     55,
-		AssignedUserId:   "38",
-		AssignedUserName: "Thomas Test",
+		AssignedUserId:   "61c0c3991a5e66650",
+		AssignedUserName: "Autônomo 1 Exemplo",
 	})
 
 	if err != nil {
@@ -86,10 +82,29 @@ func TestPost(t *testing.T) {
 	}
 
 	fmt.Println(res)
+}
 
-	// if res.Name != "" {
-	// 	t.Errorf("Error POST Account %q, wanted %q", res.ID, expected)
-	// }
+func TestPut(t *testing.T) {
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+
+	srvAccount := New(client)
+	res, err := srvAccount.Put(DomainAccreditedAccounts{
+		ID:               "62bf295037be271e2",
+		AssignedUser:     1,
+		User:             "#User/view/61c0c3991a5e66650",
+		Account:          "#Account/view/61899dfcc4f59bf6d",
+		AssignedUserId:   "61c0c3991a5e66650",
+		AssignedUserName: "Autônomo 1 Exemplo",
+		Name:             "Thomas Test",
+	})
+
+	if err != nil {
+		t.Errorf("Error PUT Account:: error: %v", err)
+		return
+	}
+
+	fmt.Println(res)
+
 }
 
 func TestDelete(t *testing.T) {

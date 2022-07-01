@@ -72,7 +72,7 @@ type DomainParcelsPutAuthCode struct {
 	InvoiceNumber      string `json:"invoiceNumber,omitempty"`
 	Status             string `json:"status,omitempty"`
 	StatusDetail       string `json:"statusDetail,omitempty"`
-	ParcelPaid         bool   `json:"parcelPaid,omitempty"`
+	ParcelPaid         string `json:"parcelPaid,omitempty"` //was bool
 	Reprocess          bool   `json:"reprocess,omitempty"`
 }
 

@@ -88,10 +88,33 @@ func TestPostRegistration(t *testing.T) {
 	}
 
 	fmt.Println(res)
+}
 
-	// if res.Name != expected {
-	// 	t.Errorf("Error POST Account %q, wanted %q", res.ID, expected)
-	// }
+func TestPut(t *testing.T) {
+
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+
+	srvAccount := New(client)
+	res, err := srvAccount.Put(DomainRegistrationBase{
+		ID:                 "629f68d88acbf0228",
+		StatusDetail:       "Aprovado",
+		StatusCid:          "3331",
+		StatusProcess:      "Aprovado",
+		StatusDatetime:     "2020-07-07",
+		RegistrationStatus: "Aprovado",
+		AssignedUserID:     "1",
+		BankAccountID:      "56",
+		EmailAddress:       "test@enube.me",
+		BillingAddressCity: "POA",
+	})
+
+	if err != nil {
+		t.Errorf("Error PUT Account:: error: %v", err)
+		return
+	}
+
+	fmt.Println(res)
+
 }
 
 func TestDeleteRegistration(t *testing.T) {

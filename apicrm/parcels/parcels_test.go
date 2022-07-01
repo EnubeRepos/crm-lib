@@ -83,14 +83,47 @@ func TestPostParcel(t *testing.T) {
 	}
 
 	fmt.Println(res)
+}
 
-	// if res.AssignedUserId != expectedUserId {
-	// 	t.Errorf("Error POST Account %q, wanted %q", res.ID, expectedUserId)
-	// }
+func TestPutAuthCode(t *testing.T) {
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+
+	srvAccount := New(client)
+	res, err := srvAccount.PutAuthCode(DomainParcelsPutAuthCode{
+		ID:           "628be41ecd213fbfb",
+		StatusDetail: "Distratada",
+		Status:       "oi",
+		ParcelPaid:   "sim",
+	})
+
+	if err != nil {
+		t.Errorf("Error PUT Account:: error: %v", err)
+		return
+	}
+
+	fmt.Println(res)
+}
+
+func TestPutStatus(t *testing.T) {
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+
+	srvAccount := New(client)
+	res, err := srvAccount.PutStatus(DomainParcelsPutStatus{
+		ID:           "628be41ecd213fbfb",
+		StatusDetail: "Transferiada",
+		Status:       "Transferida",
+	})
+
+	if err != nil {
+		t.Errorf("Error PUT Account:: error: %v", err)
+		return
+	}
+
+	fmt.Println(res)
 }
 
 func TestDeleteParcel(t *testing.T) {
-	id := "62a38f493dbbcb968"
+	id := "628be41ecd213fbfb"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)

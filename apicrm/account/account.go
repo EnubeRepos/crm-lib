@@ -2,12 +2,12 @@ package account
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 func (svc *APIAccountService) Get() (ResponseAccount, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityAccount, "")
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseAccount{}, err
 	}
 
@@ -15,6 +15,13 @@ func (svc *APIAccountService) Get() (ResponseAccount, error) {
 }
 
 func (svc *APIAccountService) GetById(id string) (DomainAccount, error) {
+	expectedLen := 17
+	idLen := len([]rune(id))
+
+	if idLen != expectedLen {
+		return DomainAccount{}, fmt.Errorf("error: invalid id expected length of %d but got length of %d", expectedLen, idLen)
+	}
+
 	response, err := svc.client.CRMHandlerGetService(EntityAccount, "/"+id)
 	if err != nil {
 		return DomainAccount{}, err
@@ -24,6 +31,11 @@ func (svc *APIAccountService) GetById(id string) (DomainAccount, error) {
 }
 
 func (svc *APIAccountService) GetByFilter(filter string) (ResponseAccount, error) {
+	if filter == "" {
+		return ResponseAccount{}, fmt.Errorf("error: invalid filter, filter cannot be empty")
+
+	}
+
 	response, err := svc.client.CRMHandlerGetService(EntityAccount, "?"+filter)
 	if err != nil {
 		return ResponseAccount{}, err
@@ -33,6 +45,7 @@ func (svc *APIAccountService) GetByFilter(filter string) (ResponseAccount, error
 }
 
 func (svc *APIAccountService) Post(account DomainAccount) (DomainAccount, error) {
+
 	payload, err := json.Marshal(account)
 
 	if err != nil {
@@ -47,32 +60,33 @@ func (svc *APIAccountService) Post(account DomainAccount) (DomainAccount, error)
 	return convertMarchalAccount(response)
 }
 
-/*
-// how does this work
-func (svc *APIAccountService) Update(account DomainAccount) (DomainAccount, error) {
-	//devo user o PUT ?
-	// como deve funcioar? tem que acessar uma entidade e trocar alguma field dela?
-    payload, err := json.Marshal(account)
+func (svc *APIAccountService) Put(account DomainAccountBase) (DomainAccount, error) {
+
+	payload, err := json.Marshal(account)
 
 	if err != nil {
 		return DomainAccount{}, err
 	}
 
-	response, err := svc.client.CRMHandlerPutService(EntityAccount, payload)
+	response, err := svc.client.CRMHandlerPutService(EntityAccount+"/"+account.ID, payload)
 	if err != nil {
 		return DomainAccount{}, err
 	}
 
 	return convertMarchalAccount(response)
 
-
 }
-*/
 
 func (svc *APIAccountService) Delete(id string) (bool, error) {
+	expectedLen := 17
+	idLen := len([]rune(id))
+
+	if idLen != expectedLen {
+		return false, fmt.Errorf("error: invalid id expected length of %d but got length of %d", expectedLen, idLen)
+	}
+
 	_, err := svc.client.CRMHandlerDeleteService(EntityAccount, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return false, err
 	}
 
@@ -85,7 +99,6 @@ func convertMarchalResponseAccount(response []byte) (ResponseAccount, error) {
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseAccount{}, nil
 	}
 
@@ -97,7 +110,6 @@ func convertMarchalAccount(response []byte) (DomainAccount, error) {
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainAccount{}, err
 	}
 

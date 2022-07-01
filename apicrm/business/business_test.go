@@ -47,7 +47,6 @@ func TestGetBusinessById(t *testing.T) {
 	}
 }
 
-// not tested
 func TestGetBusinessByFilter(t *testing.T) {
 	filter := "where%5B0%5D%5Btype%5D=linkedWith&where%5B0%5D%5Battribute%5D=teams&where%5B0%5D%5Bvalue%5D%5B%5D=62388f571a0bf1e48"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
@@ -92,9 +91,33 @@ func TestPostBusiness(t *testing.T) {
 
 	fmt.Println(res)
 
-	// if res.Name != expected {
-	// 	t.Errorf("Error POST Account %q, wanted %q", res.ID, expected)
-	// }
+}
+
+func TestPutBusiness(t *testing.T) {
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+
+	srvAccount := New(client)
+	res, err := srvAccount.Put(DomainBusiness{
+		ID:                         "62bde9c2c2beaa692",
+		Name:                       "Thomas Test",
+		PhoneNumber:                "0",
+		BillingAddressStreet:       "1",
+		BillingAddressCity:         "SP",
+		BillingAddressState:        "SP",
+		BillingAddressCountry:      "BR",
+		BillingAddressNumber:       "34",
+		BillingAddressPostalCode:   "33333",
+		BillingAddressNeighborhood: "Granja",
+		DocumentNumber:             "123456",
+		TradingName:                "Thomas Test",
+	})
+
+	if err != nil {
+		t.Errorf("Error PUT Account:: error: %v", err)
+		return
+	}
+
+	fmt.Println(res)
 }
 
 func TestDeleteBusiness(t *testing.T) {

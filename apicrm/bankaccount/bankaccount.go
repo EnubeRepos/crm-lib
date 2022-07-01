@@ -2,6 +2,7 @@ package bankaccount
 
 import (
 	"encoding/json"
+	"fmt"
 )
 
 func (svc *APIBankAccountService) Get() (ResponseBankAccount, error) {
@@ -14,6 +15,13 @@ func (svc *APIBankAccountService) Get() (ResponseBankAccount, error) {
 }
 
 func (svc *APIBankAccountService) GetById(id string) (DomainBankAccount, error) {
+	expectedLen := 17
+	idLen := len([]rune(id))
+
+	if idLen != expectedLen {
+		return DomainBankAccount{}, fmt.Errorf("error: invalid id expected length of %d but got length of %d", expectedLen, idLen)
+	}
+
 	responseHttp, err := svc.client.CRMHandlerGetService(EntityBankAccount, "/"+id)
 	if err != nil {
 		return DomainBankAccount{}, err
@@ -26,6 +34,10 @@ func (svc *APIBankAccountService) GetById(id string) (DomainBankAccount, error) 
 }
 
 func (svc *APIBankAccountService) GetByFilter(filter string) (ResponseBankAccount, error) {
+	if filter == "" {
+		return ResponseBankAccount{}, fmt.Errorf("error: invalid filter, filter cannot be empty")
+
+	}
 	response, err := svc.client.CRMHandlerGetService(EntityBankAccount, "?"+filter)
 	if err != nil {
 		return ResponseBankAccount{}, err
@@ -52,7 +64,34 @@ func (svc *APIBankAccountService) Post(BankAccount DomainBankAccountCreateReques
 	return response, err
 }
 
+func (svc *APIBankAccountService) Put(account DomainBankAccountCreateRequest) (DomainBankAccountCreateResponse, error) {
+
+	payload, err := json.Marshal(account)
+
+	if err != nil {
+		return DomainBankAccountCreateResponse{}, err
+	}
+
+	responseHttp, err := svc.client.CRMHandlerPutService(EntityBankAccount+"/"+account.ID, payload)
+	if err != nil {
+		return DomainBankAccountCreateResponse{}, err
+	}
+
+	response := DomainBankAccountCreateResponse{}
+
+	err = convertMarchalBankAccount(responseHttp, &response)
+	return response, err
+
+}
+
 func (svc *APIBankAccountService) Delete(id string) (bool, error) {
+	expectedLen := 17
+	idLen := len([]rune(id))
+
+	if idLen != expectedLen {
+		return false, fmt.Errorf("error: invalid id expected length of %d but got length of %d", expectedLen, idLen)
+	}
+
 	_, err := svc.client.CRMHandlerDeleteService(EntityBankAccount, "/"+id)
 	if err != nil {
 		return false, err
@@ -67,7 +106,6 @@ func convertMarchalResponseBankAccount(response []byte) (ResponseBankAccount, er
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseBankAccount{}, err
 	}
 

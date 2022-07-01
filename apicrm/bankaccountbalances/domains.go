@@ -24,7 +24,6 @@ type DomainBankAccountBalance struct {
 	ValueSumVirtualCurrency string  `json:"valueSumVirtualCurrency"`
 	BankAccountId           string  `json:"bankAccountId"`
 	BankAccountName         string  `json:"bankAccountName"`
-	//AssignedUser            string  `json:"assignedUser"` // i added
 	//AssignedUserId          string  `json:"assignedUserId"`
 	//AssignedUserName        string  `json:"assignedUserName"`
 
@@ -50,9 +49,10 @@ type DomainBankAccountBalanceCreateRequest struct {
 	ValueAvailable   float64 `json:"valueAvailable"`
 	ValueInProcess   float64 `json:"valueInProcess"`
 	ValueBlocked     float64 `json:"valueBlocked"`
-	AssignedUser     string  `json:"assignedUser"`     // I added
-	AssignedUserId   string  `json:"assignedUserId"`   // I added
-	AssignedUserName string  `json:"assignedUserName"` // I added
+	ValueSumVirtual  float64 `json:"valueSumVirtual"`
+	AssignedUser     string  `json:"assignedUser"`
+	AssignedUserId   string  `json:"assignedUserId"`
+	AssignedUserName string  `json:"assignedUserName"`
 }
 
 type DomainBankAccountBalanceCreateResponse struct {

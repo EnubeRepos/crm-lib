@@ -1,6 +1,9 @@
 package statustracking
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 func (svc *APIStatusTrackingService) Get() (ResponseStatusTracking, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityStatusTracking, "")
@@ -12,6 +15,12 @@ func (svc *APIStatusTrackingService) Get() (ResponseStatusTracking, error) {
 }
 
 func (svc *APIStatusTrackingService) GetById(id string) (DomainStatusTracking, error) {
+	expectedLen := 17
+	idLen := len([]rune(id))
+
+	if idLen != expectedLen {
+		return DomainStatusTracking{}, fmt.Errorf("error: invalid id expected length of %d but got length of %d", expectedLen, idLen)
+	}
 	response, err := svc.client.CRMHandlerGetService(EntityStatusTracking, "/"+id)
 	if err != nil {
 		return DomainStatusTracking{}, err
@@ -21,6 +30,10 @@ func (svc *APIStatusTrackingService) GetById(id string) (DomainStatusTracking, e
 }
 
 func (svc *APIStatusTrackingService) GetByFilter(filter string) (ResponseStatusTracking, error) {
+	if filter == "" {
+		return ResponseStatusTracking{}, fmt.Errorf("error: invalid filter, filter cannot be empty")
+
+	}
 	response, err := svc.client.CRMHandlerGetService(EntityStatusTracking, "?"+filter)
 	if err != nil {
 		return ResponseStatusTracking{}, err
@@ -44,7 +57,30 @@ func (svc *APIStatusTrackingService) Post(StatusTracking DomainStatusTracking) (
 	return convertMarchalStatusTracking(response)
 }
 
+func (svc *APIStatusTrackingService) Put(Status DomainStatusTrackingBase) (DomainStatusTracking, error) {
+
+	payload, err := json.Marshal(Status)
+
+	if err != nil {
+		return DomainStatusTracking{}, err
+	}
+
+	response, err := svc.client.CRMHandlerPutService(EntityStatusTracking+"/"+Status.ID, payload)
+	if err != nil {
+		return DomainStatusTracking{}, err
+	}
+
+	return convertMarchalStatusTracking(response)
+
+}
+
 func (svc *APIStatusTrackingService) Delete(id string) (bool, error) {
+	expectedLen := 17
+	idLen := len([]rune(id))
+
+	if idLen != expectedLen {
+		return false, fmt.Errorf("error: invalid id expected length of %d but got length of %d", expectedLen, idLen)
+	}
 	_, err := svc.client.CRMHandlerDeleteService(EntityStatusTracking, "/"+id)
 	if err != nil {
 		return false, err
@@ -59,7 +95,6 @@ func convertMarchalResponseStatusTracking(response []byte) (ResponseStatusTracki
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseStatusTracking{}, err
 	}
 
@@ -71,7 +106,6 @@ func convertMarchalStatusTracking(response []byte) (DomainStatusTracking, error)
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainStatusTracking{}, err
 	}
 

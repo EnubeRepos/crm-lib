@@ -64,7 +64,6 @@ func TestGetByFilter(t *testing.T) {
 	}
 }
 
-//test post
 func TestNewAPIAttachmentService(t *testing.T) {
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
@@ -82,9 +81,29 @@ func TestNewAPIAttachmentService(t *testing.T) {
 	fmt.Println(res)
 
 	if err != nil {
-		t.Errorf("Error GET Attachment:: error: %v", err)
+		t.Errorf("Error POST Attachment:: error: %v", err)
 		return
 	}
+}
+
+func TestPut(t *testing.T) {
+
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+
+	srvAccount := NewAPIAttachmentService(client)
+	res, err := srvAccount.Put(DomainAttachment{
+		ID:   "62b4aab7081ec993f",
+		Name: "Thomas Test",
+		Size: 400,
+	})
+
+	if err != nil {
+		t.Errorf("Error PUT Account:: error: %v", err)
+		return
+	}
+
+	fmt.Println(res)
+
 }
 
 func TestDelete(t *testing.T) {

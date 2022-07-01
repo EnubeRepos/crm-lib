@@ -9,10 +9,10 @@ type ResponseCommissions struct {
 }
 
 // Account
-// Account
 type DomainCommissions struct {
 	ID                         string   `json:"id,omitempty"`
 	Name                       string   `json:"name,omitempty"`
+	Sales                      string   `json:"sales,omitempty"`
 	Deleted                    bool     `json:"deleted,omitempty"`
 	Description                string   `json:"description,omitempty"`
 	CreatedAt                  string   `json:"createdAt,omitempty"`
@@ -63,5 +63,27 @@ type DomainCommissions struct {
 	IntegratorFeeConverted     float64  `json:"integratorFeeConverted,omitempty"`
 	IsFollowed                 bool     `json:"isFollowed,omitempty"`
 	FollowersIds               []string `json:"followersIds,omitempty"`
-	RecipientDocumentNumber    string   `json:"recipientDocumentNumber,omitempty"` // I created this field
+	RecipientDocumentNumber    string   `json:"recipientDocumentNumber,omitempty"`
+}
+
+// estrutura usada para o put de registration, evitando erro de campos vazios
+type DomainCommissionsBase struct {
+	ID                      string  `json:"id,omitempty"`
+	Sales                   string  `json:"sales,omitempty"`
+	ProductName             string  `json:"productName,omitempty"`
+	Name                    string  `json:"name,omitempty"`
+	Deleted                 bool    `json:"deleted,omitempty"`
+	Description             string  `json:"description,omitempty"`
+	CreatedAt               string  `json:"createdAt,omitempty"`
+	ModifiedAt              string  `json:"modifiedAt,omitempty"`
+	Status                  string  `json:"status,omitempty"`
+	Amount                  float64 `json:"amount,omitempty"`
+	SalesDate               string  `json:"salesDate,omitempty"`
+	ParcelNumber            int     `json:"parcelNumber,omitempty"`
+	ParcelsID               string  `json:"parcelsId,omitempty"`
+	ParcelsName             string  `json:"parcelsName,omitempty"`
+	AmountCurrency          string  `json:"amountCurrency,omitempty"`
+	SalesID                 string  `json:"salesId,omitempty"`
+	IsFollowed              bool    `json:"isFollowed,omitempty"`
+	RecipientDocumentNumber string  `json:"recipientDocumentNumber,omitempty"`
 }

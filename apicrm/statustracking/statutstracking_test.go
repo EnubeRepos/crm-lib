@@ -46,7 +46,6 @@ func TestGetStatusById(t *testing.T) {
 	}
 }
 
-// test it
 func TestGetStatusByFilter(t *testing.T) {
 	filter := "where%5B0%5D%5Btype%5D=linkedWith&where%5B0%5D%5Battribute%5D=teams&where%5B0%5D%5Bvalue%5D%5B%5D=62388f571a0bf1e48"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
@@ -62,8 +61,6 @@ func TestGetStatusByFilter(t *testing.T) {
 	if res.Total == 0 {
 		t.Errorf("Error GETBYFILTER Account %q, wanted %q", res.Total, 1)
 	}
-
-	//fmt.Print(res)
 
 }
 
@@ -87,10 +84,24 @@ func TestPostStatus(t *testing.T) {
 	}
 
 	fmt.Println(res)
+}
 
-	// if res.Code != expectedCode {
-	// 	t.Errorf("Error POST Account %q, wanted %q", res.ID, expectedCode)
-	// }
+func TestPutStatus(t *testing.T) {
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+
+	srvAccount := New(client)
+	res, err := srvAccount.Put(DomainStatusTrackingBase{
+		ID:         "6219196ac2d4aa230",
+		StatusType: "Ativo",
+		Code:       3,
+	})
+
+	if err != nil {
+		t.Errorf("Error POST Account:: error: %v", err)
+		return
+	}
+
+	fmt.Println(res)
 }
 
 func TestDeleteStatus(t *testing.T) {

@@ -95,9 +95,38 @@ func TestPostContact(t *testing.T) {
 
 	fmt.Println(res)
 
-	// if res.Name != expectedName {
-	// 	t.Errorf("Error POST Account %q, wanted %q", res.ID, expectedName)
-	// }
+}
+
+func TestPutCommissions(t *testing.T) {
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+
+	srvAccount := New(client)
+	res, err := srvAccount.Put(DomainContactBase{
+		ID:                "62bdf7991cc8b3aff",
+		Name:              "Thomas",
+		FirstName:         "Thomas",
+		LastName:          "Test2",
+		SalutationName:    "Thomas",
+		AccountName:       "Thomas",
+		CreatedByName:     "Thomas",
+		AssignedUserName:  "Thomas",
+		EmailAddress:      "thomaswwww@enube.me",
+		AssignedUserID:    "1",
+		SicCode:           "0",
+		PhoneNumber:       "14981288851",
+		AddressStreet:     "Rua 123 Sao Paulo",
+		AddressCity:       "SP",
+		AddressState:      "SP",
+		AddressCountry:    "BR",
+		AddressPostalCode: "33331",
+	})
+
+	if err != nil {
+		t.Errorf("Error PUT Account:: error: %v", err)
+		return
+	}
+
+	fmt.Println(res)
 }
 
 func TestDeleteContact(t *testing.T) {

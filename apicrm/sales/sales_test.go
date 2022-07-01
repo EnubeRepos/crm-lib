@@ -46,7 +46,6 @@ func TestGetSaleById(t *testing.T) {
 	}
 }
 
-// test it
 func TestGetSaleByFilter(t *testing.T) {
 	filter := "where%5B0%5D%5Btype%5D=linkedWith&where%5B0%5D%5Battribute%5D=teams&where%5B0%5D%5Bvalue%5D%5B%5D=62388f571a0bf1e48"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
@@ -62,8 +61,6 @@ func TestGetSaleByFilter(t *testing.T) {
 	if res.Total == 0 {
 		t.Errorf("Error GETBYFILTER Account %q, wanted %q", res.Total, 1)
 	}
-
-	//fmt.Print(res)
 
 }
 
@@ -89,10 +86,29 @@ func TestPostSale(t *testing.T) {
 	}
 
 	fmt.Println(res)
+}
 
-	// if res.AssignedUserName != expectedUserName {
-	// 	t.Errorf("Error POST Account %q, wanted %q", res.ID, expectedUserName)
-	// }
+func TestPutSale(t *testing.T) {
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+
+	srvAccount := New(client)
+	res, err := srvAccount.Put(DomainSalesBase{
+		ID:     "62bc8bf712d087b26",
+		Status: "Distratada",
+		// AssignedUserID:        "1",
+		// AssignedUser:          "Thomas",
+		// AssignedUserName:      "",
+		// SalesNumber:           "27",
+		// SalesDate:             "20.07.2002",
+		// CommissionTotalAmount: 500,
+	})
+
+	if err != nil {
+		t.Errorf("Error PUT Account:: error: %v", err)
+		return
+	}
+
+	fmt.Println(res)
 }
 
 func TestDeleteSale(t *testing.T) {

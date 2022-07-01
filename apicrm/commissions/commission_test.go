@@ -88,6 +88,7 @@ func TestPostCommision(t *testing.T) {
 		ParcelsName:             "Parcel 1",
 		IsFollowed:              true,
 		RecipientDocumentNumber: "67",
+		ProductName:             "Test",
 	})
 
 	if err != nil {
@@ -97,11 +98,40 @@ func TestPostCommision(t *testing.T) {
 
 	fmt.Println(res)
 
-	// expectedName := "Comissionamento: " + res.ID
+}
 
-	// if res.Name != expectedName {
-	// 	t.Errorf("Error POST Account %q, wanted %q", res.Name, expectedName)
-	// }
+func TestPutCommission(t *testing.T) {
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+
+	srv := New(client)
+
+	res, err := srv.Put(DomainCommissionsBase{
+		ID:                      "62b5ca25af9c03c6c",
+		Sales:                   "Thomas",
+		Name:                    "Thomas Test",
+		Deleted:                 false,
+		Description:             "",
+		CreatedAt:               "idk",
+		ModifiedAt:              "idk",
+		Status:                  "Transferida",
+		Amount:                  7000,
+		SalesDate:               "18.06.2022",
+		ParcelNumber:            1,
+		AmountCurrency:          "BRL",
+		SalesID:                 "9",
+		ParcelsID:               "34",
+		ParcelsName:             "Parcel 1",
+		IsFollowed:              true,
+		RecipientDocumentNumber: "67",
+		ProductName:             "Test",
+	})
+
+	if err != nil {
+		t.Errorf("Error PUT Account:: error: %v", err)
+		return
+	}
+
+	fmt.Println(res)
 }
 
 func TestDeleteCommission(t *testing.T) {

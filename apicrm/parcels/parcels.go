@@ -1,6 +1,9 @@
 package parcels
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 func (svc *APIParcelsService) Get() (ResponseParcels, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityParcels, "")
@@ -12,6 +15,12 @@ func (svc *APIParcelsService) Get() (ResponseParcels, error) {
 }
 
 func (svc *APIParcelsService) GetById(id string) (DomainParcels, error) {
+	expectedLen := 17
+	idLen := len([]rune(id))
+
+	if idLen != expectedLen {
+		return DomainParcels{}, fmt.Errorf("error: invalid id expected length of %d but got length of %d", expectedLen, idLen)
+	}
 	response, err := svc.client.CRMHandlerGetService(EntityParcels, "/"+id)
 	if err != nil {
 		return DomainParcels{}, err
@@ -21,6 +30,10 @@ func (svc *APIParcelsService) GetById(id string) (DomainParcels, error) {
 }
 
 func (svc *APIParcelsService) GetByFilter(filter string) (ResponseParcels, error) {
+	if filter == "" {
+		return ResponseParcels{}, fmt.Errorf("error: invalid filter, filter cannot be empty")
+
+	}
 	response, err := svc.client.CRMHandlerGetService(EntityParcels, "?"+filter)
 	if err != nil {
 		return ResponseParcels{}, err
@@ -45,6 +58,12 @@ func (svc *APIParcelsService) Post(Parcels DomainParcels) (DomainParcels, error)
 }
 
 func (svc *APIParcelsService) Delete(id string) (bool, error) {
+	expectedLen := 17
+	idLen := len([]rune(id))
+
+	if idLen != expectedLen {
+		return false, fmt.Errorf("error: invalid id expected length of %d but got length of %d", expectedLen, idLen)
+	}
 	_, err := svc.client.CRMHandlerDeleteService(EntityParcels, "/"+id)
 	if err != nil {
 		return false, err
@@ -89,7 +108,6 @@ func convertMarchalResponseParcels(response []byte) (ResponseParcels, error) {
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseParcels{}, err
 	}
 
@@ -101,7 +119,6 @@ func convertMarchalParcels(response []byte) (DomainParcels, error) {
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainParcels{}, err
 	}
 

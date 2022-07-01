@@ -1,6 +1,9 @@
 package business
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 func (svc *APIRegistrationService) Get() (ResponseBusiness, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityBusiness, "")
@@ -13,6 +16,14 @@ func (svc *APIRegistrationService) Get() (ResponseBusiness, error) {
 }
 
 func (svc *APIRegistrationService) GetById(id string) (DomainBusiness, error) {
+
+	expectedLen := 17
+	idLen := len([]rune(id))
+
+	if idLen != expectedLen {
+		return DomainBusiness{}, fmt.Errorf("error: invalid id expected length of %d but got length of %d", expectedLen, idLen)
+	}
+
 	response, err := svc.client.CRMHandlerGetService(EntityBusiness, "/"+id)
 	if err != nil {
 		return DomainBusiness{}, err
@@ -21,13 +32,17 @@ func (svc *APIRegistrationService) GetById(id string) (DomainBusiness, error) {
 	return convertMarchalBusiness(response)
 }
 
-func (svc *APIRegistrationService) GetByFilter(filter string) (DomainBusiness, error) {
+func (svc *APIRegistrationService) GetByFilter(filter string) (ResponseBusiness, error) {
+	if filter == "" {
+		return ResponseBusiness{}, fmt.Errorf("error: invalid filter, filter cannot be empty")
+
+	}
 	response, err := svc.client.CRMHandlerGetService(EntityBusiness, "/"+filter)
 	if err != nil {
-		return DomainBusiness{}, err
+		return ResponseBusiness{}, err
 	}
 
-	return convertMarchalBusiness(response)
+	return convertMarchalResponseBusiness(response)
 }
 
 func (svc *APIRegistrationService) Post(request DomainBusiness) (DomainBusiness, error) {
@@ -45,7 +60,29 @@ func (svc *APIRegistrationService) Post(request DomainBusiness) (DomainBusiness,
 	return convertMarchalBusiness(response)
 }
 
+func (svc *APIRegistrationService) Put(business DomainBusiness) (DomainBusiness, error) {
+	payload, err := json.Marshal(business)
+
+	if err != nil {
+		return DomainBusiness{}, err
+	}
+
+	response, err := svc.client.CRMHandlerPutService(EntityBusiness+"/"+business.ID, payload)
+	if err != nil {
+		return DomainBusiness{}, err
+	}
+
+	return convertMarchalBusiness(response)
+}
+
 func (svc *APIRegistrationService) Delete(id string) (bool, error) {
+
+	expectedLen := 17
+	idLen := len([]rune(id))
+
+	if idLen != expectedLen {
+		return false, fmt.Errorf("error: invalid id expected length of %d but got length of %d", expectedLen, idLen)
+	}
 	_, err := svc.client.CRMHandlerDeleteService(EntityBusiness, "/"+id)
 	if err != nil {
 		return false, err
@@ -61,7 +98,6 @@ func convertMarchalBusiness(response []byte) (DomainBusiness, error) {
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainBusiness{}, err
 	}
 
@@ -73,7 +109,6 @@ func convertMarchalResponseBusiness(response []byte) (ResponseBusiness, error) {
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseBusiness{}, err
 	}
 

@@ -31,13 +31,12 @@ func TestGetAccount(t *testing.T) {
 }
 
 func TestGetAccountById(t *testing.T) {
-	expectedId := "62976cee21d785d2e"
+	expectedId := "61899dfcc4f59bf6d"
+
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := NewAPIAccountService(client)
 	res, err := srvAccount.GetById(expectedId)
-
-	fmt.Println(res)
 
 	if err != nil {
 		t.Errorf("Error GET Account:: error: %v", err)
@@ -47,6 +46,8 @@ func TestGetAccountById(t *testing.T) {
 	if res.ID != expectedId {
 		t.Errorf("Error GetId Account %s, wanted %s", res.ID, expectedId)
 	}
+
+	fmt.Println(res)
 
 }
 
@@ -66,7 +67,6 @@ func TestGetByFilter(t *testing.T) {
 		t.Errorf("Error GETBYFILTER Account %q, wanted %q", res.Total, 1)
 	}
 
-	//fmt.Print(res)
 }
 
 func TestDelete(t *testing.T) {
@@ -113,10 +113,33 @@ func TestPost(t *testing.T) {
 	}
 
 	fmt.Println(res)
+}
 
-	// if res.Name != expected {
-	// 	t.Errorf("Error POST Account %q, wanted %q", res.ID, expected)
-	// }
+func TestPut(t *testing.T) {
+
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+
+	srvAccount := NewAPIAccountService(client)
+	res, err := srvAccount.Put(DomainAccountBase{
+		ID:                    "62b4b4efcf6eddb2d",
+		Name:                  "Thomas New",
+		EmailAddress:          "test@enube.me",
+		AssignedUserID:        "1",
+		SicCode:               "0",
+		PhoneNumber:           "0",
+		BillingAddressStreet:  "1",
+		BillingAddressCity:    "SP",
+		BillingAddressState:   "SP",
+		BillingAddressCountry: "BR",
+	})
+
+	if err != nil {
+		t.Errorf("Error PUT Account:: error: %v", err)
+		return
+	}
+
+	fmt.Println(res)
+
 }
 
 func TestAddSameAccountLotofTime(t *testing.T) {

@@ -89,10 +89,23 @@ func TestPostPreregistration(t *testing.T) {
 
 	fmt.Println(res)
 
-	// if res.Name != expected {
-	// 	t.Errorf("Error POST Account %q, wanted %q", res.ID, expected)
-	// }
+}
 
+func TestPutPreresgistration(t *testing.T) {
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+
+	srvAccount := New(client)
+	res, err := srvAccount.Put(DomainRegistrationBase{
+		ID:             "",
+		AssignedUserID: "1",
+	})
+
+	if err != nil {
+		t.Errorf("Error PUT Account:: error: %v", err)
+		return
+	}
+
+	fmt.Println(res)
 }
 
 func TestDeletePreregistration(t *testing.T) {

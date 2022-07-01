@@ -33,7 +33,7 @@ func TestGetAccount(t *testing.T) {
 }
 
 func TestGetById(t *testing.T) {
-	expectedId := "629a268f46ce2442f"
+	expectedId := "62151eeecd1187df0"
 
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
@@ -77,18 +77,50 @@ func TestPost(t *testing.T) {
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
-	res, err := srvAccount.Post(DomainBankAccountCreateRequest{Agency: "00006", AccountNumber: "00009", AssignedUserID: "62151eeecd1187df0", SicCode: "40760176845", LastName: "Test", FirstName: "Thomas"})
+	res, err := srvAccount.Post(DomainBankAccountCreateRequest{
+		Agency:         "00007",
+		AccountNumber:  "00011",
+		AssignedUserID: "62151eeecd1187df9",
+		SicCode:        "40760176846",
+		LastName:       "Test3",
+		FirstName:      "Thomas",
+	})
 
 	if err != nil {
-		t.Errorf("Error GET Image:: error: %v", err)
+		t.Errorf("Error POST Image:: error: %v", err)
 		return
 	}
 
 	fmt.Println(res)
 }
 
+func TestPut(t *testing.T) {
+
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+
+	srvAccount := New(client)
+	res, err := srvAccount.Put(DomainBankAccountCreateRequest{
+		ID:             "62b5f5aa128a56e4f",
+		Name:           "Thomas NovoNovo",
+		LastName:       "Thomas",
+		FirstName:      "Novo3",
+		AccountNumber:  "00088",
+		AssignedUserID: "1",
+		SicCode:        "0",
+		Agency:         "00008",
+	})
+
+	if err != nil {
+		t.Errorf("Error PUT Account:: error: %v", err)
+		return
+	}
+
+	fmt.Println(res)
+
+}
+
 func TestDelete(t *testing.T) {
-	id := "628cdf2613adbfdd0"
+	id := "6272dfb1d6499bae2"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
