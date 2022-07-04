@@ -14,7 +14,7 @@ func (svc *APIDashboardTemplateService) PostDeployToUsers(ModelPut DomainPutDash
 		return DomainDashboardTemplate{}, err
 	}
 
-	response,_ := svc.client.CRMHandlerGetService(EntityDashboardTemplate, ModelPut.ID)
+	response,_ := svc.client.CRMHandlerGetService(EntityDashboardTemplate, "/" + ModelPut.ID)
 
 	return convertMarchalDashboardTemplate(response)
 }
