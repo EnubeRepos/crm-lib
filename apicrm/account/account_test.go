@@ -24,6 +24,11 @@ func TestGetAccount(t *testing.T) {
 		return
 	}
 
+	if res.Total > 0 && len(res.Account) <=0{
+		t.Errorf("Error GET Account:: error: %v", err)
+		return
+	}
+
 	if res.Total == 0 {
 		t.Errorf("Error GET Account %q, wanted %q", res.Total, expected)
 	}
