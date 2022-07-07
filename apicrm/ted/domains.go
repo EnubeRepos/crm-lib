@@ -14,7 +14,7 @@ type DomainTed struct {
 	Name                      string   `json:"name,omitempty"`
 	Deleted                   bool     `json:"deleted,omitempty"`
 	Description               string   `json:"description,omitempty"`
-	Amount                    int      `json:"amount,omitempty"`
+	Amount                    float64  `json:"amount,omitempty"`
 	Agency                    string   `json:"agency,omitempty"`
 	Account                   string   `json:"account,omitempty"`
 	ConfirmTransaction        bool     `json:"confirmTransaction,omitempty"`
