@@ -37,7 +37,7 @@ type DomainTed struct {
 	//CreatedByName               string               `json:"createdByName,omitempty"`
 	//ModifiedByID                string               `json:"modifiedById,omitempty"`
 	//ModifiedByName              string               `json:"modifiedByName,omitempty"`
-	//AssignedUserID              string               `json:"assignedUserId,omitempty"`
+	AssignedUserID              string               `json:"assignedUserId,omitempty"`
 	//AssignedUserName            string               `json:"assignedUserName,omitempty"`
 	//TeamsIds                    []string        `json:"teamsIds,omitempty"`
 	//AmountConverted             int                  `json:"amountConverted,omitempty"`
