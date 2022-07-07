@@ -24,6 +24,8 @@ type DomainTed struct {
 	OperationFeeApplicationID string   `json:"operationFeeApplicationId,omitempty"`
 	PersonalContactsID        string   `json:"personalContactsId,omitempty"`
 	ContactID                 string   `json:"contactId,omitempty"`
+	AssignedUserID            string   `json:"assignedUserId,omitempty"`
+	BankAccountId             string   `json:"bankAccountId,omitempty"`
 	//CreatedAt                   string               `json:"createdAt,omitempty"`
 	//ModifiedAt                  string               `json:"modifiedAt,omitempty"`
 	//ContactAgency               string               `json:"contactAgency,omitempty"`
@@ -37,7 +39,6 @@ type DomainTed struct {
 	//CreatedByName               string               `json:"createdByName,omitempty"`
 	//ModifiedByID                string               `json:"modifiedById,omitempty"`
 	//ModifiedByName              string               `json:"modifiedByName,omitempty"`
-	//AssignedUserID              string               `json:"assignedUserId,omitempty"`
 	//AssignedUserName            string               `json:"assignedUserName,omitempty"`
 	//TeamsIds                    []string        `json:"teamsIds,omitempty"`
 	//AmountConverted             int                  `json:"amountConverted,omitempty"`
