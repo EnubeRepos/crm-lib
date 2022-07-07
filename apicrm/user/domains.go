@@ -65,6 +65,7 @@ type DomainUser struct {
 	Password               string             `json:"password,omitempty"`
 	PasswordConfirm        string             `json:"passwordConfirm,omitempty"`
 	SendAccessInfo         bool               `json:"sendAccessInfo,omitempty"`
+	BankAccountId          string             `json:"bankAccountId,omitempty"`
 }
 
 type EmailAddressData struct {

@@ -25,7 +25,6 @@ type DomainTed struct {
 	PersonalContactsID        string   `json:"personalContactsId,omitempty"`
 	ContactID                 string   `json:"contactId,omitempty"`
 	AssignedUserID            string   `json:"assignedUserId,omitempty"`
-	BankAccountId             string   `json:"bankAccountId,omitempty"`
 	//CreatedAt                   string               `json:"createdAt,omitempty"`
 	//ModifiedAt                  string               `json:"modifiedAt,omitempty"`
 	//ContactAgency               string               `json:"contactAgency,omitempty"`
