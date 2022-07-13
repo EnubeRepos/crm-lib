@@ -18,13 +18,16 @@ type DomainTed struct {
 	Agency                    string   `json:"agency,omitempty"`
 	Account                   string   `json:"account,omitempty"`
 	ConfirmTransaction        bool     `json:"confirmTransaction,omitempty"`
-	OperationFeeAmount        int      `json:"operationFeeAmount,omitempty"`
+	OperationFeeAmount        float64  `json:"operationFeeAmount,omitempty"`
 	InstitutionFinancialID    string   `json:"institutionFinancialId,omitempty"`
 	FinTransactionsIds        []string `json:"finTransactionsIds,omitempty"`
 	OperationFeeApplicationID string   `json:"operationFeeApplicationId,omitempty"`
 	PersonalContactsID        string   `json:"personalContactsId,omitempty"`
+	AccountType               string   `json:"accountType,omitempty"`
 	ContactID                 string   `json:"contactId,omitempty"`
 	AssignedUserID            string   `json:"assignedUserId,omitempty"`
+	Status                    string   `json:"status,omitempty"`
+	StatusDetail              string   `json:"statusDetail,omitempty"`
 	//CreatedAt                   string               `json:"createdAt,omitempty"`
 	//ModifiedAt                  string               `json:"modifiedAt,omitempty"`
 	//ContactAgency               string               `json:"contactAgency,omitempty"`
@@ -51,4 +54,6 @@ type DomainTed struct {
 type DomainTedPutConfirm struct {
 	ID                 string `json:"id,omitempty"`
 	ConfirmTransaction bool   `json:"confirmTransaction,omitempty"`
+	Status             string `json:"status,omitempty"`
+	StatusDetail       string `json:"statusDetail,omitempty"`
 }
