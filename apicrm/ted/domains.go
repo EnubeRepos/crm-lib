@@ -25,6 +25,7 @@ type DomainTed struct {
 	PersonalContactsID        string   `json:"personalContactsId,omitempty"`
 	AccountType               string   `json:"accountType,omitempty"`
 	ContactID                 string   `json:"contactId,omitempty"`
+	AuthenticationCode        string   `json:"authenticationCode,omitempty"`
 	AssignedUserID            string   `json:"assignedUserId,omitempty"`
 	Status                    string   `json:"status,omitempty"`
 	StatusDetail              string   `json:"statusDetail,omitempty"`
@@ -51,9 +52,10 @@ type DomainTed struct {
 	//PersonalContactsName        string          `json:"personalContactsName,omitempty"`
 }
 
-type DomainTedPutConfirm struct {
+type DomainTedPutStatus struct {
 	ID                 string `json:"id,omitempty"`
 	ConfirmTransaction bool   `json:"confirmTransaction,omitempty"`
 	Status             string `json:"status,omitempty"`
 	StatusDetail       string `json:"statusDetail,omitempty"`
+	AuthenticationCode string `json:"authenticationCode,omitempty"`
 }

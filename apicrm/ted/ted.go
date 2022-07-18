@@ -47,7 +47,7 @@ func (svc *APITedService) Post(Ted DomainTed) (DomainTed, error) {
 	return convertMarchalTed(response)
 }
 
-func (svc *APITedService) PutStatus(ModelPut DomainTedPutConfirm) (DomainTed, error) {
+func (svc *APITedService) PutStatus(ModelPut DomainTedPutStatus) (DomainTed, error) {
 	payload, err := json.Marshal(ModelPut)
 
 	if err != nil {
