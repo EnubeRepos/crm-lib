@@ -47,6 +47,21 @@ func (svc *APIFinTransactionService) Post(FinTransaction interface{}) (DomainFin
 	return convertMarchalFinTransaction(response)
 }
 
+func (svc *APIFinTransactionService) Put(Fintransaction DomainFinTransaction) (DomainFinTransaction, error) {
+	payload, err := json.Marshal(Fintransaction)
+
+	if err != nil {
+		return DomainFinTransaction{}, err
+	}
+
+	response, err := svc.client.CRMHandlerPutService(EntityFinTransaction+"/"+Fintransaction.ID, payload)
+	if err != nil {
+		return DomainFinTransaction{}, err
+	}
+
+	return convertMarchalFinTransaction(response)
+}
+
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponseFinTransaction(response []byte) (ResponseFinTransaction, error) {
 	var result ResponseFinTransaction
