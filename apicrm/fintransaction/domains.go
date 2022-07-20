@@ -24,7 +24,7 @@ type DomainFinTransaction struct {
 	CreatedAt                         string   `json:"createdAt"`
 	ModifiedAt                        string   `json:"modifiedAt"`
 	TransactionType                   string   `json:"transactionType"`
-	Value                             string   `json:"value"`
+	Value                             float64  `json:"value"`
 	AccountTransaction                string   `json:"accountTransaction"`
 	Amount                            float64  `json:"amount"`
 	ConfirmTransaction                bool     `json:"confirmTransaction"`
@@ -47,7 +47,7 @@ type DomainFinTransaction struct {
 	RecipientAccountBankIspb          string   `json:"recipientAccountBankIspb"`
 	RecipientAccountBankCode          string   `json:"recipientAccountBankCode"`
 	RecipientAccountBankName          string   `json:"recipientAccountBankName"`
-	RecipientAccountBalanceValue      string   `json:"recipientAccountBalanceValue"`
+	RecipientAccountBalanceValue      float64  `json:"recipientAccountBalanceValue"`
 	RecipientAccountBalanceCurrrency  string   `json:"recipientAccountBalanceCurrrency"`
 	RecipientStatus                   string   `json:"recipientStatus"`
 	ChannelName                       string   `json:"channelName"`
