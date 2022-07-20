@@ -77,7 +77,7 @@ type DomainFinTransaction struct {
 	TeamsIds                          []string `json:"teamsIds"`
 	StatusTrackingID                  string   `json:"statusTrackingId"`
 	StatusTrackingName                string   `json:"statusTrackingName"`
-	ValueConverted                    string   `json:"valueConverted"`
+	//ValueConverted                    string   `json:"valueConverted"`
 	SalesOrderID                      string   `json:"salesOrderId"`
 	SalesOrderName                    string   `json:"salesOrderName"`
 	BankAccountID                     string   `json:"bankAccountId"`
