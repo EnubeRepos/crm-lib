@@ -134,7 +134,9 @@ func (api *CRMAPIClient) CRMHandlerDeleteService(resource string, params string)
 }
 
 func (api *CRMAPIClient) CRMHandlerImage(imageID string) ([]byte, error) {
-	url := "http://app.10maisbank.com.br?entryPoint=image&id=" + imageID
+
+	host := strings.Replace(api.BaseURL, "api/v1/", "", -1)
+	url := host + "?entryPoint=image&id=" + imageID
 	method := "GET"
 	client := &http.Client{}
 

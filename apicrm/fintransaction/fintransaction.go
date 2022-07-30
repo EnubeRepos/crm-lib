@@ -57,15 +57,16 @@ func (svc *APIFinTransactionService) Post(FinTransaction interface{}) (DomainFin
 	return convertMarchalFinTransaction(response)
 }
 
-func (svc *APIFinTransactionService) Put(fintransaction DomainFinTransactionBase) (DomainFinTransaction, error) {
-	payload, err := json.Marshal(fintransaction)
+func (svc *APIFinTransactionService) Put(Fintransaction DomainFinTransaction) (DomainFinTransaction, error) {
+	payload, err := json.Marshal(Fintransaction)
 
 	if err != nil {
 		return DomainFinTransaction{}, err
 	}
 
-	response, err := svc.client.CRMHandlerPutService(EntityFinTransaction+"/"+fintransaction.ID, payload)
-	if err != nil {
+	response, err := svc.client.CRMHandlerPutService(EntityFinTransaction+"/"+Fintransaction.ID, payload)
+
+  if err != nil {
 		return DomainFinTransaction{}, err
 	}
 

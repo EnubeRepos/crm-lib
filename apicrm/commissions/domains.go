@@ -87,3 +87,9 @@ type DomainCommissionsBase struct {
 	IsFollowed              bool    `json:"isFollowed,omitempty"`
 	RecipientDocumentNumber string  `json:"recipientDocumentNumber,omitempty"`
 }
+
+type DomainComissionsPutStatus struct {
+	ID           string `json:"id,omitempty"`
+	Status       string `json:"status,omitempty"`
+}
+

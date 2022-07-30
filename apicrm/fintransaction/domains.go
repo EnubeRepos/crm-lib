@@ -32,7 +32,7 @@ type DomainFinTransaction struct {
 	CreatedAt                         string   `json:"createdAt"`
 	ModifiedAt                        string   `json:"modifiedAt"`
 	TransactionType                   string   `json:"transactionType"`
-	Value                             float32  `json:"value"`
+	Value                             float64  `json:"value"`
 	AccountTransaction                string   `json:"accountTransaction"`
 	Amount                            float64  `json:"amount"`
 	ConfirmTransaction                bool     `json:"confirmTransaction"`
@@ -55,7 +55,7 @@ type DomainFinTransaction struct {
 	RecipientAccountBankIspb          string   `json:"recipientAccountBankIspb"`
 	RecipientAccountBankCode          string   `json:"recipientAccountBankCode"`
 	RecipientAccountBankName          string   `json:"recipientAccountBankName"`
-	RecipientAccountBalanceValue      float32  `json:"recipientAccountBalanceValue"`
+	RecipientAccountBalanceValue      float64  `json:"recipientAccountBalanceValue"`
 	RecipientAccountBalanceCurrrency  string   `json:"recipientAccountBalanceCurrrency"`
 	RecipientStatus                   string   `json:"recipientStatus"`
 	ChannelName                       string   `json:"channelName"`
@@ -85,7 +85,7 @@ type DomainFinTransaction struct {
 	TeamsIds                          []string `json:"teamsIds"`
 	StatusTrackingID                  string   `json:"statusTrackingId"`
 	StatusTrackingName                string   `json:"statusTrackingName"`
-	ValueConverted                    float32  `json:"valueConverted"`
+	//ValueConverted                    string   `json:"valueConverted"`
 	SalesOrderID                      string   `json:"salesOrderId"`
 	SalesOrderName                    string   `json:"salesOrderName"`
 	BankAccountID                     string   `json:"bankAccountId"`
@@ -115,25 +115,25 @@ type DomainFinTransaction struct {
 type TransactionType string
 
 const (
-	TransactionTypeTED TransactionType = "Pagamento TED"
+	TransactionTypeTED TransactionType = "TED"
 
-	TransactionTypeDOC TransactionType = "Pagamento DOC"
+	TransactionTypeDOC TransactionType = "DOC"
 
-	TransactionTypePIX TransactionType = "Pagamento PIX"
+	TransactionTypePIX TransactionType = "PIX"
 
-	TransactionTypeBoleto TransactionType = "Pagamento Boleto"
+	TransactionTypeBoleto TransactionType = "Boleto"
 
-	TransactionTypeTEDInternalBank TransactionType = "10+Bank" //Transferência entre contas 10+Bank
+	TransactionTypeTEDInternalBank TransactionType = "Triplic Bank" //Transferência entre contas 10+Bank
 )
 
 type AccountTransaction string
 
 const (
 	//Débito
-	AccountTransactionSent AccountTransaction = "Transfer sent"
+	AccountTransactionSent AccountTransaction = "sent"
 
 	//Crédito
-	AccountTransactionReceived AccountTransaction = "Transfer received"
+	AccountTransactionReceived AccountTransaction = "received"
 )
 
 type StatusTransaction string

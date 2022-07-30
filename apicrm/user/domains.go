@@ -33,7 +33,7 @@ type DomainUser struct {
 	Gender                 string             `json:"gender,omitempty"`
 	CreatedAt              string             `json:"createdAt,omitempty"`
 	ModifiedAt             string             `json:"modifiedAt,omitempty"`
-	Auth2FA                bool               `json:"auth2FA,omitempty"` //was string
+	Auth2FA                bool               `json:"auth2FA,omitempty"`
 	LastAccess             string             `json:"lastAccess,omitempty"`
 	SicCode                string             `json:"sicCode,omitempty"`
 	ProfileType            string             `json:"profileType,omitempty"`
@@ -70,6 +70,8 @@ type DomainUser struct {
 	PasswordPreview        string             `json:"passwordPreview,omitempty"`
 	Password               string             `json:"password,omitempty"`
 	PasswordConfirm        string             `json:"passwordConfirm,omitempty"`
+	SendAccessInfo         bool               `json:"sendAccessInfo,omitempty"`
+	BankAccountId          string             `json:"bankAccountId,omitempty"`
 }
 
 type EmailAddressData struct {
@@ -85,4 +87,17 @@ type PhoneNumberData struct {
 	Primary     bool   `json:"primary,omitempty"`
 	OptOut      bool   `json:"optOut,omitempty"`
 	Invalid     bool   `json:"invalid,omitempty"`
+}
+
+type DomainUserSendAccessInfoPut struct {
+	ID              string `json:"id,omitempty"`
+	PasswordPreview string `json:"passwordPreview,omitempty"`
+	Password        string `json:"password,omitempty"`
+	PasswordConfirm string `json:"passwordConfirm,omitempty"`
+	SendAccessInfo  bool   `json:"sendAccessInfo,omitempty"`
+}
+
+type DomainUserDashBoardTemplate struct {
+	ID                  string `json:"id,omitempty"`
+	DashboardTemplateID string `json:"dashboardTemplateId,omitempty"`
 }

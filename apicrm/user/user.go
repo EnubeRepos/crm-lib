@@ -56,7 +56,6 @@ func (svc *APIUserService) Post(User DomainUser) (DomainUser, error) {
 
 	return convertMarchalUser(response)
 }
-
 func (svc *APIUserService) Put(user DomainUserBase) (DomainUser, error) {
 
 	payload, err := json.Marshal(user)
@@ -71,7 +70,22 @@ func (svc *APIUserService) Put(user DomainUserBase) (DomainUser, error) {
 	}
 
 	return convertMarchalUser(response)
+}
 
+func (svc *APIUserService) PutAccessInfo(ModelPut DomainUserSendAccessInfoPut) (DomainUser, error) {
+	payload, err := json.Marshal(ModelPut)
+
+	if err != nil {
+		return DomainUser{}, err
+	}
+
+	response, err := svc.client.CRMHandlerPutService(EntityUser+"/"+ModelPut.ID, payload)
+
+  if err != nil {
+		return DomainUser{}, err
+	}
+
+	return convertMarchalUser(response)
 }
 
 func (svc *APIUserService) Delete(id string) (bool, error) {
@@ -87,6 +101,22 @@ func (svc *APIUserService) Delete(id string) (bool, error) {
 	}
 
 	return true, nil
+}
+
+
+func (svc *APIUserService) PutDashboardTemplate(ModelPutDash DomainUserDashBoardTemplate) (DomainUser, error) {
+	payload, err := json.Marshal(ModelPutDash)
+
+	if err != nil {
+		return DomainUser{}, err
+	}
+
+	response, err := svc.client.CRMHandlerPutService(EntityUser+"/"+ModelPutDash.ID, payload)
+	if err != nil {
+		return DomainUser{}, err
+	}
+
+	return convertMarchalUser(response)
 }
 
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain

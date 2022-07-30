@@ -8,18 +8,13 @@ type ResponseSales struct {
 	Sales []DomainSales `json:"list,omitempty"`
 }
 
-type DomainSalesBase struct {
-	ID     string `json:"id,omitempty"`
-	Status string `json:"status,omitempty"`
-}
-
+// Account
 type DomainSales struct {
-	ID string `json:"id,omitempty"`
-	//Name                  string  `json:"name,omitempty"`
-	AssignedUser          string  `json:"assignedUser,omitempty"`
-	AssignedUserID        string  `json:"assignedUserId,omitempty"`
-	AssignedUserName      string  `json:"assignedUserName,omitempty"`
-	SalesNumber           string  `json:"salesNumber,omitempty"`
-	SalesDate             string  `json:"salesDate,omitempty"`
-	CommissionTotalAmount float32 `json:"commissionsTotalAmount,omitempty"`
+	ID                     string   `json:"id"`
+	Name                   string   `json:"name"`
+	Commissionstotalamount float64  `json:"commissionsTotalAmount"`
+	Status                 string   `json:"status"`
+	Commissionsids         []string `json:"commissionsIds"`
+	Accountid              string   `json:"accountId"`
+	Parcelsids             []string `json:"parcelsIds"`
 }
