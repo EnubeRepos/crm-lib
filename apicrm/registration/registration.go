@@ -1,11 +1,13 @@
 package registration
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 func (svc *APIRegistrationService) Get() (ResponseRegistration, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityRegistration, "")
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseRegistration{}, err
 	}
 
@@ -13,9 +15,14 @@ func (svc *APIRegistrationService) Get() (ResponseRegistration, error) {
 }
 
 func (svc *APIRegistrationService) GetById(id string) (DomainRegistration, error) {
+	expectedLen := 17
+	idLen := len([]rune(id))
+
+	if idLen != expectedLen {
+		return DomainRegistration{}, fmt.Errorf("error: invalid id expected length of %d but got length of %d", expectedLen, idLen)
+	}
 	response, err := svc.client.CRMHandlerGetService(EntityRegistration, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainRegistration{}, err
 	}
 
@@ -23,9 +30,12 @@ func (svc *APIRegistrationService) GetById(id string) (DomainRegistration, error
 }
 
 func (svc *APIRegistrationService) GetByFilter(filter string) (ResponseRegistration, error) {
+	if filter == "" {
+		return ResponseRegistration{}, fmt.Errorf("error: invalid filter, filter cannot be empty")
+
+	}
 	response, err := svc.client.CRMHandlerGetService(EntityRegistration, "?"+filter)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseRegistration{}, err
 	}
 
@@ -45,6 +55,21 @@ func (svc *APIRegistrationService) Post(Registration DomainRegistration) (Domain
 	}
 
 	return convertMarchalRegistration(response)
+}
+
+func (svc *APIRegistrationService) Delete(id string) (bool, error) {
+	expectedLen := 17
+	idLen := len([]rune(id))
+
+	if idLen != expectedLen {
+		return false, fmt.Errorf("error: invalid id expected length of %d but got length of %d", expectedLen, idLen)
+	}
+	_, err := svc.client.CRMHandlerDeleteService(EntityRegistration, "/"+id)
+	if err != nil {
+		return false, err
+	}
+
+	return true, nil
 }
 
 func (svc *APIRegistrationService) Put(Registration DomainRegistrationBase) (DomainRegistration, error) {
@@ -83,7 +108,6 @@ func convertMarchalResponseRegistration(response []byte) (ResponseRegistration, 
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseRegistration{}, err
 	}
 
@@ -95,7 +119,6 @@ func convertMarchalRegistration(response []byte) (DomainRegistration, error) {
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainRegistration{}, err
 	}
 

@@ -1,4 +1,4 @@
-package bankaccountbalances
+package fintransaction
 
 import (
 	"fmt"
@@ -12,7 +12,7 @@ const (
 	TOKEN = "Y29ubmVjdF91c2VyX3dvcmtlcnM6R21YZTg4MXR0Ug=="
 )
 
-func TestGet(t *testing.T) {
+func TestGetTransactions(t *testing.T) {
 	expected := 1
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
@@ -27,10 +27,11 @@ func TestGet(t *testing.T) {
 	if res.Total == 0 {
 		t.Errorf("Error GET Account %q, wanted %q", res.Total, expected)
 	}
+
 }
 
-func TestGetById(t *testing.T) {
-	expectedId := "62a7883b667fc8df0"
+func TestGetTransactionById(t *testing.T) {
+	expectedId := "629e3a774eaaef34f"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
@@ -44,11 +45,10 @@ func TestGetById(t *testing.T) {
 	if res.ID != expectedId {
 		t.Errorf("Error GetId Account %s, wanted %s", res.ID, expectedId)
 	}
-
 }
 
-func TestGetByFilter(t *testing.T) {
-	filter := "where%5B0%5D%5Btype%5D=linkedWith&where%5B0%5D%5Battribute%5D=teams&where%5B0%5D%5Bvalue%5D%5B%5D=62388f571a0bf1e48"
+func TestGetTransactionByFilter(t *testing.T) {
+	filter := "where%5B0%5D%5Btype%5D=in&where%5B0%5D%5Battribute%5D=transactionType&where%5B0%5D%5Bvalue%5D%5B%5D=Pagamento%20PIX"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
@@ -62,26 +62,23 @@ func TestGetByFilter(t *testing.T) {
 	if res.Total == 0 {
 		t.Errorf("Error GETBYFILTER Account %q, wanted %q", res.Total, 1)
 	}
-
 }
 
-func TestPost(t *testing.T) {
+func TestPostTransaction(t *testing.T) {
+	expectedValue := 32.0
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
-	res, err := srvAccount.Post(DomainBankAccountBalanceCreateRequest{
-		ValueAvailable:   20,
-		ValueInProcess:   13,
-		ValueBlocked:     34,
-		BankAccountId:    "6272dfb1d6499bae2",
-		BankAccountName:  "Thomas Test",
-		AssignedUser:     "",
-		AssignedUserName: "thomas thomas",
-		AssignedUserId:   "12345",
+	res, err := srvAccount.Post(DomainFinTransaction{
+		ID:            "",
+		Name:          "Transaction",
+		Value:         float32(expectedValue),
+		DateStartDate: "06.06.2022",
+		DateEndDate:   "08.08.2022",
 	})
 
 	if err != nil {
-		t.Errorf("Error POST Image:: error: %v", err)
+		t.Errorf("Error POST Account:: error: %v", err)
 		return
 	}
 
@@ -89,22 +86,16 @@ func TestPost(t *testing.T) {
 
 }
 
-func TestPut(t *testing.T) {
-
+func TestPutTransaction(t *testing.T) {
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
-	res, err := srvAccount.Put(DomainBankAccountBalanceCreateRequest{
-		ID:               "62a8da8a8f4c6faf9",
-		ValueSumVirtual:  69,
-		ValueAvailable:   20,
-		ValueInProcess:   13,
-		ValueBlocked:     34,
-		BankAccountId:    "62b5f5aa128a56e4f",
-		BankAccountName:  "Thomas Test",
-		AssignedUser:     "",
-		AssignedUserName: "thomas thomas",
-		AssignedUserId:   "12345",
+	res, err := srvAccount.Put(DomainFinTransactionBase{
+		ID:            "62be00cf5a5ea526f",
+		Name:          "Transaction",
+		Value:         1000,
+		DateStartDate: "06.06.2022",
+		DateEndDate:   "08.08.2022",
 	})
 
 	if err != nil {
@@ -113,11 +104,10 @@ func TestPut(t *testing.T) {
 	}
 
 	fmt.Println(res)
-
 }
 
-func TestDelete(t *testing.T) {
-	id := "62acb1e9a311a02bb"
+func TestDeleteTransaction(t *testing.T) {
+	id := "62a39735d5083047c"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
@@ -133,5 +123,4 @@ func TestDelete(t *testing.T) {
 		t.Errorf("Error DELETE: Account not deleted")
 		return
 	}
-
 }

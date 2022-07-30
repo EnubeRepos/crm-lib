@@ -8,7 +8,7 @@ type ResponseRegistration struct {
 	Registration []DomainRegistration `json:"list,omitempty"`
 }
 
-// estrutura usada para o put de registration, evitando erro de campos vazios
+// estrutura usada para o put de registration, evitando erro de campos vazios //original
 type DomainRegistrationBase struct {
 	ID                 string `json:"id,omitempty"`
 	StatusDetail       string `json:"statusDetail,omitempty"`
@@ -18,6 +18,8 @@ type DomainRegistrationBase struct {
 	RegistrationStatus string `json:"registrationStatus,omitempty"`
 	AssignedUserID     string `json:"assignedUserId,omitempty"`
 	BankAccountID      string `json:"bankAccountId,omitempty"`
+	EmailAddress       string `json:"emailAddress,omitempty"`       //
+	BillingAddressCity string `json:"billingAddressCity,omitempty"` //
 }
 
 // Registration

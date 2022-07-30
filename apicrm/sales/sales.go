@@ -1,11 +1,13 @@
 package sales
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 func (svc *APISalesService) Get() (ResponseSales, error) {
 	response, err := svc.client.CRMHandlerGetService(EntitySales, "")
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseSales{}, err
 	}
 
@@ -13,9 +15,14 @@ func (svc *APISalesService) Get() (ResponseSales, error) {
 }
 
 func (svc *APISalesService) GetById(id string) (DomainSales, error) {
+	expectedLen := 17
+	idLen := len([]rune(id))
+
+	if idLen != expectedLen {
+		return DomainSales{}, fmt.Errorf("error: invalid id expected length of %d but got length of %d", expectedLen, idLen)
+	}
 	response, err := svc.client.CRMHandlerGetService(EntitySales, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainSales{}, err
 	}
 
@@ -23,9 +30,12 @@ func (svc *APISalesService) GetById(id string) (DomainSales, error) {
 }
 
 func (svc *APISalesService) GetByFilter(filter string) (ResponseSales, error) {
+	if filter == "" {
+		return ResponseSales{}, fmt.Errorf("error: invalid filter, filter cannot be empty")
+
+	}
 	response, err := svc.client.CRMHandlerGetService(EntitySales, "?"+filter)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseSales{}, err
 	}
 
@@ -47,13 +57,44 @@ func (svc *APISalesService) Post(Sales DomainSales) (DomainSales, error) {
 	return convertMarchalSales(response)
 }
 
+func (svc *APISalesService) Put(sale DomainSalesBase) (DomainSales, error) {
+
+	payload, err := json.Marshal(sale)
+
+	if err != nil {
+		return DomainSales{}, err
+	}
+
+	response, err := svc.client.CRMHandlerPutService(EntitySales+"/"+sale.ID, payload)
+	if err != nil {
+		return DomainSales{}, err
+	}
+
+	return convertMarchalSales(response)
+
+}
+
+func (svc *APISalesService) Delete(id string) (bool, error) {
+	expectedLen := 17
+	idLen := len([]rune(id))
+
+	if idLen != expectedLen {
+		return false, fmt.Errorf("error: invalid id expected length of %d but got length of %d", expectedLen, idLen)
+	}
+	_, err := svc.client.CRMHandlerDeleteService(EntitySales, "/"+id)
+	if err != nil {
+		return false, err
+	}
+
+	return true, nil
+}
+
 // Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponseSales(response []byte) (ResponseSales, error) {
 	var result ResponseSales
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponseSales{}, err
 	}
 
@@ -65,7 +106,6 @@ func convertMarchalSales(response []byte) (DomainSales, error) {
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainSales{}, err
 	}
 

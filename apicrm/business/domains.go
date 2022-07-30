@@ -2,8 +2,14 @@ package business
 
 const EntityBusiness string = "BusinessRegistration"
 
+type ResponseBusiness struct {
+	Total   int              `json:"total,omitempty"`
+	Account []DomainBusiness `json:"list,omitempty"`
+}
+
 // Registration
 type DomainBusiness struct {
+	ID                         string `json:"id,omitempty"`
 	DocumentNumber             string `json:"documentNumber,omitempty"`
 	BillingAddressStreet       string `json:"billingAddressStreet,omitempty"`
 	BillingAddressCity         string `json:"billingAddressCity,omitempty"`
