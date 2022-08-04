@@ -55,7 +55,7 @@ func (api *CRMAPIClient) CRMHandlerPutService(resource string, payload []byte) (
 	req.Header.Add("Content-Type", "application/json")
 
 	res, err := client.Do(req)
-	if err != nil {
+	if err != nil { //
 		return nil, err
 	}
 	defer res.Body.Close()
@@ -104,8 +104,8 @@ func (api *CRMAPIClient) CRMHandlerPostService(resource string, payload []byte) 
 }
 
 // CRMHandlerDeleteService delete request in the CRM API
-func (api *CRMAPIClient) CRMHandlerDeleteService(resource, params string) ([]byte, error) {
-	url := api.BaseURL + resource
+func (api *CRMAPIClient) CRMHandlerDeleteService(resource string, params string) ([]byte, error) {
+	url := api.BaseURL + resource + params
 	method := "DELETE"
 
 	client := &http.Client{}

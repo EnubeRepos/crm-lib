@@ -8,7 +8,7 @@ type ResponseTed struct {
 	Ted   []DomainTed `json:"list,omitempty"`
 }
 
-// Account
+// Request Ted
 type DomainTed struct {
 	ID                        string   `json:"id,omitempty"`
 	Name                      string   `json:"name,omitempty"`
@@ -26,30 +26,16 @@ type DomainTed struct {
 	AccountType               string   `json:"accountType,omitempty"`
 	ContactID                 string   `json:"contactId,omitempty"`
 	AuthenticationCode        string   `json:"authenticationCode,omitempty"`
-	AssignedUserID            string   `json:"assignedUserId,omitempty"`
-	Status                    string   `json:"status,omitempty"`
-	StatusDetail              string   `json:"statusDetail,omitempty"`
-	//CreatedAt                   string               `json:"createdAt,omitempty"`
-	//ModifiedAt                  string               `json:"modifiedAt,omitempty"`
-	//ContactAgency               string               `json:"contactAgency,omitempty"`
-	//ContactAccountNumber        string               `json:"contactAccountNumber,omitempty"`
-	//SicCode                     string               `json:"sicCode,omitempty"`
-	//ScheduleTransaction         string               `json:"scheduleTransaction,omitempty"`
-	//DateStart                   string               `json:"dateStart,omitempty"`
-	//AmountCurrency              string               `json:"amountCurrency,omitempty"`
-	//OperationFeeAmountCurrency  string               `json:"operationFeeAmountCurrency,omitempty"`
-	//CreatedByID                 string               `json:"createdById,omitempty"`
-	//CreatedByName               string               `json:"createdByName,omitempty"`
-	//ModifiedByID                string               `json:"modifiedById,omitempty"`
-	//ModifiedByName              string               `json:"modifiedByName,omitempty"`
-	//AssignedUserName            string               `json:"assignedUserName,omitempty"`
-	//TeamsIds                    []string        `json:"teamsIds,omitempty"`
-	//AmountConverted             int                  `json:"amountConverted,omitempty"`
-	//InstitutionFinancialName    string               `json:"institutionFinancialName,omitempty"`
-	//OperationFeeAmountConverted int                  `json:"operationFeeAmountConverted,omitempty"`
-	//ContactName                 string               `json:"contactName,omitempty"`
-	//OperationFeeApplicationName string               `json:"operationFeeApplicationName,omitempty"`
-	//PersonalContactsName        string          `json:"personalContactsName,omitempty"`
+
+	// Remetente-Sender
+	AssignedUserID string `json:"assignedUserId,omitempty"`
+
+	// Beneficiário - comissão
+	RecipientID   string `json:"recipientId,omitempty"`
+	CommissionsID string `json:"commissionsId,omitempty"`
+
+	Status       string `json:"status,omitempty"`
+	StatusDetail string `json:"statusDetail,omitempty"`
 }
 
 type DomainTedPutStatus struct {

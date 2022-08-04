@@ -8,6 +8,27 @@ type ResponseContact struct {
 	Contact []DomainContact `json:"list,omitempty"`
 }
 
+// estrutura usada para o put de registration, evitando erro de campos vazios
+type DomainContactBase struct {
+	ID                string `json:"id,omitempty"`
+	Name              string `json:"name,omitempty"`
+	SalutationName    string `json:"salutationName,omitempty"`
+	FirstName         string `json:"firstName,omitempty"`
+	LastName          string `json:"lastName,omitempty"`
+	AccountName       string `json:"accountName,omitempty"`
+	CreatedByName     string `json:"createdByName,omitempty"`
+	AssignedUserName  string `json:"assignedUserName,omitempty"`
+	EmailAddress      string `json:"emailAddress,omitempty"`
+	AssignedUserID    string `json:"assignedUserId,omitempty"`
+	SicCode           string `json:"sinCode,omitempty"`
+	PhoneNumber       string `json:"phoneNumber,omitempty"`
+	AddressStreet     string `json:"addressStreet,omitempty"`
+	AddressCity       string `json:"addressCity,omitempty"`
+	AddressState      string `json:"addressState,omitempty"`
+	AddressCountry    string `json:"addressCountry,omitempty"`
+	AddressPostalCode string `json:"addressPostalCode,omitempty"`
+}
+
 // Account
 type DomainContact struct {
 	ID                       string             `json:"id,omitempty"`

@@ -10,6 +10,14 @@ type ResponseFinTransaction struct {
 	FinTransaction []DomainFinTransaction `json:"list,omitempty"`
 }
 
+type DomainFinTransactionBase struct {
+	ID            string  `json:"id"`
+	Name          string  `json:"name"`
+	Value         float32 `json:"value"`
+	DateStartDate string  `json:"dateStartDate"`
+	DateEndDate   string  `json:"dateEndDate"`
+}
+
 // FinTransaction
 type DomainFinTransaction struct {
 	ID                               string   `json:"id,omitempty"`

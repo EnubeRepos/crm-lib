@@ -8,6 +8,12 @@ type ResponseEventTracking struct {
 	EventTracking []DomainEventTracking `json:"list,omitempty"`
 }
 
+type DomainEventTrackingBase struct {
+	ID             string `json:"id"`
+	Name           string `json:"name"`
+	AssignedUserID string `json:"assignedUserId"`
+}
+
 // Account
 type DomainEventTracking struct {
 	ID                        string   `json:"id"`

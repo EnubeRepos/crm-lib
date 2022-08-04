@@ -12,6 +12,6 @@ require (
 	github.com/spf13/afero v1.8.1 // indirect
 	github.com/spf13/cobra v1.3.0
 	github.com/spf13/viper v1.10.1
-	golang.org/x/sys v0.0.0-20220227234510-4e6760a101f9 // indirect
+	golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a // indirect
 	gopkg.in/ini.v1 v1.66.4 // indirect
 )
