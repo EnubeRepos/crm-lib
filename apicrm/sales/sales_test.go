@@ -1,7 +1,6 @@
 package sales
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/EnubeRepos/crm-lib/client/crmapi"
@@ -64,52 +63,52 @@ func TestGetSaleByFilter(t *testing.T) {
 
 }
 
-func TestPostSale(t *testing.T) {
-	expectedUserName := "Thomas Test"
+// func TestPostSale(t *testing.T) {
+// 	expectedUserName := "Thomas Test"
 
-	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+// 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
-	srvAccount := New(client)
-	res, err := srvAccount.Post(DomainSales{
-		ID:                    "123",
-		AssignedUserID:        "1",
-		AssignedUser:          "Thomas",
-		AssignedUserName:      expectedUserName,
-		SalesNumber:           "27",
-		SalesDate:             "20.07.2002",
-		CommissionTotalAmount: 500,
-	})
+// 	srvAccount := New(client)
+// 	res, err := srvAccount.Post(DomainSales{
+// 		ID:                    "123",
+// 		AssignedUserID:        "1",
+// 		AssignedUser:          "Thomas",
+// 		AssignedUserName:      expectedUserName,
+// 		SalesNumber:           "27",
+// 		SalesDate:             "20.07.2002",
+// 		CommissionTotalAmount: 500,
+// 	})
 
-	if err != nil {
-		t.Errorf("Error POST Account:: error: %v", err)
-		return
-	}
+// 	if err != nil {
+// 		t.Errorf("Error POST Account:: error: %v", err)
+// 		return
+// 	}
 
-	fmt.Println(res)
-}
+// 	fmt.Println(res)
+// }
 
-func TestPutSale(t *testing.T) {
-	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+// func TestPutSale(t *testing.T) {
+// 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
-	srvAccount := New(client)
-	res, err := srvAccount.Put(DomainSalesBase{
-		ID:     "62bc8bf712d087b26",
-		Status: "Distratada",
-		// AssignedUserID:        "1",
-		// AssignedUser:          "Thomas",
-		// AssignedUserName:      "",
-		// SalesNumber:           "27",
-		// SalesDate:             "20.07.2002",
-		// CommissionTotalAmount: 500,
-	})
+// 	srvAccount := New(client)
+// 	res, err := srvAccount.Put(DomainSalesBase{
+// 		ID:     "62bc8bf712d087b26",
+// 		Status: "Distratada",
+// 		// AssignedUserID:        "1",
+// 		// AssignedUser:          "Thomas",
+// 		// AssignedUserName:      "",
+// 		// SalesNumber:           "27",
+// 		// SalesDate:             "20.07.2002",
+// 		// CommissionTotalAmount: 500,
+// 	})
 
-	if err != nil {
-		t.Errorf("Error PUT Account:: error: %v", err)
-		return
-	}
+// 	if err != nil {
+// 		t.Errorf("Error PUT Account:: error: %v", err)
+// 		return
+// 	}
 
-	fmt.Println(res)
-}
+// 	fmt.Println(res)
+// }
 
 func TestDeleteSale(t *testing.T) {
 	id := "62a9fdddcc860b8ac"

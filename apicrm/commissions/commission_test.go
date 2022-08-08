@@ -100,39 +100,39 @@ func TestPostCommision(t *testing.T) {
 
 }
 
-func TestPutCommission(t *testing.T) {
-	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+// func TestPutCommission(t *testing.T) {
+// 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
-	srv := New(client)
+// 	srv := New(client)
 
-	res, err := srv.Put(DomainCommissionsBase{
-		ID:                      "62b5ca25af9c03c6c",
-		Sales:                   "Thomas",
-		Name:                    "Thomas Test",
-		Deleted:                 false,
-		Description:             "",
-		CreatedAt:               "idk",
-		ModifiedAt:              "idk",
-		Status:                  "Transferida",
-		Amount:                  7000,
-		SalesDate:               "18.06.2022",
-		ParcelNumber:            1,
-		AmountCurrency:          "BRL",
-		SalesID:                 "9",
-		ParcelsID:               "34",
-		ParcelsName:             "Parcel 1",
-		IsFollowed:              true,
-		RecipientDocumentNumber: "67",
-		ProductName:             "Test",
-	})
+// 	res, err := srv.Put(DomainCommissionsBase{
+// 		ID:                      "62b5ca25af9c03c6c",
+// 		Sales:                   "Thomas",
+// 		Name:                    "Thomas Test",
+// 		Deleted:                 false,
+// 		Description:             "",
+// 		CreatedAt:               "idk",
+// 		ModifiedAt:              "idk",
+// 		Status:                  "Transferida",
+// 		Amount:                  7000,
+// 		SalesDate:               "18.06.2022",
+// 		ParcelNumber:            1,
+// 		AmountCurrency:          "BRL",
+// 		SalesID:                 "9",
+// 		ParcelsID:               "34",
+// 		ParcelsName:             "Parcel 1",
+// 		IsFollowed:              true,
+// 		RecipientDocumentNumber: "67",
+// 		ProductName:             "Test",
+// 	})
 
-	if err != nil {
-		t.Errorf("Error PUT Account:: error: %v", err)
-		return
-	}
+// 	if err != nil {
+// 		t.Errorf("Error PUT Account:: error: %v", err)
+// 		return
+// 	}
 
-	fmt.Println(res)
-}
+// 	fmt.Println(res)
+// }
 
 func TestDeleteCommission(t *testing.T) {
 	id := "62acbbf5e285e0de6"

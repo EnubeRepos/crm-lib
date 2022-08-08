@@ -119,6 +119,7 @@ func TestDeleteUser(t *testing.T) {
 		t.Errorf("Error DELETE: Account not deleted")
 		return
 	}
+}
 
 func TestPost(t *testing.T) {
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))

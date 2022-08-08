@@ -1,7 +1,6 @@
 package fintransaction
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/EnubeRepos/crm-lib/client/crmapi"
@@ -64,47 +63,47 @@ func TestGetTransactionByFilter(t *testing.T) {
 	}
 }
 
-func TestPostTransaction(t *testing.T) {
-	expectedValue := 32.0
-	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+// func TestPostTransaction(t *testing.T) {
+// 	expectedValue := 32.0
+// 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
-	srvAccount := New(client)
-	res, err := srvAccount.Post(DomainFinTransaction{
-		ID:            "",
-		Name:          "Transaction",
-		Value:         float32(expectedValue),
-		DateStartDate: "06.06.2022",
-		DateEndDate:   "08.08.2022",
-	})
+// 	srvAccount := New(client)
+// 	res, err := srvAccount.Post(DomainFinTransaction{
+// 		ID:            "",
+// 		Name:          "Transaction",
+// 		Value:         float32(expectedValue),
+// 		DateStartDate: "06.06.2022",
+// 		DateEndDate:   "08.08.2022",
+// 	})
 
-	if err != nil {
-		t.Errorf("Error POST Account:: error: %v", err)
-		return
-	}
+// 	if err != nil {
+// 		t.Errorf("Error POST Account:: error: %v", err)
+// 		return
+// 	}
 
-	fmt.Println(res)
+// 	fmt.Println(res)
 
-}
+// }
 
-func TestPutTransaction(t *testing.T) {
-	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+// func TestPutTransaction(t *testing.T) {
+// 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
-	srvAccount := New(client)
-	res, err := srvAccount.Put(DomainFinTransactionBase{
-		ID:            "62be00cf5a5ea526f",
-		Name:          "Transaction",
-		Value:         1000,
-		DateStartDate: "06.06.2022",
-		DateEndDate:   "08.08.2022",
-	})
+// 	srvAccount := New(client)
+// 	res, err := srvAccount.Put(DomainFinTransactionBase{
+// 		ID:            "62be00cf5a5ea526f",
+// 		Name:          "Transaction",
+// 		Value:         1000,
+// 		DateStartDate: "06.06.2022",
+// 		DateEndDate:   "08.08.2022",
+// 	})
 
-	if err != nil {
-		t.Errorf("Error PUT Account:: error: %v", err)
-		return
-	}
+// 	if err != nil {
+// 		t.Errorf("Error PUT Account:: error: %v", err)
+// 		return
+// 	}
 
-	fmt.Println(res)
-}
+// 	fmt.Println(res)
+// }
 
 func TestDeleteTransaction(t *testing.T) {
 	id := "62a39735d5083047c"
