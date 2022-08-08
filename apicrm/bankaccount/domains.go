@@ -54,7 +54,8 @@ type DomainBankAccount struct {
 	ParcelssIds            []string `json:"parcelssIds"`
 	UserID                 string   `json:"userId"`
 	UserName               string   `json:"userName"`
-	InstitutionFinancialID string `json:"institutionFinancialId"`
+	InstitutionFinancialID string   `json:"institutionFinancialId"`
+	BalanceId              string   `json:"balanceId"`
 }
 
 type DomainBankAccountCreateRequest struct {

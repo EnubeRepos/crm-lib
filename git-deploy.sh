@@ -1,5 +1,5 @@
- version="v1.18.1"
- message="clean arquitecture project"
+ version="v1.19.0"
+ message="added balance functions"
  
  echo "Publishing... >>>> $version"
  echo "$message"
