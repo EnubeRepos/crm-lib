@@ -5,7 +5,6 @@ import "encoding/json"
 func (svc *APIPixService) Get() (ResponsePix, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityPix, "")
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponsePix{}, err
 	}
 
@@ -15,7 +14,6 @@ func (svc *APIPixService) Get() (ResponsePix, error) {
 func (svc *APIPixService) GetById(id string) (DomainPix, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityPix, "/"+id)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainPix{}, err
 	}
 
@@ -25,7 +23,6 @@ func (svc *APIPixService) GetById(id string) (DomainPix, error) {
 func (svc *APIPixService) GetByFilter(filter string) (ResponsePix, error) {
 	response, err := svc.client.CRMHandlerGetService(EntityPix, "?"+filter)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponsePix{}, err
 	}
 
@@ -69,7 +66,6 @@ func convertMarchalResponsePix(response []byte) (ResponsePix, error) {
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return ResponsePix{}, err
 	}
 
@@ -81,7 +77,6 @@ func convertMarchalPix(response []byte) (DomainPix, error) {
 
 	err := json.Unmarshal(response, &result)
 	if err != nil {
-		// ctx.Logger.WithField("Error:", err).Error("Error to make Unmarshal in Distributor")
 		return DomainPix{}, err
 	}
 
