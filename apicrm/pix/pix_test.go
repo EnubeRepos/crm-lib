@@ -23,5 +23,4 @@ func TestPost(t *testing.T) {
 		return
 	}
 
-	fmt.Println(v)
 }
