@@ -56,7 +56,8 @@ func (svc *APIUserService) Post(User DomainUser) (DomainUser, error) {
 
 	return convertMarchalUser(response)
 }
-func (svc *APIUserService) Put(user DomainUserBase) (DomainUser, error) {
+
+func (svc *APIUserService) Put(user DomainUser) (DomainUser, error) {
 
 	payload, err := json.Marshal(user)
 
@@ -81,7 +82,7 @@ func (svc *APIUserService) PutAccessInfo(ModelPut DomainUserSendAccessInfoPut) (
 
 	response, err := svc.client.CRMHandlerPutService(EntityUser+"/"+ModelPut.ID, payload)
 
-  if err != nil {
+	if err != nil {
 		return DomainUser{}, err
 	}
 
@@ -102,7 +103,6 @@ func (svc *APIUserService) Delete(id string) (bool, error) {
 
 	return true, nil
 }
-
 
 func (svc *APIUserService) PutDashboardTemplate(ModelPutDash DomainUserDashBoardTemplate) (DomainUser, error) {
 	payload, err := json.Marshal(ModelPutDash)

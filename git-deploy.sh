@@ -1,4 +1,4 @@
- version="v1.20.1"
+ version="v1.20.2"
  message="External Id AWS Cognito into user entity"
  
  echo "Publishing... >>>> $version"

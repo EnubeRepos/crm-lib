@@ -89,10 +89,9 @@ func TestPutUser(t *testing.T) {
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
-	res, err := srvAccount.Put(DomainUserBase{
-		ID:           "628bd60a8bd077f51",
-		EmailAddress: "thomas@enube.me",
-	})
+	user, _ := srvAccount.GetById("628bd60a8bd077f51")
+	user.ExternalIdSign = "123123"
+	res, err := srvAccount.Put(user)
 
 	if err != nil {
 		t.Errorf("Error PUT Account:: error: %v", err)
