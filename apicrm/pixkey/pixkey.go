@@ -44,23 +44,6 @@ func (svc *APIPixKeyService) Post(PixKey DomainPixKey) (DomainPixKey, error) {
 	return convertMarchalPixKey(response)
 }
 
-//func (svc *APIPixKeyService) PutStatus(ModelPut DomainPixKeyPutStatus) (DomainPixKey, error) {
-//	payload, err := json.Marshal(ModelPut)
-//
-//	if err != nil {
-//		return DomainPixKey{}, err
-//	}
-//
-//	response, err := svc.client.CRMHandlerPutService(EntityPixKey+"/"+ModelPut.ID, payload)
-//	if err != nil {
-//		return DomainPixKey{}, err
-//	}
-//
-//	return convertMarchalPixKey(response)
-//}
-
-
-// Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponsePixKey(response []byte) (ResponsePixKey, error) {
 	var result ResponsePixKey
 
