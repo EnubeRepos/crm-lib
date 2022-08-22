@@ -4,6 +4,7 @@ type CRMAPIClient struct {
 	BaseURL   string
 	UrlPrefix string
 	UseHttps  bool
+	Cookie    string
 
 	Token string
 }
@@ -11,6 +12,7 @@ type CRMAPIClient struct {
 type CRMAPIConfig struct {
 	BaseURL, URLPrefix, Token string
 	UseHttps                  bool
+	Cookie                    string
 }
 
 func NewCRMAPIConfig(host, token string) CRMAPIConfig {
@@ -31,5 +33,13 @@ func New(host, token string) CRMAPIClient {
 	return CRMAPIClient{
 		BaseURL: host,
 		Token:   token,
+	}
+}
+
+func NewBySession(host, token, Cookie string) CRMAPIClient {
+	return CRMAPIClient{
+		BaseURL: host,
+		Token:   token,
+		Cookie:  Cookie,
 	}
 }

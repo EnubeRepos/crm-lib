@@ -22,6 +22,10 @@ func (api *CRMAPIClient) CRMHandlerGetService(resource string, params string) ([
 	req.Header.Add("Authorization", "Basic "+api.Token)
 	req.Header.Add("Content-Type", "application/json")
 
+	if api.Cookie != "" {
+		req.Header.Add("Cookie", api.Cookie)
+	}
+
 	res, err := client.Do(req)
 	if err != nil {
 		return nil, err
@@ -53,6 +57,10 @@ func (api *CRMAPIClient) CRMHandlerPutService(resource string, payload []byte) (
 
 	req.Header.Add("Authorization", "Basic "+api.Token)
 	req.Header.Add("Content-Type", "application/json")
+
+	if api.Cookie != "" {
+		req.Header.Add("Cookie", api.Cookie)
+	}
 
 	res, err := client.Do(req)
 	if err != nil { //
@@ -87,6 +95,10 @@ func (api *CRMAPIClient) CRMHandlerPostService(resource string, payload []byte) 
 	req.Header.Add("Authorization", "Basic "+api.Token)
 	req.Header.Add("Content-Type", "application/json")
 
+	if api.Cookie != "" {
+		req.Header.Add("Cookie", api.Cookie)
+	}
+
 	res, err := client.Do(req)
 	if err != nil {
 		return nil, err
@@ -116,6 +128,10 @@ func (api *CRMAPIClient) CRMHandlerDeleteService(resource string, params string)
 
 	req.Header.Add("Authorization", "Basic "+api.Token)
 	req.Header.Add("Content-Type", "application/json")
+
+	if api.Cookie != "" {
+		req.Header.Add("Cookie", api.Cookie)
+	}
 
 	res, err := client.Do(req)
 	if err != nil {
@@ -147,6 +163,10 @@ func (api *CRMAPIClient) CRMHandlerImage(imageID string) ([]byte, error) {
 
 	req.Header.Add("Authorization", "Basic "+api.Token)
 	req.Header.Add("Content-Type", "application/json")
+
+	if api.Cookie != "" {
+		req.Header.Add("Cookie", api.Cookie)
+	}
 
 	res, err := client.Do(req)
 	if err != nil {
