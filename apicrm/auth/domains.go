@@ -4,9 +4,12 @@ const EntityAuth string = "App/user"
 
 // DomainAuth
 type DomainAuth struct {
-	User     User   `json:"user"`
-	Token    string `json:"token"`
-	Language string `json:"language"`
+	User        User   `json:"user"`
+	Token       string `json:"token"`
+	TokenSecret string `json:"tokenSecret"`
+	Language    string `json:"language"`
+	Status      string `json:"status"`
+	Message     string `json:"message"`
 }
 
 type User struct {

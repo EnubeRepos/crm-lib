@@ -1,10 +1,12 @@
 package crmapi
 
 type CRMAPIClient struct {
-	BaseURL   string
-	UrlPrefix string
-	UseHttps  bool
-	Cookie    string
+	BaseURL         string
+	UrlPrefix       string
+	UseHttps        bool
+	Cookie          string
+	Headers         []Headers
+	HeadersResponse map[string][]string
 
 	Token string
 }

@@ -1,5 +1,5 @@
- version="v1.21.0"
- message="Added update user info"
+ version="v1.23.0"
+ message="Added auth session"
  
  echo "Publishing... >>>> $version"
  echo "$message"

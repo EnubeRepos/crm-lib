@@ -8,6 +8,12 @@ import (
 	"strings"
 )
 
+type Headers struct {
+	Key   string
+	Value string
+}
+
+
 // CRMHandlerGetService make request for CRM.
 func (api *CRMAPIClient) CRMHandlerGetService(resource string, params string) ([]byte, error) {
 	url := api.BaseURL + resource + params
@@ -26,11 +32,19 @@ func (api *CRMAPIClient) CRMHandlerGetService(resource string, params string) ([
 		req.Header.Add("Cookie", api.Cookie)
 	}
 
+	if len(api.Headers) > 0 {
+		for _, item := range api.Headers {
+			req.Header.Add(item.Key, item.Value)
+		}
+	}
+
 	res, err := client.Do(req)
 	if err != nil {
 		return nil, err
 	}
 	defer res.Body.Close()
+
+	api.HeadersResponse = res.Header
 
 	body, err := ioutil.ReadAll(res.Body)
 	if err != nil {
@@ -60,6 +74,12 @@ func (api *CRMAPIClient) CRMHandlerPutService(resource string, payload []byte) (
 
 	if api.Cookie != "" {
 		req.Header.Add("Cookie", api.Cookie)
+	}
+
+	if len(api.Headers) > 0 {
+		for _, item := range api.Headers {
+			req.Header.Add(item.Key, item.Value)
+		}
 	}
 
 	res, err := client.Do(req)
@@ -99,6 +119,12 @@ func (api *CRMAPIClient) CRMHandlerPostService(resource string, payload []byte) 
 		req.Header.Add("Cookie", api.Cookie)
 	}
 
+	if len(api.Headers) > 0 {
+		for _, item := range api.Headers {
+			req.Header.Add(item.Key, item.Value)
+		}
+	}
+
 	res, err := client.Do(req)
 	if err != nil {
 		return nil, err
@@ -131,6 +157,12 @@ func (api *CRMAPIClient) CRMHandlerDeleteService(resource string, params string)
 
 	if api.Cookie != "" {
 		req.Header.Add("Cookie", api.Cookie)
+	}
+
+	if len(api.Headers) > 0 {
+		for _, item := range api.Headers {
+			req.Header.Add(item.Key, item.Value)
+		}
 	}
 
 	res, err := client.Do(req)
@@ -166,6 +198,12 @@ func (api *CRMAPIClient) CRMHandlerImage(imageID string) ([]byte, error) {
 
 	if api.Cookie != "" {
 		req.Header.Add("Cookie", api.Cookie)
+	}
+
+	if len(api.Headers) > 0 {
+		for _, item := range api.Headers {
+			req.Header.Add(item.Key, item.Value)
+		}
 	}
 
 	res, err := client.Do(req)
