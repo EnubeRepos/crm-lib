@@ -64,15 +64,15 @@ func (svc *APIBalanceService) Post(Balance DomainBalanceCreateRequest) (DomainBa
 	return response, err
 }
 
-func (svc *APIBalanceService) Put(account DomainBalanceCreateRequest) (DomainBalanceCreateResponse, error) {
+func (svc *APIBalanceService) Put(balance DomainBalanceCreateRequest) (DomainBalanceCreateResponse, error) {
 
-	payload, err := json.Marshal(account)
+	payload, err := json.Marshal(balance)
 
 	if err != nil {
 		return DomainBalanceCreateResponse{}, err
 	}
 
-	responseHttp, err := svc.client.CRMHandlerPutService(EntityBalance+"/"+account.ID, payload)
+	responseHttp, err := svc.client.CRMHandlerPutService(EntityBalance+"/"+balance.ID, payload)
 	if err != nil {
 		return DomainBalanceCreateResponse{}, err
 	}
@@ -81,7 +81,6 @@ func (svc *APIBalanceService) Put(account DomainBalanceCreateRequest) (DomainBal
 
 	err = convertMarchalBalance(responseHttp, &response)
 	return response, err
-
 }
 
 func (svc *APIBalanceService) Delete(id string) (bool, error) {

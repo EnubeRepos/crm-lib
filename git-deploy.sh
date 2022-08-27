@@ -1,5 +1,5 @@
- version="v1.23.0"
- message="Added auth session"
+ version="v1.24.1"
+ message="Fix domain balance"
  
  echo "Publishing... >>>> $version"
  echo "$message"
