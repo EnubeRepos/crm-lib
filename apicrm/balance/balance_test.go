@@ -1,4 +1,4 @@
-package bankaccount
+package balance
 
 import (
 	"fmt"

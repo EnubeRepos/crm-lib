@@ -1,4 +1,4 @@
-package bankaccount
+package balance
 
 const EntityBalance string = "Balance"
 

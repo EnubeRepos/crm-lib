@@ -1,4 +1,4 @@
-package bankaccount
+package balance
 
 import "github.com/EnubeRepos/crm-lib/client/crmapi"
 
