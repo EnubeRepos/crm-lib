@@ -65,6 +65,7 @@ type DomainBankAccount struct {
 	LimitManagementName      string   `json:"limitManagementName,omitempty"`
 	IsFollowed               bool     `json:"isFollowed,omitempty"`
 	FollowersIds             []string `json:"followersIds,omitempty"`
+	ExternalIdSecurity       string   `json:"externalIdSecurity,omitempty"`
 }
 
 type DomainBankAccountCreateRequest struct {
@@ -77,6 +78,7 @@ type DomainBankAccountCreateRequest struct {
 	Agency                 string `json:"agency"`
 	AssignedUserID         string `json:"assignedUserId"`
 	InstitutionFinancialID string `json:"institutionFinancialId"`
+	ExternalIdSecurity     string `json:"externalIdSecurity,omitempty"`
 }
 
 type DomainBankAccountCreateResponse struct {

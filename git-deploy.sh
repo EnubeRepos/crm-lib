@@ -1,4 +1,4 @@
- version="v1.24.1"
+ version="v1.24.2"
  message="Fix domain balance"
  
  echo "Publishing... >>>> $version"
