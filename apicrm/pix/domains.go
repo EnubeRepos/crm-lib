@@ -43,6 +43,10 @@ type DomainPix struct {
 	InstitutionFinancialName    string `json:"institutionFinancialName,omitempty"`
 	OperationFeeApplicationID   string `json:"operationFeeApplicationId,omitempty"`
 	OperationFeeApplicationName string `json:"operationFeeApplicationName,omitempty"`
+	HolderDocumentType          string `json:"holderDocumentType,omitempty"`
+	HolderDocumentValue         string `json:"holderDocumentValue,omitempty"`
+	HolderName                  string `json:"holderName,omitempty"`
+	HolderType                  string `json:"holderType,omitempty"`
 	ContactID                   string `json:"contactId,omitempty"`
 	ContactName                 string `json:"contactName,omitempty"`
 	//AmountConverted             float64                  `json:"amountConverted,omitempty"`
@@ -61,4 +65,12 @@ type DomainPixPutStatus struct {
 	Status             string `json:"status,omitempty"`
 	StatusDetail       string `json:"statusDetail,omitempty"`
 	AuthenticationCode string `json:"authenticationCode,omitempty"`
+}
+
+type DomainPixPutPixKeyInfo struct {
+	ID                  string `json:"id,omitempty"`
+	HolderDocumentType  string `json:"holderDocumentType,omitempty"`
+	HolderDocumentValue string `json:"holderDocumentValue,omitempty"`
+	HolderName          string `json:"holderName,omitempty"`
+	HolderType          string `json:"holderType,omitempty"`
 }
