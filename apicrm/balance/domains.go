@@ -39,3 +39,8 @@ type DomainBalanceCreateResponse struct {
 	AssignedUserID string  `json:"assignedUserId"`
 	BankAccountID  string  `json:"bankAccountId"`
 }
+
+type DomainBalancePutStatus struct {
+	ID                 string `json:"id,omitempty"`
+	Status             string `json:"status,omitempty"`
+}
