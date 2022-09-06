@@ -18,6 +18,7 @@ type DomainBalance struct {
 	BlockedBalance float64 `json:"blockedBalance"`
 	AssignedUserID string  `json:"assignedUserId"`
 	BankAccountID  string  `json:"bankAccountId"`
+	ForceUpdate    bool    `json:"forceUpdate"`
 }
 
 type DomainBalanceCreateRequest struct {
@@ -27,6 +28,7 @@ type DomainBalanceCreateRequest struct {
 	BlockedBalance float64 `json:"blockedBalance"`
 	AssignedUserID string  `json:"assignedUserId"`
 	BankAccountID  string  `json:"bankAccountId"`
+	ForceUpdate    bool    `json:"forceUpdate"`
 }
 
 type DomainBalanceCreateResponse struct {
@@ -38,4 +40,5 @@ type DomainBalanceCreateResponse struct {
 	BlockedBalance float64 `json:"blockedBalance"`
 	AssignedUserID string  `json:"assignedUserId"`
 	BankAccountID  string  `json:"bankAccountId"`
+	ForceUpdate    bool    `json:"forceUpdate"`
 }
