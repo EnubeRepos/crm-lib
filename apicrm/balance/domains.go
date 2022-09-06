@@ -42,5 +42,5 @@ type DomainBalanceCreateResponse struct {
 
 type DomainBalancePutStatus struct {
 	ID          string `json:"id,omitempty"`
-	ForceUpdate string `json:"forceUpdate,omitempty"`
+	ForceUpdate bool   `json:"forceUpdate,omitempty"`
 }
