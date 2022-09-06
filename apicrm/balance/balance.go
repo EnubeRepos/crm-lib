@@ -83,6 +83,24 @@ func (svc *APIBalanceService) Put(balance DomainBalanceCreateRequest) (DomainBal
 	return response, err
 }
 
+func (svc *APIBalanceService) PutStatus(ModelPut DomainBalancePutStatus) (DomainBalanceCreateResponse, error) {
+	payload, err := json.Marshal(ModelPut)
+
+	if err != nil {
+		return DomainBalanceCreateResponse{}, err
+	}
+
+	responseHttp, err := svc.client.CRMHandlerPutService(EntityBalance+"/"+ModelPut.ID, payload)
+	if err != nil {
+		return DomainBalanceCreateResponse{}, err
+	}
+	response := DomainBalanceCreateResponse{}
+
+	err = convertMarchalBalance(responseHttp, &response)
+
+	return response, err
+}
+
 func (svc *APIBalanceService) Delete(id string) (bool, error) {
 	expectedLen := 17
 	idLen := len([]rune(id))
