@@ -34,6 +34,7 @@ type DomainPixKey struct {
 }
 
 type DomainPixKeyPutStatus struct {
-	ID                 string `json:"id,omitempty"`
-	Status             string `json:"status,omitempty"`
+	ID     string `json:"id,omitempty"`
+	Status string `json:"status,omitempty"`
+	Name   string `json:"name,omitempty"`
 }
