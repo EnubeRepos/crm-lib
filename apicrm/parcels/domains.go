@@ -22,6 +22,7 @@ type DomainParcels struct {
 	ProductDivision      string   `json:"productDivision,omitempty"`
 	Status               string   `json:"status,omitempty"`
 	DueDate              string   `json:"dueDate,omitempty"`
+	ClosePayment         string   `json:"closePayment,omitempty"`
 	Amount               float64  `json:"amount,omitempty"`
 	Payment              string   `json:"payment,omitempty"`
 	ParcelPaid           string   `json:"parcelPaid,omitempty"`
