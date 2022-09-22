@@ -1,4 +1,4 @@
- version="v1.25.0"
+ version="v1.25.1"
  message="Adding balance update"
  
  echo "Publishing... >>>> $version"
