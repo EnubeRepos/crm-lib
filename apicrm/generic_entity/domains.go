@@ -1,4 +1,4 @@
-package account
+package generic
 
 const EntityGeneric string = "Generic"
 

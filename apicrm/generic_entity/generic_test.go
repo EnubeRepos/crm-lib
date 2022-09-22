@@ -1,4 +1,4 @@
-package account
+package generic
 
 import (
 	"testing"

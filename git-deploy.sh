@@ -1,5 +1,5 @@
- version="v1.25.1"
- message="Adding balance update"
+ version="v1.26.0"
+ message="Adding generics methods and generics entities "
  
  echo "Publishing... >>>> $version"
  echo "$message"
