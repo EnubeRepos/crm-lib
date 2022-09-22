@@ -1,4 +1,4 @@
- version="v1.26.1"
+ version="v1.26.2"
  message="Adding generics methods and generics entities "
  
  echo "Publishing... >>>> $version"

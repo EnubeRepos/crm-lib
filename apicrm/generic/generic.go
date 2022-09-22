@@ -22,8 +22,8 @@ func (svc *APIGenericService) GetByFilter(filter string) ([]byte, error) {
 	return svc.client.CRMHandlerGetService(svc.entityName, "?"+filter)
 }
 
-func (svc *APIGenericService) Post(account DomainGeneric) ([]byte, error) {
-	payload, err := json.Marshal(account)
+func (svc *APIGenericService) Post(model interface{}) ([]byte, error) {
+	payload, err := json.Marshal(model)
 
 	if err != nil {
 		return nil, err
