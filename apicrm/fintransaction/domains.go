@@ -99,6 +99,7 @@ type DomainFinTransaction struct {
 	ContactID                         string `json:"contactId,omitempty"`
 	ContactName                       string `json:"contactName,omitempty"`
 	TedID                             string `json:"tedId,omitempty"`
+	BillPaymentId                     string `json:"billPaymentId,omitempty"`
 	TedName                           string `json:"tedName,omitempty"`
 	UserID                            string `json:"userId,omitempty"`
 	UserName                          string `json:"userName,omitempty"`
