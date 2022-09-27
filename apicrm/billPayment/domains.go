@@ -24,6 +24,7 @@ type DomainBillPayment struct {
 	ModifiedByName     string   `json:"modifiedByName,omitempty"`
 	AssignedUserID     string   `json:"assignedUserId,omitempty"`
 	AssignedUserName   string   `json:"assignedUserName,omitempty"`
+	Assignor           string   `json:"assignor,omitempty"`
 	TeamsIds           []string `json:"teamsIds,omitempty"`
 	//TeamsNames         TeamsNames     `json:"teamsNames,omitempty"`
 	IsFollowed   bool     `json:"isFollowed,omitempty"`
