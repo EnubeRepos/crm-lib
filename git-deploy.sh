@@ -1,5 +1,5 @@
- version="v1.26.3"
- message="Adding generics methods and generics entities "
+ version="v1.27.3"
+ message="add endtoend into entity pix"
  
  echo "Publishing... >>>> $version"
  echo "$message"
