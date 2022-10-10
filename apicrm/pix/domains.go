@@ -55,6 +55,7 @@ type DomainPix struct {
 	PixKeyName           string `json:"pixKeyName,omitempty"`
 	PersonalContactsID   string `json:"personalContactsId,omitempty"`
 	PersonalContactsName string `json:"personalContactsName,omitempty"`
+	EndToEndID           string `json:"endToEndId,omitempty"`
 	//IsFollowed                  bool                 `json:"isFollowed,omitempty"`
 	//FollowersIds                []string        `json:"followersIds,omitempty"`
 	//FollowersNames              FollowersNames       `json:"followersNames,omitempty"`
