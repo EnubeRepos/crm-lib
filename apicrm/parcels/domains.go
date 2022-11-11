@@ -25,6 +25,7 @@ type DomainParcels struct {
 	ClosePayment         string   `json:"closePayment,omitempty"`
 	Amount               float64  `json:"amount,omitempty"`
 	Payment              string   `json:"payment,omitempty"`
+	PaymentDate          string   `json:"paymentDate,omitempty"`
 	ParcelPaid           string   `json:"parcelPaid,omitempty"`
 	ReturnFee            float64  `json:"returnFee,omitempty"`
 	ApproveReturnTranfer bool     `json:"approveReturnTranfer,omitempty"`
@@ -85,4 +86,5 @@ type DomainParcelsPutStatus struct {
 	StatusDetail string `json:"statusDetail,omitempty"`
 	ParcelPaid   string `json:"parcelPaid,omitempty"`
 	Reprocess    bool   `json:"reprocess,omitempty"`
+	PaymentDate  string   `json:"paymentDate,omitempty"`
 }
