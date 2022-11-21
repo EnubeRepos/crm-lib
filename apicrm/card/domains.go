@@ -52,4 +52,6 @@ type DomainDebitCard struct {
 	BankAccountParentID        string   `json:"bankAccountParentId,omitempty"`
 	BankAccountParentName      string   `json:"bankAccountParentName,omitempty"`
 	OperationFeeApplicationID  string   `json:"operationFeeApplicationId,omitempty"`
+	Status                     []string `json:"status,omitempty"`
+	Proxy                      string   `json:"proxy,omitempty"`
 }
