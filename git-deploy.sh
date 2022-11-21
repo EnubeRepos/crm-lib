@@ -1,5 +1,5 @@
- version="v1.29.0"
- message="add functinos card"
+ version="v1.29.2"
+ message="add card parameters "
  
  echo "Publishing... >>>> $version"
  echo "$message"
