@@ -46,8 +46,8 @@ func (svc *APIDebitCardService) GetByFilter(filter string) (ResponseDebitCard, e
 	return convertMarchalResponseDebitCard(response)
 }
 
-func (svc *APIDebitCardService) Post(DebitCard DomainDebitCard) (DomainDebitCard, error) {
-	payload, err := json.Marshal(DebitCard)
+func (svc *APIDebitCardService) Post(debitCard DomainDebitCard) (DomainDebitCard, error) {
+	payload, err := json.Marshal(debitCard)
 
 	if err != nil {
 		return DomainDebitCard{}, err

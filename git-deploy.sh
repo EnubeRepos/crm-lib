@@ -1,5 +1,5 @@
- version="v1.27.3"
- message="add endtoend into entity pix"
+ version="v1.29.0"
+ message="add functinos card"
  
  echo "Publishing... >>>> $version"
  echo "$message"

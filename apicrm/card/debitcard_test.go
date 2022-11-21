@@ -73,26 +73,37 @@ func TestGetByFilter(t *testing.T) {
 
 }
 
-// func TestPost(t *testing.T) {
-// 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
+func TestPost(t *testing.T) {
+	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
-// 	srvAccount := New(client)
-// 	res, err := srvAccount.Post(DomainDebitCardCreateRequest{
-// 		Agency:         "00007",
-// 		AccountNumber:  "00011",
-// 		AssignedUserID: "62151eeecd1187df9",
-// 		SicCode:        "40760176846",
-// 		LastName:       "Test3",
-// 		FirstName:      "Thomas",
-// 	})
+	srvAccount := New(client)
+	res, err := srvAccount.Post(DomainDebitCard{
+		Name:                       "Nicolas Carvalho",
+		BillingAddressCity:         "São Paulo",
+		BillingAddressNeighborhood: "Liberdade",
+		BillingAddressStreet:       "Av nove de julho",
+		BillingAddressComplement:   "Av.",
+		BillingAddressCountry:      "BR",
+		BillingAddressNumber:       "119",
+		BillingAddressPostalCode:   "01513000",
+		BillingAddressState:        "SP",
+		AssignedUserID:             "6276b7d16bc4ae792",
+		DocumentNumber:             "39234412826",
+		CardName:                   "Nicolas Carvalho",
+		Alias:                      "Nick",
+		AccountNumber:              "261319",
+		BankAgency:                 "0001",
+		Password:                   "1234",
+		BankAccountParentID:        "1234",
+	})
 
-// 	if err != nil {
-// 		t.Errorf("Error POST Image:: error: %v", err)
-// 		return
-// 	}
+	if err != nil {
+		t.Errorf("Error POST Image:: error: %v", err)
+		return
+	}
 
-// 	fmt.Println(res)
-// }
+	fmt.Println(res)
+}
 
 // func TestPut(t *testing.T) {
 

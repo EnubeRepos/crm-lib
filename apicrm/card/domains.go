@@ -1,4 +1,4 @@
-package balance
+package card
 
 const EntityDebitCard string = "DebitCard"
 
