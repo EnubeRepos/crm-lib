@@ -41,8 +41,13 @@ type DomainInvoiceIssuance struct {
 	FinTransactionsIds         []string `json:"finTransactionsIds,omitempty"`
 	InstitutionFinancialID     string   `json:"institutionFinancialId,omitempty"`
 	InstitutionFinancialName   string   `json:"institutionFinancialName,omitempty"`
+	PayerAddressStreet         string   `json:"payerAddressStreet,omitempty"`
+	PayerAddressCity           string   `json:"payerAddressCity,omitempty"`
+	PayerAddressState          string   `json:"payerAddressState,omitempty"`
+	PayerAddressCountry        string   `json:"payerAddressCountry,omitempty"`
+	PayerAddressPostalCode     string   `json:"payerAddressPostalCode,omitempty"`
 
-	PaymentDate string `json:"paymentDate,omitempty"`
+	//PaymentDate string `json:"paymentDate,omitempty"`
 }
 
 type DomainInvoiceIssuancePutAuthCode struct {
@@ -58,5 +63,5 @@ type DomainInvoiceIssuancePutStatus struct {
 	ID           string `json:"id,omitempty"`
 	Status       string `json:"status,omitempty"`
 	StatusDetail string `json:"statusDetail,omitempty"`
-	PaymentDate  string `json:"paymentDate,omitempty"`
+	//PaymentDate  string `json:"paymentDate,omitempty"`
 }
