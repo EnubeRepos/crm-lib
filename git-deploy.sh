@@ -1,5 +1,5 @@
- version="v1.29.2"
- message="add card parameters "
+ version="v1.30.2"
+ message="add status deleted in parcel"
  
  echo "Publishing... >>>> $version"
  echo "$message"

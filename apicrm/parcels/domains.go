@@ -53,7 +53,7 @@ type DomainParcels struct {
 	AssignedUserId       string   `json:"assignedUserId,omitempty"`
 	OurNumber            string   `json:"ourNumber,omitempty"`
 	Reprocess            bool     `json:"reprocess,omitempty"`
-	//Deleted              bool                 `json:"deleted,omitempty"`
+	Deleted              bool     `json:"deleted,omitempty"`
 	//Createdat            string               `json:"createdAt,omitempty"`
 	//Modifiedat           string               `json:"modifiedAt,omitempty"`
 	//Createdbyname        string               `json:"createdByName,omitempty"`
@@ -86,5 +86,5 @@ type DomainParcelsPutStatus struct {
 	StatusDetail string `json:"statusDetail,omitempty"`
 	ParcelPaid   string `json:"parcelPaid,omitempty"`
 	Reprocess    bool   `json:"reprocess,omitempty"`
-	PaymentDate  string   `json:"paymentDate,omitempty"`
+	PaymentDate  string `json:"paymentDate,omitempty"`
 }
