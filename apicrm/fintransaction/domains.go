@@ -104,6 +104,7 @@ type DomainFinTransaction struct {
 	UserID                            string `json:"userId,omitempty"`
 	UserName                          string `json:"userName,omitempty"`
 	PixID                             string `json:"pixId,omitempty"`
+	InvoiceIssuanceId                 string `json:"invoiceIssuanceId,omitempty"`
 	PixName                           string `json:"pixName,omitempty"`
 	PixKeyID                          string `json:"pixKeyId,omitempty"`
 	PixKeyName                        string `json:"pixKeyName,omitempty"`
