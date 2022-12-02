@@ -89,7 +89,12 @@ type DomainCommissionsBase struct {
 }
 
 type DomainComissionsPutStatus struct {
-	ID           string `json:"id,omitempty"`
-	Status       string `json:"status,omitempty"`
+	ID     string `json:"id,omitempty"`
+	Status string `json:"status,omitempty"`
 }
 
+type DomainReleaseCommission struct {
+	ID      string `json:"id,omitempty"`
+	Status  string `json:"status,omitempty"`
+	Release bool   `json:"release,omitempty"`
+}

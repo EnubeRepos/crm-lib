@@ -68,7 +68,23 @@ func (svc *APICommissionsService) PutStatus(ModelPutStatus DomainComissionsPutSt
 
 	response, err := svc.client.CRMHandlerPutService(EntityCommissions+"/"+ModelPutStatus.ID, payload)
 
-  if err != nil {
+	if err != nil {
+		return DomainCommissions{}, err
+	}
+
+	return convertMarchalCommissions(response)
+}
+
+func (svc *APICommissionsService) PutReleaseCommission(commission DomainReleaseCommission) (DomainCommissions, error) {
+	payload, err := json.Marshal(commission)
+
+	if err != nil {
+		return DomainCommissions{}, err
+	}
+
+	response, err := svc.client.CRMHandlerPutService(EntityCommissions+"/"+commission.ID, payload)
+
+	if err != nil {
 		return DomainCommissions{}, err
 	}
 

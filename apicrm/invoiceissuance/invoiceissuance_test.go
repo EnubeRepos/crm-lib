@@ -65,16 +65,16 @@ func TestGetInvoiceIssuanceByFilter(t *testing.T) {
 
 func TestPostParcel(t *testing.T) {
 
-	expectedUserId := "55"
+	// expectedUserId := "55"
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvInvoiceIssuance := New(client)
 	res, err := srvInvoiceIssuance.Post(DomainInvoiceIssuance{
-		Name:             "Test",
-		AssignedUserId:   expectedUserId,
-		DueDate:          "18.06.2022",
-		Amount:           100,
-		BillingContactId: "1234",
+		Name: "Test",
+		// AssignedUserId:   expectedUserId,
+		DueDate: "18.06.2022",
+		Amount:  100,
+		// BillingContactId: "1234",
 	})
 
 	if err != nil {
@@ -93,7 +93,7 @@ func TestPutAuthCode(t *testing.T) {
 		ID:           "628be41ecd213fbfb",
 		StatusDetail: "Distratada",
 		Status:       "oi",
-		ParcelPaid:   "sim",
+		// ParcelPaid:   "sim",
 	})
 
 	if err != nil {

@@ -1,5 +1,5 @@
- version="v1.30.2"
- message="add status deleted in parcel"
+ version="v1.30.4"
+ message="add function update commission"
  
  echo "Publishing... >>>> $version"
  echo "$message"
