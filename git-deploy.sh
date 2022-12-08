@@ -1,5 +1,5 @@
- version="v1.30.5"
- message="fix name activateCode"
+ version="v1.30.6"
+ message="add tedID debit card"
  
  echo "Publishing... >>>> $version"
  echo "$message"

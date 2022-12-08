@@ -54,4 +54,5 @@ type DomainDebitCard struct {
 	OperationFeeApplicationID  string   `json:"operationFeeApplicationId,omitempty"`
 	Status                     string   `json:"status,omitempty"`
 	Proxy                      string   `json:"proxy,omitempty"`
+	TedId                      string   `json:"tedId,omitempty"`
 }
