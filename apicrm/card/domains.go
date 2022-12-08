@@ -40,7 +40,7 @@ type DomainDebitCard struct {
 	Password                   string   `json:"password,omitempty"`
 	Activate                   bool     `json:"activate,omitempty"`
 	Disable                    bool     `json:"disable,omitempty"`
-	ActivationCode             string   `json:"activationCode,omitempty"`
+	ActivateCode               string   `json:"activateCode,omitempty"`
 	OperationFeeAmountCurrency string   `json:"operationFeeAmountCurrency,omitempty"`
 	CreatedByID                string   `json:"createdById,omitempty"`
 	CreatedByName              string   `json:"createdByName,omitempty"`

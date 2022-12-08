@@ -1,5 +1,5 @@
- version="v1.30.4"
- message="add function update commission"
+ version="v1.30.5"
+ message="fix name activateCode"
  
  echo "Publishing... >>>> $version"
  echo "$message"
