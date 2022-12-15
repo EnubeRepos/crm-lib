@@ -1,4 +1,4 @@
- version="v1.30.7"
+ version="v1.30.8"
  message="add tedID debit card"
  
  echo "Publishing... >>>> $version"
