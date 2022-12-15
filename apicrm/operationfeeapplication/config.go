@@ -1,4 +1,4 @@
-package ted
+package operationfeeapplication
 
 import "github.com/EnubeRepos/crm-lib/client/crmapi"
 

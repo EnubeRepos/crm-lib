@@ -1,4 +1,4 @@
-package ted
+package operationfeeapplication
 
 const EntityOperationFeeApplication string = "OperationFeeApplication"
 

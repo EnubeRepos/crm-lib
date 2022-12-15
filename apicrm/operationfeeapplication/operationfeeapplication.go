@@ -1,4 +1,4 @@
-package ted
+package operationfeeapplication
 
 import "encoding/json"
 
