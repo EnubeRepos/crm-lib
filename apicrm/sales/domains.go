@@ -19,5 +19,5 @@ type DomainSales struct {
 	Parcelsids             []string `json:"parcelsIds"`
 	SalesNumber            string   `json:"salesNumber,omitempty"`
 	AssignedUserId         string   `json:"assignedUserId,omitempty"`
-	salesDate              string   `json:"salesDate,omitempty"`
+	SalesDate              string   `json:"salesDate,omitempty"`
 }
