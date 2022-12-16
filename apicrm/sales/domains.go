@@ -17,5 +17,5 @@ type DomainSales struct {
 	Commissionsids         []string `json:"commissionsIds"`
 	Accountid              string   `json:"accountId"`
 	Parcelsids             []string `json:"parcelsIds"`
-	AssignedUser           string   `json:"assignedUser,omitempty"`
+	AssignedUserId         string   `json:"assignedUserId,omitempty"`
 }
