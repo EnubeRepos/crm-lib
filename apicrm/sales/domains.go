@@ -21,4 +21,6 @@ type DomainSales struct {
 	AssignedUserId         string   `json:"assignedUserId,omitempty"`
 	SalesDate              string   `json:"salesDate,omitempty"`
 	BillingContactsIds     []string `json:"billingContactsIds,omitempty"`
+	BuyerContactsIds       []string `json:"buyerContactsIds,omitempty"`
+	TeamsIds               []string `json:"teamsIds,omitempty"`
 }
