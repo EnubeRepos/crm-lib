@@ -1,5 +1,5 @@
- version="v1.31.1"
- message="add operation fee app"
+ version="v1.31.2"
+ message="add assigned user, domain sales"
  
  echo "Publishing... >>>> $version"
  echo "$message"
