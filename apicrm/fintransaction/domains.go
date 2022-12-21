@@ -112,6 +112,7 @@ type DomainFinTransaction struct {
 	InstitutionFinancialRecipientName string `json:"institutionFinancialRecipientName,omitempty"`
 	InstitutionFinancialSenderID      string `json:"institutionFinancialSenderId,omitempty"`
 	InstitutionFinancialSenderName    string `json:"institutionFinancialSenderName,omitempty"`
+	ChargebackId                      string `json:"chargebackId,omitempty"`
 }
 
 type TransactionType string
@@ -194,6 +195,8 @@ type RequestFinTrasactionTED struct {
 
 	TedID string `json:"tedId"`
 
+	ChargebackId string `json:"chargebackId,omitempty"`
+
 	// Beneficiário interno do 10+bank
 	UserID string `json:"userId"`
 }
@@ -246,6 +249,8 @@ type ResponseFinTransactionTED struct {
 	ContactID string `json:"contactId"`
 
 	TedID string `json:"tedId"`
+
+	ChargebackId string `json:"chargebackId,omitempty"`
 
 	// Beneficiário interno do 10+bank
 	UserID string `json:"userId"`
