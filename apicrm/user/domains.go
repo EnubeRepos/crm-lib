@@ -102,3 +102,9 @@ type DomainUserDashBoardTemplate struct {
 	ID                  string `json:"id,omitempty"`
 	DashboardTemplateID string `json:"dashboardTemplateId,omitempty"`
 }
+
+type DomainUserStatusMFA struct {
+	Auth2FA       string `json:"auth2FA,omitempty"`
+	Auth2FAMethod string `json:"auth2FAMethod,omitempty"`
+	Password      string `json:"password,omitempty"`
+}

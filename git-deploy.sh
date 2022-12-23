@@ -1,5 +1,5 @@
- version="v1.31.8"
- message="add assigned user, domain sales"
+ version="v1.33.0"
+ message="add user security"
  
  echo "Publishing... >>>> $version"
  echo "$message"
