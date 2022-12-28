@@ -31,6 +31,7 @@ type DomainFinTransaction struct {
 	Description                      string   `json:"description,omitempty"`
 	CreatedAt                        string   `json:"createdAt,omitempty"`
 	ModifiedAt                       string   `json:"modifiedAt,omitempty"`
+	Category                         string   `json:"category,omitempty"`
 	TransactionType                  string   `json:"transactionType,omitempty"`
 	Value                            float64  `json:"value,omitempty"`
 	AccountTransaction               string   `json:"accountTransaction,omitempty"`
