@@ -44,7 +44,6 @@ func (svc *APILimitManagementService) Post(LimitManagement DomainLimitManagement
 	return convertMarchalLimitManagement(response)
 }
 
-// Todos os serviços deverão ter o seu próprio conversor de json para o domain
 func convertMarchalResponseLimitManagement(response []byte) (ResponseLimitManagement, error) {
 	var result ResponseLimitManagement
 
