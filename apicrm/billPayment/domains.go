@@ -16,6 +16,7 @@ type DomainBillPayment struct {
 	CreatedAt          string   `json:"createdAt,omitempty"`
 	ModifiedAt         string   `json:"modifiedAt,omitempty"`
 	DocumentNumber     string   `json:"documentNumber,omitempty"`
+	Amount             float64  `json:"amount,omitempty"`
 	Status             string   `json:"status,omitempty"`
 	AuthenticationCode string   `json:"authenticationCode,omitempty"`
 	CreatedByID        string   `json:"createdById,omitempty"`
