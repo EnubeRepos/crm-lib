@@ -29,8 +29,8 @@ func (svc *APILimitManagementService) GetByFilter(filter string) (ResponseLimitM
 	return convertMarchalResponseLimitManagement(response)
 }
 
-func (svc *APILimitManagementService) Post(LimitManagement DomainLimitManagement) (DomainLimitManagement, error) {
-	payload, err := json.Marshal(LimitManagement)
+func (svc *APILimitManagementService) Post(limitManagement DomainLimitManagement) (DomainLimitManagement, error) {
+	payload, err := json.Marshal(limitManagement)
 
 	if err != nil {
 		return DomainLimitManagement{}, err
@@ -42,6 +42,22 @@ func (svc *APILimitManagementService) Post(LimitManagement DomainLimitManagement
 	}
 
 	return convertMarchalLimitManagement(response)
+}
+
+func (svc *APILimitManagementService) Put(limitManagement DomainLimitManagement) (DomainLimitManagement, error) {
+
+	payload, err := json.Marshal(limitManagement)
+
+	if err != nil {
+		return DomainLimitManagement{}, err
+	}
+
+	responseHttp, err := svc.client.CRMHandlerPutService(EntityLimitManagement+"/"+limitManagement.ID, payload)
+	if err != nil {
+		return DomainLimitManagement{}, err
+	}
+
+	return convertMarchalLimitManagement(responseHttp)
 }
 
 func convertMarchalResponseLimitManagement(response []byte) (ResponseLimitManagement, error) {
