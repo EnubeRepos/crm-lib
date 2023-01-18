@@ -93,6 +93,9 @@ type DomainRegistration struct {
 	FollowersIds               []string           `json:"followersIds,omitempty"`
 	FollowersNames             FollowersNames     `json:"followersNames,omitempty"`
 	TemporaryPassword          string             `json:"temporaryPassword,omitempty"`
+	Pep                        string             `json:"pep,omitempty"`
+	DeclaredIncome             string             `json:"declaredIncome,omitempty"`
+	Occupation                 string             `json:"occupation,omitempty"`
 }
 
 type EmailAddressData struct {
