@@ -1,4 +1,4 @@
- version="v1.35.2"
+ version="v1.35.3"
  message="add, name occupation"
  
  echo "Publishing... >>>> $version"

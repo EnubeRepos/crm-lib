@@ -66,13 +66,13 @@ func TestGetStatusByFilter(t *testing.T) {
 
 func TestPostStatus(t *testing.T) {
 
-	expectedCode := 890
+	// expectedCode := 890
 	client := crmapi.NewCRMAPIClient(crmapi.NewCRMAPIConfig(HOST, TOKEN))
 
 	srvAccount := New(client)
 	res, err := srvAccount.Post(DomainOccupation{
 		ID:               "123",
-		Code:             expectedCode,
+		Code:             "expectedCode",
 		AssignedUser:     "Test",
 		AssignedUserID:   "123",
 		AssignedUserName: "Thomas Test",
