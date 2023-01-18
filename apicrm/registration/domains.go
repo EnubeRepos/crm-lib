@@ -95,7 +95,7 @@ type DomainRegistration struct {
 	TemporaryPassword          string             `json:"temporaryPassword,omitempty"`
 	Pep                        string             `json:"pep,omitempty"`
 	DeclaredIncome             string             `json:"declaredIncome,omitempty"`
-	Occupation                 string             `json:"occupation,omitempty"`
+	OccupationId               string             `json:"occupationId,omitempty"`
 }
 
 type EmailAddressData struct {

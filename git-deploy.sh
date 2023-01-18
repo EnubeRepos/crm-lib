@@ -1,5 +1,5 @@
- version="v1.33.0"
- message="add user security"
+ version="v1.35.0"
+ message="add occupation into registration"
  
  echo "Publishing... >>>> $version"
  echo "$message"
