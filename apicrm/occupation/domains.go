@@ -4,7 +4,7 @@ const EntityOccupation string = "Occupation"
 
 // ResponseOccupation .
 type ResponseOccupation struct {
-	Total          int                    `json:"total,omitempty"`
+	Total      int                `json:"total,omitempty"`
 	Occupation []DomainOccupation `json:"list,omitempty"`
 }
 
@@ -18,6 +18,7 @@ type DomainOccupationBase struct {
 // Account
 type DomainOccupation struct {
 	ID               string `json:"id,omitempty"`
+	Name             int    `json:"name,omitempty"`
 	Code             int    `json:"code,omitempty"`
 	AssignedUser     string `json:"assignedUser,omitempty"`
 	AssignedUserID   string `json:"assignedUserId,omitempty"`
