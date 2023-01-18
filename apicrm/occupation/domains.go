@@ -18,8 +18,8 @@ type DomainOccupationBase struct {
 // Account
 type DomainOccupation struct {
 	ID               string `json:"id,omitempty"`
-	Name             int    `json:"name,omitempty"`
-	Code             int    `json:"code,omitempty"`
+	Name             string `json:"name,omitempty"`
+	Code             string `json:"code,omitempty"`
 	AssignedUser     string `json:"assignedUser,omitempty"`
 	AssignedUserID   string `json:"assignedUserId,omitempty"`
 	AssignedUserName string `json:"assignedUserName,omitempty"`
