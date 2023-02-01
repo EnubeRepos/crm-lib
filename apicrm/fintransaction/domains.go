@@ -114,6 +114,11 @@ type DomainFinTransaction struct {
 	InstitutionFinancialSenderID      string `json:"institutionFinancialSenderId,omitempty"`
 	InstitutionFinancialSenderName    string `json:"institutionFinancialSenderName,omitempty"`
 	ChargebackId                      string `json:"chargebackId,omitempty"`
+	CardAlias                         string `json:"cardAlias,omitempty"`
+	CardFunction                      string `json:"cardFunction,omitempty"`
+	CardProxy                         string `json:"cardProxy,omitempty"`
+	CardType                          string `json:"cardType,omitempty"`
+	AuthorizationTransactionId        string `json:"authorizationTransactionId,omitempty"`
 }
 
 type TransactionType string
