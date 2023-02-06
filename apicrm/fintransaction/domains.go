@@ -119,6 +119,17 @@ type DomainFinTransaction struct {
 	CardProxy                         string `json:"cardProxy,omitempty"`
 	CardType                          string `json:"cardType,omitempty"`
 	AuthorizationTransactionId        string `json:"authorizationTransactionId,omitempty"`
+	DebitCardId                       string `json:"debitCardId,omitempty"`
+	VirtualCardId                     string `json:"virtualCardId,omitempty"`
+	CardPurchase                      string `json:"cardPurchase,omitempty"`
+	DeniedRules                       string `json:"deniedRules,omitempty"`
+	ChannelAuthorizationCode          string `json:"channelAuthorizationCode,omitempty"`
+	ChannelEntryModeCode              string `json:"channelEntryModeCode,omitempty"`
+	ChannelEntryModeDescription       string `json:"channelEntryModeDescription,omitempty"`
+	ChannelEntryModeCardPresent       string `json:"channelEntryModeCardPresent,omitempty"`
+	ChannelWalletCode                 string `json:"channelWalletCode,omitempty"`
+	ChannelWalletName                 string `json:"channelWalletName,omitempty"`
+	DataStatus                        string `json:"dataStatus,omitempty"`
 }
 
 type TransactionType string

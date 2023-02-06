@@ -11,3 +11,13 @@ func New(client crmapi.CRMAPIClient) *APIDebitCardService {
 		client: client,
 	}
 }
+
+type APIVirtualCardService struct {
+	client crmapi.CRMAPIClient
+}
+
+func NewVirtual(client crmapi.CRMAPIClient) *APIVirtualCardService {
+	return &APIVirtualCardService{
+		client: client,
+	}
+}
