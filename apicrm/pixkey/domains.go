@@ -17,6 +17,7 @@ type DomainPixKey struct {
 	ModifiedAt           string   `json:"modifiedAt,omitempty"`
 	Type                 string   `json:"type,omitempty"`
 	Default              bool     `json:"default,omitempty"`
+	CancelPixKey         bool     `json:"cancelPixKey,omitempty"`
 	CreatedByID          string   `json:"createdById,omitempty"`
 	CreatedByName        string   `json:"createdByName,omitempty"`
 	ModifiedByID         string   `json:"modifiedById,omitempty"`
@@ -31,10 +32,14 @@ type DomainPixKey struct {
 	PersonalContactsName string   `json:"personalContactsName,omitempty"`
 	IsFollowed           bool     `json:"isFollowed,omitempty"`
 	FollowersIds         []string `json:"followersIds,omitempty"`
+	Status               string   `json:"status,omitempty"`
+	StatusDetail         string   `json:"statusDetail,omitempty"`
 }
 
 type DomainPixKeyPutStatus struct {
-	ID     string `json:"id,omitempty"`
-	Status string `json:"status,omitempty"`
-	Name   string `json:"name,omitempty"`
+	ID           string `json:"id,omitempty"`
+	Status       string `json:"status,omitempty"`
+	StatusDetail string `json:"statusDetail,omitempty"`
+	Name         string `json:"name,omitempty"`
+	CancelPixKey bool   `json:"cancelPixKey,omitempty"`
 }
