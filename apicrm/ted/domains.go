@@ -30,6 +30,8 @@ type DomainTed struct {
 	// Remetente-Sender
 	AssignedUserID string `json:"assignedUserId,omitempty"`
 
+	ReturnContactId string `json:"returnContactId,omitempty"`
+
 	// Beneficiário - comissão
 	RecipientID   string `json:"recipientId,omitempty"`
 	CommissionsID string `json:"commissionsId,omitempty"`
