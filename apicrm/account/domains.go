@@ -78,6 +78,7 @@ type DomainAccount struct {
 	MainContactId             string `json:"mainContactId,omitempty"`
 	BillingAccountContactId   string `json:"billingAccountContactId,omitempty"`
 	BillingAccountContactName string `json:"billingAccountContactName,omitempty"`
+	BankAccountID             string `json:"bankAccountId,omitempty"`
 }
 
 // EmailAddressData
