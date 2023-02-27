@@ -64,18 +64,13 @@ type DomainParcels struct {
 	BillingContactAccountNumber string   `json:"billingContactAccountNumber,omitempty"`
 	BillingContactAgency        string   `json:"billingContactAgency,omitempty"`
 	BillingContactPixKey        string   `json:"billingContactPixKey,omitempty"`
-	AssignedUserID              string   `json:"assignedUserId,omitempty"`
-	SalesID                     string   `json:"salesId,omitempty"`
-	InvoiceID                   string   `json:"invoiceId,omitempty"`
-	BillingContactID            string   `json:"billingContactId,omitempty"`
-	ParentID                    string   `json:"parentId,omitempty"`
-	RegistrationRequestID       string   `json:"registrationRequestId,omitempty"`
-	CommissionsAssignedUserID   string   `json:"commissionsAssignedUserId,omitempty"`
-	AccountID                   string   `json:"accountId,omitempty"`
+	RegistrationRequestId       string   `json:"registrationRequestId,omitempty"`
+	CommissionsAssignedUserId   string   `json:"commissionsAssignedUserId,omitempty"`
+	AccountId                   string   `json:"accountId,omitempty"`
 	AccountName                 string   `json:"accountName,omitempty"`
-	InstitutionFinancialID      string   `json:"institutionFinancialId,omitempty"`
+	InstitutionFinancialId      string   `json:"institutionFinancialId,omitempty"`
 	InstitutionFinancialName    string   `json:"institutionFinancialName,omitempty"`
-	ChargebackReceiptID         string   `json:"chargebackReceiptId,omitempty"`
+	ChargebackReceiptId         string   `json:"chargebackReceiptId,omitempty"`
 }
 
 type DomainParcelsPutAuthCode struct {
