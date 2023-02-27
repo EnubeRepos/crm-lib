@@ -25,6 +25,7 @@ type DomainTed struct {
 	PersonalContactsID        string   `json:"personalContactsId,omitempty"`
 	AccountType               string   `json:"accountType,omitempty"`
 	ContactID                 string   `json:"contactId,omitempty"`
+	ParcelsId                 string   `json:"parcelsId,omitempty"`
 	AuthenticationCode        string   `json:"authenticationCode,omitempty"`
 
 	// Remetente-Sender
