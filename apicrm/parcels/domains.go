@@ -55,7 +55,7 @@ type DomainParcels struct {
 	Reprocess                   bool     `json:"reprocess,omitempty"`
 	Deleted                     bool     `json:"deleted,omitempty"`
 	RecipientDocumentNumber     string   `json:"recipientDocumentNumber,omitempty"`
-	AmountCommission            string   `json:"amountCommission,omitempty"`
+	AmountCommission            float64  `json:"amountCommission,omitempty"`
 	SicCode                     string   `json:"sicCode,omitempty"`
 	SumCommissionsAmount        float64  `json:"sumCommissionsAmount,omitempty"`
 	ChargebackRequest           bool     `json:"chargebackRequest,omitempty"`
