@@ -1,5 +1,5 @@
- version="v1.36.0"
- message="add, virtual card"
+ version="v1.37.0"
+ message="fix, type amount total"
  
  echo "Publishing... >>>> $version"
  echo "$message"
