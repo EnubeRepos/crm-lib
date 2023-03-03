@@ -64,6 +64,7 @@ type DomainCommissions struct {
 	IsFollowed                 bool     `json:"isFollowed,omitempty"`
 	FollowersIds               []string `json:"followersIds,omitempty"`
 	RecipientDocumentNumber    string   `json:"recipientDocumentNumber,omitempty"`
+	RecipientCPF               string   `json:"recipientCPF,omitempty"`
 }
 
 // estrutura usada para o put de registration, evitando erro de campos vazios
