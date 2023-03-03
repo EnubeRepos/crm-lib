@@ -1,5 +1,5 @@
- version="v1.37.0"
- message="fix, type amount total"
+ version="v1.38.0"
+ message="add, put comission"
  
  echo "Publishing... >>>> $version"
  echo "$message"
