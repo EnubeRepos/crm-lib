@@ -1,5 +1,5 @@
- version="v1.38.0"
- message="add, put comission"
+ version="v1.38.1"
+ message="add, field recipientCPF comission"
  
  echo "Publishing... >>>> $version"
  echo "$message"
