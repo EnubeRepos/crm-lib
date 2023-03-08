@@ -1,4 +1,4 @@
- version="v1.39."
+ version="v1.39.1"
  message="add, field cvv card"
  
  echo "Publishing... >>>> $version"
