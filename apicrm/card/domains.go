@@ -57,6 +57,7 @@ type DomainDebitCard struct {
 	Proxy                      string   `json:"proxy,omitempty"`
 	TedId                      string   `json:"tedId,omitempty"`
 	FinTransactionsIds         []string `json:"finTransactionsIds,omitempty"`
+	Cvv                        string   `json:"cvv,omitempty"`
 }
 
 // ResponseDomainDebitCard .
