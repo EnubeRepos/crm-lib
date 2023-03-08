@@ -112,5 +112,6 @@ type DomainVirtualCard struct {
 	Status                     string   `json:"status,omitempty"`
 	Proxy                      string   `json:"proxy,omitempty"`
 	TedId                      string   `json:"tedId,omitempty"`
+	Cvv                        string   `json:"cvv,omitempty"`
 	FinTransactionsIds         []string `json:"finTransactionsIds,omitempty"`
 }

@@ -1,5 +1,5 @@
- version="v1.38.1"
- message="add, field recipientCPF comission"
+ version="v1.39."
+ message="add, field cvv card"
  
  echo "Publishing... >>>> $version"
  echo "$message"
