@@ -40,7 +40,8 @@ type DomainTed struct {
 	Status       string `json:"status,omitempty"`
 	StatusDetail string `json:"statusDetail,omitempty"`
 
-	DebitCardId string `json:"debitCardId,omitempty"`
+	DebitCardId   string `json:"debitCardId,omitempty"`
+	VirtualCardId string `json:"virtualCardId,omitempty"`
 }
 
 type DomainTedPutStatus struct {

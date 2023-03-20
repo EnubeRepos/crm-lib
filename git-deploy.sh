@@ -1,5 +1,5 @@
- version="v1.39.1"
- message="add, field cvv card"
+ version="v1.39.3"
+ message="add, field virtual card in ted"
  
  echo "Publishing... >>>> $version"
  echo "$message"
