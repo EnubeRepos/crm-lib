@@ -20,9 +20,9 @@ type DomainBlockListExternal struct {
 	Status                          string `json:"status,omitempty"`
 	Details                         string `json:"details,omitempty"`
 	BlockedAmount                   string `json:"blockedAmount,omitempty"`
-	BlockedAmountvalue              string `json:"blockedAmountvalue,omitempty"`
+	BlockedAmountvalue              float64 `json:"blockedAmountvalue,omitempty"`
 	DetailsjudicialOrderAmount      string `json:"detailsjudicialOrderAmount,omitempty"`
-	DetailsjudicialOrderAmountvalue string `json:"detailsjudicialOrderAmountvalue,omitempty"`
+	DetailsjudicialOrderAmountvalue float64 `json:"detailsjudicialOrderAmountvalue,omitempty"`
 	Holder                          string `json:"holder,omitempty"`
 	Holderdocument                  string `json:"holderdocument,omitempty"`
 	Holderdocumentvalue             string `json:"holderdocumentvalue,omitempty"`
@@ -39,9 +39,9 @@ type DomainBlockListExternal struct {
 	Holderaccountbankname           string `json:"holderaccountbankname,omitempty"`
 	Holderbalances                  string `json:"holderbalances,omitempty"`
 	Holderbalancesavailable         string `json:"holderbalancesavailable,omitempty"`
-	Holderbalancesvalue             string `json:"holderbalancesvalue,omitempty"`
+	Holderbalancesvalue             float64 `json:"holderbalancesvalue,omitempty"`
 	Holderbalancesblocked           string `json:"holderbalancesblocked,omitempty"`
-	Holderbalancesblockedvalue      string `json:"holderbalancesblockedvalue,omitempty"`
+	Holderbalancesblockedvalue      float64 `json:"holderbalancesblockedvalue,omitempty"`
 	DetailslawsuitNumber            string `json:"detailslawsuitNumber,omitempty"`
 	//BlockedAmountvalueCurrency               string `json:"blockedAmountvalueCurrency,omitempty"`
 	//DetailsjudicialOrderAmountvalueCurrency  string `json:"detailsjudicialOrderAmountvalueCurrency,omitempty"`
