@@ -18,4 +18,5 @@ type DomainAttachment struct {
 	RelatedType string `json:"relatedType,omitempty"`
 	File        string `json:"file,omitempty"`
 	Field       string `json:"field,omitempty"`
+	Encrypted   string `json:"encrypted,omitempty"`
 }
