@@ -26,6 +26,7 @@ type DomainChargeback struct {
 	AssignedUserID     string  `json:"assignedUserId,omitempty"`
 	PixID              string  `json:"pixId,omitempty"`
 	TedID              string  `json:"tedId,omitempty"`
+	BillPaymentId      string  `json:"billPaymentId,omitempty"`
 	RecipientID        string  `json:"recipientId,omitempty"`
 	RecipientName      string  `json:"recipientName,omitempty"`
 	StatusDetail       string  `json:"statusDetail,omitempty"`
