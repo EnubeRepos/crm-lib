@@ -1,5 +1,5 @@
- version="v1.43.0"
- message="add, field commission"
+ version="v1.43.1"
+ message="add, function sales update"
  
  echo "Publishing... >>>> $version"
  echo "$message"

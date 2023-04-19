@@ -57,22 +57,22 @@ func (svc *APISalesService) Post(Sales DomainSales) (DomainSales, error) {
 	return convertMarchalSales(response)
 }
 
-// func (svc *APISalesService) Put(sale DomainSalesBase) (DomainSales, error) {
+func (svc *APISalesService) Put(sale DomainSales) (DomainSales, error) {
 
-// 	payload, err := json.Marshal(sale)
+	payload, err := json.Marshal(sale)
 
-// 	if err != nil {
-// 		return DomainSales{}, err
-// 	}
+	if err != nil {
+		return DomainSales{}, err
+	}
 
-// 	response, err := svc.client.CRMHandlerPutService(EntitySales+"/"+sale.ID, payload)
-// 	if err != nil {
-// 		return DomainSales{}, err
-// 	}
+	response, err := svc.client.CRMHandlerPutService(EntitySales+"/"+sale.ID, payload)
+	if err != nil {
+		return DomainSales{}, err
+	}
 
-// 	return convertMarchalSales(response)
+	return convertMarchalSales(response)
 
-// }
+}
 
 func (svc *APISalesService) Delete(id string) (bool, error) {
 	expectedLen := 17
