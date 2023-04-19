@@ -1,5 +1,5 @@
- version="v1.40.0"
- message="add, field kyc encrypted"
+ version="v1.43.0"
+ message="add, field commission"
  
  echo "Publishing... >>>> $version"
  echo "$message"
