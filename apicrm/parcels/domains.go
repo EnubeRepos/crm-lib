@@ -71,6 +71,7 @@ type DomainParcels struct {
 	InstitutionFinancialId      string   `json:"institutionFinancialId,omitempty"`
 	InstitutionFinancialName    string   `json:"institutionFinancialName,omitempty"`
 	ChargebackReceiptId         string   `json:"chargebackReceiptId,omitempty"`
+	CanceledAt                  string   `json:"canceledAt,omitempty"`
 }
 
 type DomainParcelsPutAuthCode struct {
@@ -96,4 +97,5 @@ type DomainParcelsPutStatus struct {
 	ChargebackRequest bool   `json:"chargebackRequest,omitempty"`
 	ConfirmChargeback bool   `json:"confirmChargeback,omitempty"`
 	PaymentDate       string `json:"paymentDate,omitempty"`
+	CanceledAt        string `json:"canceledAt,omitempty"`
 }
