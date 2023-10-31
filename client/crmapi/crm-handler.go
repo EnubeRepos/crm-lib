@@ -13,7 +13,6 @@ type Headers struct {
 	Value string
 }
 
-
 // CRMHandlerGetService make request for CRM.
 func (api *CRMAPIClient) CRMHandlerGetService(resource string, params string) ([]byte, error) {
 	url := api.BaseURL + resource + params
@@ -104,7 +103,8 @@ func (api *CRMAPIClient) CRMHandlerPostService(resource string, payload []byte) 
 	url := api.BaseURL + resource
 	method := "POST"
 
-	// fmt.Println(string(payload))
+	fmt.Println("REQUEST:: ", method, " :: ", url)
+	fmt.Println(string(payload))
 
 	client := &http.Client{}
 	req, err := http.NewRequest(method, url, strings.NewReader(string(payload)))
