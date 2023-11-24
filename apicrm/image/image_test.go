@@ -8,7 +8,7 @@ import (
 
 const (
 	HOST  = "https://app.triplicbank.com.br/api/v1/"
-	TOKEN = "Y29ubmVjdF91c2VyX3dvcmtlcnM6R21YZTg4MXR0Ug=="
+	TOKEN = "_"
 )
 
 func TestNewAPIImageService(t *testing.T) {

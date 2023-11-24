@@ -9,8 +9,8 @@ import (
 )
 
 const (
-	HOST  = "https://app.10maisbank.com.br/api/v1/"
-	TOKEN = "Y29ubmVjdF91c2VyX3dvcmtlcnM6R21YZTg4MXR0Ug=="
+	HOST  = "_"
+	TOKEN = "_"
 )
 
 func TestGetEvent(t *testing.T) {

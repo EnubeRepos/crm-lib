@@ -9,8 +9,8 @@ import (
 )
 
 const (
-	HOST  = "https://app.10maisbank.com.br/api/v1/"
-	TOKEN = "Y29ubmVjdF91c2VyX3dvcmtlcnM6R21YZTg4MXR0Ug=="
+	HOST  = "_"
+	TOKEN = "_"
 )
 
 func TestGetAccount(t *testing.T) {
@@ -25,7 +25,7 @@ func TestGetAccount(t *testing.T) {
 		return
 	}
 
-	if res.Total > 0 && len(res.Account) <=0{
+	if res.Total > 0 && len(res.Account) <= 0 {
 		t.Errorf("Error GET Account:: error: %v", err)
 		return
 	}

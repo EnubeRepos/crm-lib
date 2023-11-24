@@ -1,4 +1,4 @@
- version="v1.43.2"
+ version="v1.43.3"
  message="add, LOG FUNCTION POST"
  
  echo "Publishing... >>>> $version"
