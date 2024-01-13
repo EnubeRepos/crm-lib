@@ -13,8 +13,13 @@ type DomainAuth struct {
 }
 
 type User struct {
-	ID       string `json:"id"`
-	Deleted  bool   `json:"deleted"`
-	UserName string `json:"userName"`
-	IsActive bool   `json:"isActive"`
+	ID           string `json:"id"`
+	Deleted      bool   `json:"deleted"`
+	UserName     string `json:"userName"`
+	IsActive     bool   `json:"isActive"`
+	FirstName    string `json:"firstName,omitempty"`
+	LastName     string `json:"lastName,omitempty"`
+	EmailAddress string `json:"emailAddress,omitempty"`
+	AvatarId     string `json:"avatarId,omitempty"`
+	Cargo        string `json:"cargo,omitempty"`
 }

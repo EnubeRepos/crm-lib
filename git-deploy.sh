@@ -1,5 +1,5 @@
- version="v1.43.3"
- message="add, LOG FUNCTION POST"
+ version="v1.43.4"
+ message="feat, news fields in auth user"
  
  echo "Publishing... >>>> $version"
  echo "$message"
