@@ -79,6 +79,7 @@ type DomainAccount struct {
 	BillingAccountContactId   string `json:"billingAccountContactId,omitempty"`
 	BillingAccountContactName string `json:"billingAccountContactName,omitempty"`
 	BankAccountID             string `json:"bankAccountId,omitempty"`
+	LogoId                    string `json:"logoId,omitempty"`
 }
 
 // EmailAddressData
@@ -99,7 +100,7 @@ type DomainPhoneNumberData struct {
 	Invalid     bool   `json:"invalid,omitempty"`
 }
 
-//  StatusExternal .
+// StatusExternal .
 type DomainStatusExternal struct {
 	Status string `json:"statusExternal,omitempty"`
 }
