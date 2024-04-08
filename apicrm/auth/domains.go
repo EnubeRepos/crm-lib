@@ -13,15 +13,15 @@ type DomainAuth struct {
 }
 
 type User struct {
-	ID             string   `json:"id"`
-	Deleted        bool     `json:"deleted"`
-	UserName       string   `json:"userName"`
-	IsActive       bool     `json:"isActive"`
-	FirstName      string   `json:"firstName,omitempty"`
-	LastName       string   `json:"lastName,omitempty"`
-	EmailAddress   string   `json:"emailAddress,omitempty"`
-	AvatarId       string   `json:"avatarId,omitempty"`
-	Cargo          string   `json:"cargo,omitempty"`
-	NivelPermissao string   `json:"nivelDePermissao,omitempty"`
-	AccountsIds    []string `json:"accountsIds,omitempty"`
+	ID               string   `json:"id"`
+	Deleted          bool     `json:"deleted"`
+	UserName         string   `json:"userName"`
+	IsActive         bool     `json:"isActive"`
+	FirstName        string   `json:"firstName,omitempty"`
+	LastName         string   `json:"lastName,omitempty"`
+	EmailAddress     string   `json:"emailAddress,omitempty"`
+	AvatarId         string   `json:"avatarId,omitempty"`
+	Cargo            string   `json:"cargo,omitempty"`
+	NivelDePermissao string   `json:"nivelDePermissao,omitempty"`
+	AccountsIds      []string `json:"accountsIds,omitempty"`
 }
