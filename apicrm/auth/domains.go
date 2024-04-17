@@ -22,6 +22,7 @@ type User struct {
 	EmailAddress     string   `json:"emailAddress,omitempty"`
 	AvatarId         string   `json:"avatarId,omitempty"`
 	Cargo            string   `json:"cargo,omitempty"`
+	Empresa          string   `json:"empresa,omitempty"`
 	NivelDePermissao string   `json:"nivelDePermissao,omitempty"`
 	AccountsIds      []string `json:"accountsIds,omitempty"`
 }

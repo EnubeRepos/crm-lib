@@ -1,5 +1,5 @@
- version="v1.43.9"
- message="feat, news fields in auth user"
+ version="v1.43.12"
+ message="feat, news fields in auth user empresa"
  
  echo "Publishing... >>>> $version"
  echo "$message"

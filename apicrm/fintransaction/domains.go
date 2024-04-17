@@ -143,7 +143,7 @@ const (
 
 	TransactionTypeBoleto TransactionType = "Boleto"
 
-	TransactionTypeTEDInternalBank TransactionType = "Triplic Bank" //Transferência entre contas 10+Bank
+	TransactionTypeTEDInternalBank TransactionType = "host_espocrm Bank" //Transferência entre contas 10+Bank
 )
 
 type AccountTransaction string
@@ -207,7 +207,7 @@ type RequestFinTrasactionTED struct {
 
 	ParcelID string `json:"parcelId"`
 
-	// Beneficiário externo do 10maisbank
+	// Beneficiário externo do host_espocrmbank
 	ContactID string `json:"contactId"`
 
 	TedID string `json:"tedId"`
@@ -262,7 +262,7 @@ type ResponseFinTransactionTED struct {
 
 	ParcelID string `json:"parcelId"`
 
-	// Beneficiário externo do 10maisbank
+	// Beneficiário externo do host_espocrmbank
 	ContactID string `json:"contactId"`
 
 	TedID string `json:"tedId"`
@@ -314,7 +314,7 @@ type RequestFinTrasactionPIX struct {
 
 	ParcelID string `json:"parcelId"`
 
-	// Beneficiário externo do 10maisbank
+	// Beneficiário externo do host_espocrmbank
 	ContactID string `json:"contactId"`
 
 	// Beneficiário interno do 10+bank

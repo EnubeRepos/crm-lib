@@ -2,7 +2,9 @@ package crmapi
 
 import (
 	"bytes"
+	"encoding/csv"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"strings"
@@ -220,6 +222,63 @@ func (api *CRMAPIClient) CRMHandlerImage(imageID string) ([]byte, error) {
 	err = isValidResponse(res)
 
 	return body, err
+}
+
+func (api *CRMAPIClient) CRMHandlerFile(imageID, entryPoint string) ([]byte, io.ReadCloser, error) {
+
+	host := strings.Replace(api.BaseURL, "api/v1/", "", -1)
+	url := host + "?entryPoint=" + entryPoint + "&id=" + imageID
+	method := "GET"
+	client := &http.Client{}
+
+	req, err := http.NewRequest(method, url, nil)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	req.Header.Add("Authorization", "Basic "+api.Token)
+
+	if api.Cookie != "" {
+		req.Header.Add("Cookie", api.Cookie)
+	}
+
+	if len(api.Headers) > 0 {
+		for _, item := range api.Headers {
+			req.Header.Add(item.Key, item.Value)
+		}
+	}
+
+	res, err := client.Do(req)
+	if err != nil {
+		return nil, nil, err
+	}
+	defer res.Body.Close()
+
+	body, err := ioutil.ReadAll(res.Body)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	err = isValidResponse(res)
+
+	csvReader := csv.NewReader(res.Body)
+
+	// Define o caractere delimitador do CSV (vírgula por padrão)
+	csvReader.Comma = ';'
+
+	// Lê todas as linhas do arquivo CSV
+	records, err := csvReader.ReadAll()
+	if err != nil {
+		fmt.Println("Erro ao ler o arquivo CSV:", err)
+		return nil, nil, err
+	}
+
+	// Exibe as linhas do arquivo CSV
+	for _, row := range records {
+		fmt.Println(row)
+	}
+
+	return body, res.Body, err
 }
 
 func isValidResponse(res *http.Response) error {
